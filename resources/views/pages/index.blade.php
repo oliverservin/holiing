@@ -1,5 +1,6 @@
 <?php
 
+use App\HashIdGenerator;
 use App\Models\ShortLink;
 
 use Illuminate\Support\Str;
@@ -15,12 +16,12 @@ state([
 
 rules(['url' => 'required|string|max:255']);
 
-$store = function () {
+$store = function (HashIdGenerator $hashIdGenerator) {
     $this->validate();
 
     ShortLink::create([
         'url' => $this->url,
-        'hashid' => Str::random(5),
+        'hashid' => $hashIdGenerator->generate(),
     ]);
 
     $this->url = '';
