@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ShortLink;
 use Illuminate\Support\Facades\Route;
 
 /*
