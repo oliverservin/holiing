@@ -46,7 +46,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                         required
                         autocomplete="off"
                     >
-                    <button class="block border-2 p-1">Submit</button>
+                    <button class="block border-2 p-1">Enviar</button>
                 </div>
             </form>
 
