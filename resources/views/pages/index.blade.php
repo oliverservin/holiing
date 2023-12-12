@@ -65,7 +65,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                 <h3 class="font-semibold">
                                     <a href="{{ url('/' . $shortLink->hashid) }}">{{ 'deviare.test/' . $shortLink->hashid }}</a>
                                 </h3>
-                                <p class="text-zinc-500">{{ $shortLink->url }}</p>
+                                <p class="text-zinc-500 text-sm">{{ $shortLink->url }}</p>
                             </div>
                         @endforeach
                     </div>
