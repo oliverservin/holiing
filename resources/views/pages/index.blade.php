@@ -3,10 +3,13 @@
 use App\HashIdGenerator;
 use App\Models\ShortLink;
 
+use function Laravel\Folio\middleware;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
 
 $getShortLinks = fn () => $this->shortLinks = ShortLink::latest()->get();
+
+middleware(['auth']);
 
 state([
     'url' => '',
