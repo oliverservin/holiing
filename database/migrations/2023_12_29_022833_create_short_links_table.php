@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('short_links', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('team_id')->index();
+            $table->foreignId('domain_id')->index();
             $table->string('url');
-            $table->string('hashid')->unique();
+            $table->string('hashid');
             $table->unsignedBigInteger('visits')->default(0);
             $table->timestamps();
+
+            $table->unique(['domain_id', 'hashid']);
         });
     }
 

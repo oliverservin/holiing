@@ -9,5 +9,11 @@ class ShortLink extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['hashid', 'url', 'visits'];
+    protected $fillable = [
+        'hashid',
+        'url',
+        'visits',
+        'team_id',
+        'domain_id',
+    ];
 }

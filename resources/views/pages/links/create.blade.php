@@ -1,25 +1,37 @@
 <?php
 
+use App\Models\Domain;
 use App\HashIdGenerator;
 use App\Models\ShortLink;
 
-use function Laravel\Folio\middleware;
+use Illuminate\Validation\Rule;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
+use Illuminate\Support\Facades\Auth;
+use function Laravel\Folio\middleware;
+use Illuminate\Contracts\Database\Query\Builder;
 
 middleware(['auth']);
 
-state(['url' => '']);
-
-rules(['url' => 'required|string|max:255']);
+state([
+    'url' => '',
+    'hashid' => '',
+    'domain_id' => '1',
+    'domains' => fn () => Auth::user()->currentTeam->domains()->latest()->get(),
+]);
 
 $store = function (HashIdGenerator $hashIdGenerator) {
-    $this->validate();
-
-    ShortLink::create([
-        'url' => $this->url,
-        'hashid' => $hashIdGenerator->generate(),
+    $validated = $this->validate([
+        'url' => ['required', 'string', 'max:255'],
+        'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
+        'domain_id' => ['required', 'exists:domains,id'],
     ]);
+
+    if (! $validated['hashid']) {
+        $validated['hashid'] = $hashIdGenerator->generate();
+    }
+
+    Auth::user()->currentTeam->links()->create($validated);
 
     $this->redirect('/', navigate: true);
 }
@@ -55,6 +67,29 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                         @enderror
                                     </x-fieldset.field>
+                                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+                                        <x-fieldset.field>
+                                            <x-fieldset.label>Dominio</x-fieldset.label>
+                                            <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
+                                                <option value="0">0</option>
+                                                @foreach($domains as $domain)
+                                                    <option value="{{ $domain->id }}">
+                                                        {{ $domain->name }}
+                                                    </option>
+                                                @endforeach
+                                            </x-select>
+                                            @error('domain_id')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
+                                        <x-fieldset.field class="sm:col-span-2">
+                                            <x-fieldset.label>Alias</x-fieldset.label>
+                                            <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
+                                            @error('hashid')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
+                                    </div>
                                 </x-fieldset.field-group>
                             </x-fieldset>
                             <x-button class="w-full">Crear enlace</x-button>
