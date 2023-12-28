@@ -1,4 +1,4 @@
-@props(['multiple' => false, 'invalid' => 'false'])
+@props(['multiple' => false, 'invalid' => false])
 
 <?php
 

@@ -1,3 +1,5 @@
+@props(['invalid' => false])
+
 <?php
 
 use Illuminate\Support\Arr;
@@ -16,7 +18,7 @@ $controlClasses = Arr::toCssClasses([
     'after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500',
 
     // Disabled state
-    'has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-zinc-950/5 before:has-[[data-disabled]]:shadow-none',
+    'has-[:disabled]:opacity-50 before:has-[:disabled]:bg-zinc-950/5 before:has-[:disabled]:shadow-none',
 
     // Invalid state
     'before:has-[[data-invalid]]:shadow-red-500/10',
@@ -30,7 +32,7 @@ $classes = Arr::toCssClasses([
     'text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white',
 
     // Border
-    'border border-zinc-950/10 data-[hover]:border-zinc-950/20 dark:border-white/10 dark:data-[hover]:border-white/20',
+    'border border-zinc-950/10 hover:border-zinc-950/20 dark:border-white/10 dark:hover:border-white/20',
 
     // Background color
     'bg-transparent dark:bg-white/5',
@@ -39,17 +41,24 @@ $classes = Arr::toCssClasses([
     'focus:outline-none',
 
     // Invalid state
-    'data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500',
+    'data-[invalid]:border-red-500 data-[invalid]:hover:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:hover:dark:border-red-500',
 
     // Disabled state
-    'data-[disabled]:border-zinc-950/20 dark:data-[hover]:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]',
+    'data-[disabled]:border-zinc-950/20 dark:hover:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]',
 ]);
 
 ?>
 
 <span
     data-slot="control"
-    class="{{ $controlClasses }}"
+    class="{{ Arr::toCssClasses([
+        $attributes->get('class'),
+        $controlClasses,
+    ]) }}"
 >
-    <input {{ $attributes->except('class') }} class="{{ $classes }}">
+    <input
+        {{ $attributes->except('class') }}
+        {{ $invalid ? 'data-invalid' : '' }}
+        class="{{ $classes }}"
+    >
 </span>
