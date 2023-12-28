@@ -3,11 +3,12 @@
 use App\HashIdGenerator;
 use App\Models\ShortLink;
 
-use function Laravel\Folio\middleware;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
+use Illuminate\Support\Facades\Auth;
+use function Laravel\Folio\middleware;
 
-$getShortLinks = fn () => $this->shortLinks = ShortLink::latest()->get();
+$getShortLinks = fn () => $this->shortLinks = Auth::user()->currentTeam->links()->latest()->get();
 
 middleware(['auth']);
 
@@ -40,7 +41,7 @@ state([
                                 <div class="w-full flex items-center">
                                     <div class="flex-1">
                                         <h3 class="font-semibold">
-                                            <a href="{{ url('/' . $shortLink->hashid) }}">{{ 'deviare.test/' . $shortLink->hashid }}</a>
+                                            <a href="{{ url('/' . $shortLink->hashid) }}">{{ 'holiing.test/' . $shortLink->hashid }}</a>
                                         </h3>
                                         <p class="text-zinc-500 text-sm">{{ $shortLink->url }}</p>
                                     </div>
