@@ -2,9 +2,11 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -37,5 +39,16 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function withPersonalTeam(): static
+    {
+        return $this->has(
+            Team::factory()
+                ->state(function (array $attributes, User $user) {
+                    return ['name' => 'Personal', 'user_id' => $user->id, 'personal_team' => true];
+                }),
+            'ownedTeams'
+        );
     }
 }
