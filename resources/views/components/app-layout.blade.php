@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="antialiased">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 
     @vite(['resources/css/app.css', 'resources/app/app.js'])
 </head>
-<body class="antialiased">
+<body class="bg-zinc-50 font-sans dark:bg-zinc-950">
     {{ $slot }}
 </body>
 </html>
