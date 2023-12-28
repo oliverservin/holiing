@@ -46,7 +46,7 @@ $register = function () {
 <x-layouts.auth>
     @volt('pages.register')
         <x-card>
-            <form wire:submit="login" class="w-full max-w-sm space-y-8">
+            <form wire:submit="register" class="w-full max-w-sm space-y-8">
                 <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
                     Registrarse
                 </h3>
