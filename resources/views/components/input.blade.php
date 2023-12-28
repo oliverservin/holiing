@@ -44,7 +44,7 @@ $classes = Arr::toCssClasses([
     'data-[invalid]:border-red-500 data-[invalid]:hover:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:hover:dark:border-red-500',
 
     // Disabled state
-    'data-[disabled]:border-zinc-950/20 dark:hover:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]',
+    'disabled:border-zinc-950/20 dark:hover:disabled:border-white/15 disabled:dark:border-white/15 disabled:dark:bg-white/[2.5%]',
 ]);
 
 ?>
