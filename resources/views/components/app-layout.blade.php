@@ -10,7 +10,7 @@
 
     @vite(['resources/css/app.css', 'resources/app/app.js'])
 </head>
-<body class="flex flex-col font-sans bg-white dark:bg-zinc-900">
+<body class="h-screen flex flex-col font-sans bg-white dark:bg-zinc-900">
     <header>
         {{ $header ?? '' }}
     </header>
