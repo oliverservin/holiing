@@ -16,8 +16,8 @@ middleware(['auth']);
 state([
     'url' => '',
     'hashid' => '',
-    'domain_id' => '1',
-    'domains' => fn () => Auth::user()->currentTeam->domains()->latest()->get(),
+    'domain_id' => Domain::where('public_domain', true)->first()->id,
+    'domains' => fn () => Domain::where('team_id', Auth::user()->currentTeam->id)->orWhere('public_domain', true)->latest()->get(),
 ]);
 
 $store = function (HashIdGenerator $hashIdGenerator) {
@@ -33,7 +33,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
     Auth::user()->currentTeam->links()->create($validated);
 
-    $this->redirect('/', navigate: true);
+    $this->redirect(route('dashboard'), navigate: true);
 }
 
 ?>
