@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
 
-    @vite(['resources/css/app.css', 'resources/app/app.js'])
+    @vite(['resources/css/app.css'])
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </head>
