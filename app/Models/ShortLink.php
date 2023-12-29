@@ -16,4 +16,9 @@ class ShortLink extends Model
         'team_id',
         'domain_id',
     ];
+
+    public function domain()
+    {
+        return $this->belongsTo(Domain::class);
+    }
 }

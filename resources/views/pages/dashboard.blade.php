@@ -47,7 +47,7 @@ state([
                                 <div class="w-full flex items-center">
                                     <div class="flex-1">
                                         <h3 class="font-semibold">
-                                            <a href="{{ url('/' . $shortLink->hashid) }}">{{ 'holiing.test/' . $shortLink->hashid }}</a>
+                                            <a href="{{ 'https://' . $shortLink->domain->name . '/' . $shortLink->hashid }}">{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</a>
                                         </h3>
                                         <p class="text-zinc-500 text-sm">{{ $shortLink->url }}</p>
                                     </div>
