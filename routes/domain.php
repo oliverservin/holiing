@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Domain;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return 'hello';
+Route::get('/', function ($domain) {
+    $domain = Domain::where('name', $domain)->firstOrFail();
+
+    return 'Holiing — ' . $domain->name;
+});
+
+Route::get('/{slug}', function ($domain, $slug, Request $request) {
+    $domain = Domain::where('name', $domain)->firstOrFail();
+
+    $link = $domain->links()->where('slug', $slug)->firstOrFail();
+
+    return redirect($link->url, 301);
 });
