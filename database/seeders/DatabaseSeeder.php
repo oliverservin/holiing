@@ -22,11 +22,13 @@ class DatabaseSeeder extends Seeder
         Domain::factory()->create([
             'name' => 'holi.ing',
             'team_id' => $user->currentTeam,
+            'public_domain' => true,
         ]);
 
         Domain::factory()->create([
             'name' => 'oliver.mx',
             'team_id' => $user->currentTeam,
+            'public_domain' => false,
         ]);
     }
 }

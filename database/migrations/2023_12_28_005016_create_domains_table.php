@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('team_id')->index();
             $table->string('name');
+            $table->boolean('public_domain');
             $table->timestamps();
         });
     }

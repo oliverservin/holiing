@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Domain extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'public_domain' => 'boolean',
+    ];
+
+    protected $fillable = [
+        'public_domain',
+    ];
 }
