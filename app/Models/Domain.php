@@ -16,4 +16,14 @@ class Domain extends Model
     protected $fillable = [
         'public_domain',
     ];
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function links()
+    {
+        return $this->hasMany(ShortLink::class);
+    }
 }
