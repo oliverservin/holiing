@@ -39,20 +39,23 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 ?>
 
 <x-app-layout>
+    <x-slot:header>
+        <x-header />
+    </x-slot:header>
     @volt('pages.links.create')
         <div>
-            <div class="max-w-xl mx-auto">
-                <div class="flex px-4 pt-8 pb-4 lg:px-8">
-                    <a href="/" class="group flex font-semibold text-sm leading-6 text-zinc-700 hover:text-zinc-900 dark:text-zinc-200 dark:hover:text-white">
+            <x-container>
+                <div class="flex items-center h-16">
+                    <a href="{{ route('dashboard') }}" class="group flex font-semibold text-sm leading-6 text-zinc-700 hover:text-zinc-900 dark:text-zinc-200 dark:hover:text-white">
                         <svg viewBox="0 -9 3 24" class="overflow-visible mr-3 text-zinc-400 w-auto h-6 group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
                             <path d="M3 0L0 3L3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                         </svg>
                         Regresar
                     </a>
                 </div>
-            </div>
-            <div class="max-w-xl mx-auto">
-                <div class="px-4 lg:px-8">
+            </x-container>
+            <x-container>
+                <div class="max-w-xl mx-auto pt-16 pb-20">
                     <x-card>
                         <form wire:submit="store" class="w-full space-y-8">
                             <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
@@ -95,7 +98,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                         </form>
                     </x-card>
                 </div>
-            </div>
+            </x-container>
         </div>
     @endvolt
 </x-app-layout>

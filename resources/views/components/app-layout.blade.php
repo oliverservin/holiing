@@ -10,7 +10,15 @@
 
     @vite(['resources/css/app.css', 'resources/app/app.js'])
 </head>
-<body class="bg-zinc-50 font-sans dark:bg-zinc-950">
-    {{ $slot }}
+<body class="flex flex-col font-sans dark:bg-zinc-950">
+    <header>
+        {{ $header ?? '' }}
+    </header>
+    <main class="flex-1">
+        {{ $slot }}
+    </main>
+    <footer>
+        {{ $footer ?? '' }}
+    </footer>
 </body>
 </html>

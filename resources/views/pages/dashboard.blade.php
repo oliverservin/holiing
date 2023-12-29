@@ -22,14 +22,17 @@ state([
 ?>
 
 <x-app-layout>
+    <x-slot:header>
+        <x-header />
+    </x-slot:header>
     @volt('pages.dashboard')
-        <div class="w-full max-w-screen-md mx-auto">
+        <x-container>
             <div class="pt-12 pb-24 flex flex-col gap-8">
                 <div class="flex gap-4">
                     <div class="flex-1">
-                        <h1 class="text-zinc-950 dark:text-white text-3xl font-semibold">
-                            Mis enlaces
-                        </h1>
+                        <h2 class="text-zinc-950 dark:text-white text-3xl font-bold tracking-tight">
+                            Dashboard
+                        </h2>
                     </div>
                     <div>
                         <x-button href="/links/create">
@@ -68,6 +71,9 @@ state([
                     </div>
                 </div>
             </div>
-        </div>
+        </x-container>
     @endvolt
+    <x-slot:footer>
+        <x-footer />
+    </x-slot:footer>
 </x-app-layout>
