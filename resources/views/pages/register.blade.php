@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Team;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -35,6 +36,12 @@ $register = function () {
     $validated['password'] = Hash::make($validated['password']);
 
     event(new Registered($user = User::create($validated)));
+
+    $user->ownedTeams()->save(Team::forceCreate([
+        'user_id' => $user->id,
+        'name' => 'Personal',
+        'personal_team' => true,
+    ]));
 
     Auth::login($user);
 

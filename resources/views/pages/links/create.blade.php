@@ -71,7 +71,6 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>Dominio</x-fieldset.label>
                                             <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
-                                                <option value="0">0</option>
                                                 @foreach($domains as $domain)
                                                     <option value="{{ $domain->id }}">
                                                         {{ $domain->name }}
