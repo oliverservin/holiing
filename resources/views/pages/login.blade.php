@@ -30,48 +30,52 @@ $login = function () {
 
 ?>
 
-<x-layouts.auth>
+<x-layouts.marketing>
+    <x-slot:header>
+        <x-header />
+    </x-slot:header>
     @volt('pages.login')
-        <x-card>
-            <form wire:submit="login" class="w-full max-w-sm space-y-8">
-                <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
-                    Iniciar sesión
-                </h3>
-                <x-fieldset>
-                    <x-fieldset.field-group>
-                        <x-fieldset.field>
-                            <x-fieldset.label>Email</x-fieldset.label>
-                            <x-input wire:model="form.email" id="email" type="email" name="email" required />
-                            @error('form.email')
-                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                            @enderror
-                        </x-fieldset.field>
-                        <x-fieldset.field>
-                            <x-fieldset.label>Contraseña</x-fieldset.label>
-                            <x-input wire:model="form.password" id="password" type="password" name="password" required />
-                            @error('form.password')
-                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                            @enderror
-                        </x-fieldset.field>
-                    </x-fieldset.field-group>
-                </x-fieldset>
-                <div>
-                    <x-switch.field-headless class="flex items-center gap-4">
-                        <x-switch.label>Recordarme</x-switch.label>
-                        <x-switch name="remember" wire:model="form.remember" />
-                    </x-switch.field-headless>
-                </div>
-                <x-button class="w-full">Iniciar sesión</x-button>
-                <x-text>
-                    ¿Aún no tienes una cuenta?
-                    <a
-                        href="{{ route('register') }}"
-                        class="font-semibold text-zinc-950 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300"
-                    >
-                        Regístrate
-                    </a>
-                </x-text>
-            </form>
-        </x-card>
+        <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
+            <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
+                Iniciar sesión
+            </h3>
+            <x-fieldset>
+                <x-fieldset.field-group>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Email</x-fieldset.label>
+                        <x-input wire:model="form.email" id="email" type="email" name="email" required />
+                        @error('form.email')
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                        @enderror
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Contraseña</x-fieldset.label>
+                        <x-input wire:model="form.password" id="password" type="password" name="password" required />
+                        @error('form.password')
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                        @enderror
+                    </x-fieldset.field>
+                </x-fieldset.field-group>
+            </x-fieldset>
+            <div>
+                <x-switch.field-headless class="flex items-center gap-4">
+                    <x-switch.label>Recordarme</x-switch.label>
+                    <x-switch name="remember" wire:model="form.remember" />
+                </x-switch.field-headless>
+            </div>
+            <x-button class="w-full">Iniciar sesión</x-button>
+            <x-text>
+                ¿Aún no tienes una cuenta?
+                <a
+                    href="{{ route('register') }}"
+                    class="font-semibold text-zinc-950 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300"
+                >
+                    Regístrate
+                </a>
+            </x-text>
+        </form>
     @endvolt
-</x-layouts.auth>
+    <x-slot:footer>
+        <x-footer />
+    </x-slot:footer>
+</x-layouts.marketing>

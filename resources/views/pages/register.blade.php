@@ -51,10 +51,13 @@ $register = function () {
 
 ?>
 
-<x-layouts.auth>
+<x-layouts.marketing>
+    <x-slot:header>
+        <x-header />
+    </x-slot:header>
     @volt('pages.register')
-        <x-card>
-            <form wire:submit="register" class="w-full max-w-sm space-y-8">
+        <x-container>
+            <form wire:submit="register" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
                 <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
                     Registrarse
                 </h3>
@@ -101,6 +104,9 @@ $register = function () {
                     </a>
                 </x-text>
             </form>
-        </x-card>
+        </x-container>
     @endvolt
-</x-layouts.auth>
+    <x-slot:footer>
+        <x-footer />
+    </x-slot:footer>
+</x-layouts.marketing>
