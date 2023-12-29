@@ -24,7 +24,7 @@ state([
             <div class="pt-12 pb-24 flex flex-col gap-8">
                 <div class="flex gap-4">
                     <div class="flex-1">
-                        <h class="text-zinc-900 text-3xl font-semibold">
+                        <h1 class="text-zinc-950 dark:text-white text-3xl font-semibold">
                             Mis enlaces
                         </h1>
                     </div>
