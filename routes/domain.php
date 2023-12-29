@@ -21,10 +21,10 @@ Route::get('/', function ($domain) {
     return 'Holiing — ' . $domain->name;
 });
 
-Route::get('/{slug}', function ($domain, $slug) {
+Route::get('/{slug}', function ($domain, $hashid) {
     $domain = Domain::where('name', $domain)->firstOrFail();
 
-    $link = $domain->links()->where('slug', $slug)->firstOrFail();
+    $link = $domain->links()->where('hashid', $hashid)->firstOrFail();
 
     return redirect($link->url, 301);
 });
