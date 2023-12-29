@@ -23,7 +23,7 @@ state([
 
 <x-app-layout>
     <x-slot:header>
-        <x-header />
+        <x-auth-navbar />
     </x-slot:header>
     @volt('pages.dashboard')
         <x-container>

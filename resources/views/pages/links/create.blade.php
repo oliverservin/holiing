@@ -40,7 +40,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
 <x-app-layout>
     <x-slot:header>
-        <x-header />
+        <x-auth-navbar />
     </x-slot:header>
     @volt('pages.links.create')
         <div>

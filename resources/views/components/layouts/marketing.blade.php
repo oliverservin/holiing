@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </head>
-<body class="font-sans h-screen flex flex-col">
+<body class="font-sans h-screen flex flex-col bg-white dark:bg-zinc-900">
     <header>
         {{ $header ?? '' }}
     </header>

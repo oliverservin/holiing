@@ -6,10 +6,13 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 
 use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
 
 middleware('auth');
+
+name('profile.password');
 
 state([
     'current_password' => '',
@@ -44,7 +47,7 @@ $updatePassword = function () {
 
 <x-app-layout>
     <x-slot:header>
-        <x-header />
+        <x-auth-navbar />
     </x-slot:header>
     @volt('pages.profile.password')
         <div>
