@@ -41,6 +41,7 @@ $register = function () {
         'user_id' => $user->id,
         'name' => 'Personal',
         'personal_team' => true,
+        'trial_ends_at' => now()->addDays(10),
     ]));
 
     Auth::login($user);

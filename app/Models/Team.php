@@ -11,6 +11,7 @@ class Team extends Model
 
     protected $casts = [
         'personal_team' => 'boolean',
+        'trial_ends_at' => 'datetime',
     ];
 
     protected $fillable = [
