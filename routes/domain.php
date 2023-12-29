@@ -21,7 +21,7 @@ Route::get('/', function ($domain) {
     return 'Holiing — ' . $domain->name;
 });
 
-Route::get('/{slug}', function ($domain, $slug, Request $request) {
+Route::get('/{slug}', function ($domain, $slug) {
     $domain = Domain::where('name', $domain)->firstOrFail();
 
     $link = $domain->links()->where('slug', $slug)->firstOrFail();
