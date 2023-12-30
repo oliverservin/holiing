@@ -2,10 +2,12 @@
 
 use App\Models\Team;
 use App\Models\User;
+use App\Notifications\UserRegistered;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Validation\Rules\Password;
 
 use function Laravel\Folio\middleware;
@@ -43,6 +45,8 @@ $register = function () {
         'personal_team' => true,
         'trial_ends_at' => now()->addDays(10),
     ]));
+
+    Notification::send(User::admin()->get(), new UserRegistered($user));
 
     Auth::login($user);
 

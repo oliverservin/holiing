@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->email = 'oliver@radiocubito.com';
+    }
+
+    public function scopeAdmin(Builder $query)
+    {
+        $query->where('email', 'oliver@radiocubito.com');
     }
 }
