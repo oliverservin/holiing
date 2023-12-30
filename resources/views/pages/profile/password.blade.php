@@ -23,6 +23,9 @@ state([
 rules([
     'current_password' => ['required', 'string', 'current_password'],
     'password' => ['required', 'string', Password::defaults(), 'confirmed'],
+])->attributes([
+    'current_password' => 'contraseña actual',
+    'password' => 'contraseña',
 ]);
 
 $updatePassword = function () {

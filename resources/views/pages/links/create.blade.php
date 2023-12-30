@@ -21,11 +21,17 @@ state([
 ]);
 
 $store = function (HashIdGenerator $hashIdGenerator) {
-    $validated = $this->validate([
-        'url' => ['required', 'string', 'max:255'],
-        'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
-        'domain_id' => ['required', 'exists:domains,id'],
-    ]);
+    $validated = $this->validate(
+        rules: [
+            'url' => ['required', 'string', 'max:255'],
+            'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
+            'domain_id' => ['required', 'exists:domains,id'],
+        ],
+        attributes: [
+            'url' => 'url',
+            'hashid' => 'hashid',
+            'domain_id' => 'dominio',
+        ]);
 
     if (! $validated['hashid']) {
         $validated['hashid'] = $hashIdGenerator->generate();
