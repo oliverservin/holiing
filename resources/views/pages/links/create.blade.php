@@ -21,11 +21,17 @@ state([
 ]);
 
 $store = function (HashIdGenerator $hashIdGenerator) {
-    $validated = $this->validate([
-        'url' => ['required', 'string', 'max:255'],
-        'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
-        'domain_id' => ['required', 'exists:domains,id'],
-    ]);
+    $validated = $this->validate(
+        rules: [
+            'url' => ['required', 'string', 'max:255'],
+            'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
+            'domain_id' => ['required', 'exists:domains,id'],
+        ],
+        attributes: [
+            'url' => 'url',
+            'hashid' => 'hashid',
+            'domain_id' => 'dominio',
+        ]);
 
     if (! $validated['hashid']) {
         $validated['hashid'] = $hashIdGenerator->generate();
@@ -70,7 +76,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                         @enderror
                                     </x-fieldset.field>
-                                    <div class="hidden grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+                                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
                                         <x-fieldset.field>
                                             <x-fieldset.label>Dominio</x-fieldset.label>
                                             <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
