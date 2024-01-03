@@ -11,9 +11,12 @@ class Domain extends Model
 
     protected $casts = [
         'public_domain' => 'boolean',
+        'validated_at' => 'datetime',
+        'verified_at' => 'datetime',
     ];
 
     protected $fillable = [
+        'name',
         'public_domain',
     ];
 
