@@ -14,6 +14,7 @@ class Domain extends Model
     ];
 
     protected $fillable = [
+        'name',
         'public_domain',
     ];
 
