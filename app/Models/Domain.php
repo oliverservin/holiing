@@ -11,6 +11,7 @@ class Domain extends Model
 
     protected $casts = [
         'public_domain' => 'boolean',
+        'email_verified_at' => 'datetime',
     ];
 
     protected $fillable = [
