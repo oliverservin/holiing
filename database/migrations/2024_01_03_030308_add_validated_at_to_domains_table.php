@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('domains', function (Blueprint $table) {
             $table->timestamp('validated_at')->nullable();
+            $table->timestamp('verified_at')->nullable();
         });
     }
 

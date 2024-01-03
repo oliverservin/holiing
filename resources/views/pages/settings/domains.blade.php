@@ -1,8 +1,11 @@
 <?php
 
 use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
 
 middleware('auth');
+
+name('settings.domains');
 
 ?>
 
@@ -10,6 +13,9 @@ middleware('auth');
     <x-slot:header>
         <x-auth-navbar />
     </x-slot:header>
+    <x-slot:subheader>
+        <x-settings-navbar />
+    </x-slot:subheader>
     <x-container>
         <div class="max-w-xl mx-auto pt-16 pb-20">
             <livewire:domains.create />

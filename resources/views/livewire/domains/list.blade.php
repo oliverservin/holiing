@@ -1,6 +1,9 @@
 <?php
 
 use App\Models\Domain;
+use App\Models\User;
+use App\Notifications\DomainVerificationRequested;
+use Illuminate\Support\Facades\Notification;
 use Spatie\Dns\Dns;
 
 use function Livewire\Volt\on;
@@ -17,12 +20,22 @@ $validateDomain = function (Domain $domain) {
 
     $dns = new Dns();
 
-    $dnsRecords = $dns->getRecords($domain->name, ['A', 'CNAME']);
+    $dnsRecords = $dns->getRecords($domain->name, ['A', 'AAAA']);
 
-    $validRecord = collect($dnsRecords)->first(fn($record) => $record->ip() === '66.241.124.101');
+    $validRecord = collect($dnsRecords)->first(function ($record) {
+        if ($record->type() === 'A' && $record->ip() === '66.241.124.101') {
+            return true;
+        }
+
+        if ($record->type() === 'AAAA' && $record->ipv6() === '2a09:8280:1::69:d0e7') {
+            return true;
+        }
+    });
 
     if($validRecord) {
         $domain->validated_at = now();
+
+        Notification::send(User::admin()->get(), new DomainVerificationRequested($domain));
 
         $domain->save();
     }
@@ -42,41 +55,54 @@ $validateDomain = function (Domain $domain) {
                     </div>
                     @unless ($domain->validated_at)
                         <div>
-                            <x-button wire:click="validateDomain({{ $domain->id }})" outline>Verificar</x-button>
+                            <x-button wire:click="validateDomain({{ $domain->id }})" outline>Validar</x-button>
                         </div>
                     @endunless
                 </div>
                 <div class="flex gap-4">
                     @if ($domain->validated_at)
                         <x-badge color="blue">Configuración válida</x-badge>
+                        @unless ($domain->verified_at)
+                            <x-badge color="yellow">Verificación pendiente</x-badge>
+                        @endunless
                     @else
-                        <x-badge color="yellow">Verificación pendiente</x-badge>
+                        <x-badge color="yellow">Validación pendiente</x-badge>
                     @endif
                 </div>
                 @unless ($domain->validated_at)
                     <div class="border-t border-zinc-200 pt-5">
-                        <x-text>Para configurar tu dominio <x-text.code>{{ $domain->name }}</x-text.code>, configura el siguiente registro CNAME en tu proveedor de DNS:</x-text>
+                        <x-text>Para configurar tu dominio <x-text.code>{{ $domain->name }}</x-text.code>, configura los siguiente registros A y AAAA con tu proveedor de DNS:</x-text>
                         <div class="flex gap-4 mt-5 text-sm">
                             <div class="flex flex-col gap-2">
                                 <div class="font-medium text-zinc-500 dark:text-zinc-400">Type</div>
-                                <div>CNAME</div>
+                                <div>A</div>
+                                <div>AAAA</div>
                             </div>
                             <div class="flex flex-col gap-2">
                                 <div class="font-medium text-zinc-500 dark:text-zinc-400">Name</div>
                                 <div>@</div>
+                                <div>@</div>
                             </div>
                             <div class="flex flex-col gap-2">
                                 <div class="font-medium text-zinc-500 dark:text-zinc-400">Value</div>
-                                <div>links.holiing.com</div>
+                                <div>66.241.124.101</div>
+                                <div>2a09:8280:1::69:d0e7</div>
                             </div>
                             <div class="flex flex-col gap-2">
                                 <div class="font-medium text-zinc-500 dark:text-zinc-400">TTL</div>
+                                <div>86400</div>
                                 <div>86400</div>
                             </div>
                         </div>
                         <x-text class="mt-5">Nota: para el TTL, si <x-text.code>86400</x-text.code> no está disponible, establece el valor más alto posible. Además, la propagación de dominios puede tardar entre 1 y 12 horas.</x-text>
                     </div>
                 @endunless
+
+                @if ($domain->validated_at && ! $domain->verified_at)
+                    <div class="border-t border-zinc-200 pt-5">
+                        <x-text>Tu dominio ha sido configurado correctamente. Por favor <x-text.strong>espera hasta 24 horas</x-text.strong> para que manualmente verifiquemos y activemos tu dominio. Te enviaremos una notificación por email cuando haya sido verificado.</x-text>
+                    </div>
+                @endif
             </div>
         </div>
     @endforeach
