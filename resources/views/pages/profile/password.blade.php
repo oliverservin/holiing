@@ -1,14 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\Validation\ValidationException;
-
-use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
+use function Livewire\Volt\uses;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Hash;
+use function Laravel\Folio\middleware;
+use Illuminate\Validation\Rules\Password;
+use App\Livewire\InteractsWithNotifications;
+use Illuminate\Validation\ValidationException;
+
+uses(InteractsWithNotifications::class);
 
 middleware('auth');
 
@@ -43,7 +47,7 @@ $updatePassword = function () {
 
     $this->reset('current_password', 'password', 'password_confirmation');
 
-    $this->dispatch('toast', message: 'Contraseña actualizada correctamente.', data: ['type' => 'success']);
+    $this->notification('Contraseña actualizada correctamente.');
 };
 
 ?>

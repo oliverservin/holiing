@@ -39,7 +39,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
     Auth::user()->currentTeam->links()->create($validated);
 
-    $this->dispatch('toast', message: 'Contraseña actualizada correctamente.');
+    session()->flash('flash.notification', 'Enlace creado.');
 
     $this->redirect(route('dashboard'), navigate: true);
 }

@@ -1,15 +1,19 @@
 <?php
 
-use App\Models\Domain;
-use App\Models\User;
-use App\Notifications\DomainVerificationRequested;
-use Illuminate\Support\Facades\Notification;
 use Spatie\Dns\Dns;
-
+use App\Models\User;
+use App\Models\Domain;
 use function Livewire\Volt\on;
+use function Livewire\Volt\uses;
+
 use function Livewire\Volt\state;
+use App\Livewire\InteractsWithNotifications;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\DomainVerificationRequested;
 
 $getDomains = fn () => $this->domains = auth()->user()->currentTeam->domains()->latest()->get();
+
+uses(InteractsWithNotifications::class);
 
 state(['domains' => $getDomains, 'validating' => null]);
 
@@ -39,9 +43,9 @@ $validateDomain = function (Domain $domain) {
 
         $domain->save();
 
-        $this->dispatch('toast', message: 'El dominio fue validado correctamente.', data: ['type' => 'success']);
+        $this->notify('El dominio fue validado correctamente.');
     } else {
-        $this->dispatch('toast', message: 'El dominio no fue validado correctamente.', data: ['type' => 'warning']);
+        $this->notifyError('El dominio no fue validado correctamente.');
     }
 
     $this->getDomains();
