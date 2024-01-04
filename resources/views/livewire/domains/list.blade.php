@@ -104,7 +104,7 @@ $validateDomain = function (Domain $domain) {
 
                 @if ($domain->validated_at && ! $domain->verified_at)
                     <div class="border-t border-zinc-200 pt-5">
-                        <x-text>Tu dominio ha sido configurado correctamente. Por favor <x-text.strong>espera hasta 24 horas</x-text.strong> para que manualmente verifiquemos y activemos tu dominio. Te enviaremos una notificación por email cuando haya sido verificado.</x-text>
+                        <x-text>Tu dominio ha sido configurado correctamente. Por favor, <x-text.strong>espera hasta 24 horas</x-text.strong> para que manualmente verifiquemos y activemos tu dominio. Te enviaremos una notificación por email cuando haya sido verificado.</x-text>
                     </div>
                 @endif
             </div>
