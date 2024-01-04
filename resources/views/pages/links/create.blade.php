@@ -78,7 +78,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                         @enderror
                                     </x-fieldset.field>
-                                    <div class="hidden grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+                                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
                                         <x-fieldset.field>
                                             <x-fieldset.label>Dominio</x-fieldset.label>
                                             <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">

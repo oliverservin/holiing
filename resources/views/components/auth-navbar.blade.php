@@ -6,7 +6,7 @@
             </a>
         </div>
         <div>
-            <x-button href="{{ route('profile.password') }}" outline>Cuenta</x-button>
+            <a href="{{ route('settings.domains') }}" class="font-medium text-sm">Configuración</a>
         </div>
     </div>
 </x-container>
