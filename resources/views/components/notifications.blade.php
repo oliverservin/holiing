@@ -15,45 +15,49 @@
         },
     }"
     @notify.window="add($event)"
-    class="fixed bottom-0 right-0 flex w-full max-w-xs md:max-w-[420px] flex-col space-y-4 pr-4 pb-4 sm:justify-start"
-    role="status"
-    aria-live="polite"
+    aria-live="assertive"
+    class="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-end sm:p-6"
 >
-    <template x-for="notification in notifications" :key="notification.id">
-        <div
-            x-data="{
-                show: false,
-                init() {
-                    this.$nextTick(() => this.show = true)
-                    setTimeout(() => this.transitionOut(), 6000)
-                },
-                transitionOut() {
-                    this.show = false
-                    setTimeout(() => this.remove(this.notification), 500) },
-                }"
-            x-show="show"
-            x-transition.duration.500ms
-            class="pointer-events-auto relative w-full max-w-sm rounded-md border border-zinc-200 bg-white py-4 pl-6 pr-4 shadow-lg"
-        >
-            <div class="flex items-start">
-                <div x-show="notification.type === 'error'" class="inline-flex mt-1 mr-3 flex-shrink-0">
-                    <span aria-hidden="true" class="inline-flex h-4 w-4 items-center justify-center rounded-full border-2 border-red-600 text-xs font-bold text-red-600">&times;</span>
-                    <span class="sr-only">Error:</span>
-                </div>
-                <div class="w-0 flex-1 pt-0.5">
-                    <p x-text="notification.content" class="text-sm font-medium leading-5 text-zinc-900"></p>
-                </div>
-                <div class="ml-4 flex flex-shrink-0">
-                    <button @click="transitionOut()" type="button" class="inline-flex text-zinc-400">
-                        <svg aria-hidden class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="sr-only">Close notification</span>
-                    </button>
+    <div class="flex w-full flex-col items-center space-y-4 sm:items-end">
+        <template x-for="notification in notifications" :key="notification.id">
+            <div
+                x-data="{
+                    show: false,
+                    init() {
+                        this.$nextTick(() => this.show = true)
+                        setTimeout(() => this.transitionOut(), 6000)
+                    },
+                    transitionOut() {
+                        this.show = false
+                        setTimeout(() => this.remove(this.notification), 500) },
+                    }"
+                x-show="show"
+                x-transition.duration.500ms
+                class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+            >
+                <div class="p-4">
+                    <div class="flex items-start">
+                        <div x-show="notification.type === 'error'" class="flex-shrink-0 mr-3">
+                            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-8-5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-4.5A.75.75 0 0 1 10 5Zm0 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="w-0 flex-1">
+                            <p x-text="notification.content" class="text-sm font-medium text-zinc-900"></p>
+                        </div>
+                        <div class="ml-4 flex flex-shrink-0">
+                            <button @click="transitionOut()" type="button" class="inline-flex rounded-md bg-white text-zinc-400 hover:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                                <span class="sr-only">Cerrar</span>
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </template>
+        </template>
+    </div>
 </div>
 
 <div
