@@ -1,5 +1,3 @@
-@props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner')])
-
 <div class="relative w-auto h-auto">
     <div
         x-data="{
@@ -434,14 +432,3 @@
         </ul>
     </template>
 </div>
-
-<div x-data="{{ json_encode(['style' => $style, 'message' => $message]) }}"
-            style="display: none;"
-            x-init="
-                $nextTick(() => {
-                    if (message) {
-                        toast(message);
-                    }
-                });
-            "
-></div>
