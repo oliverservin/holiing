@@ -17,11 +17,16 @@ name('settings.domains');
         <x-settings-navbar />
     </x-slot:subheader>
     <x-container>
-        <div class="max-w-xl mx-auto pt-16 pb-20">
-            <livewire:domains.create />
-            <div class="mt-8">
-                <livewire:domains.list />
+        <div class="flex justify-between items-end">
+            <div>
+                <h1 class="text-5xl font-extrabold">Dominios</h1>
             </div>
+            <div>
+                <x-button href="#">Agregar dominio</x-button>
+            </div>
+        </div>
+        <div class="mt-6 pb-20">
+            <livewire:domains.list />
         </div>
     </x-container>
 </x-app-layout>
