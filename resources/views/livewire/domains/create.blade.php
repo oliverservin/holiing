@@ -24,9 +24,6 @@ $store = function () {
 
 <div>
     <form wire:submit="store" class="w-full space-y-8">
-        <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
-            Agregar un nuevo dominio
-        </h3>
         <x-fieldset>
             <x-fieldset.field-group>
                 <x-fieldset.field>
@@ -38,6 +35,6 @@ $store = function () {
                 </x-fieldset.field>
             </x-fieldset.field-group>
         </x-fieldset>
-        <x-button class="w-full">Agregar dominio</x-button>
+        <x-button>Agregar dominio</x-button>
     </form>
 </div>

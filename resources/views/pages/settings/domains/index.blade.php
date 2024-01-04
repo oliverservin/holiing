@@ -5,7 +5,7 @@ use function Laravel\Folio\name;
 
 middleware('auth');
 
-name('settings.domains');
+name('settings.domains.index');
 
 ?>
 
@@ -22,7 +22,7 @@ name('settings.domains');
                 <h1 class="text-5xl font-extrabold">Dominios</h1>
             </div>
             <div>
-                <x-button href="#">Agregar dominio</x-button>
+                <x-button href="{{ route('settings.domains.create') }}">Agregar dominio</x-button>
             </div>
         </div>
         <div class="mt-6 pb-20">

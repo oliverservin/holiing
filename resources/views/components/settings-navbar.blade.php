@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="text-sm flex gap-5">
-            <a href="{{ route('settings.domains') }}" class="hover:underline">Dominios</a>
+            <a href="{{ route('settings.domains.index') }}" class="hover:underline">Dominios</a>
             <a href="{{ route('profile.password') }}" class="hover:underline">Contraseña</a>
         </div>
     </div>

@@ -55,7 +55,7 @@ $validateDomain = function (Domain $domain) {
 
 <div class="space-y-6">
     @foreach($domains as $domain)
-        <div wire:key="{{ $domain->id }}" class="border rounded-md p-8">
+        <div wire:key="{{ $domain->id }}" class="bg-zinc-50 rounded-md p-8">
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between">
                     <div>

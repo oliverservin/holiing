@@ -6,7 +6,7 @@
             </a>
         </div>
         <div>
-            <a href="{{ route('settings.domains') }}" class="font-medium text-sm">Configuración</a>
+            <a href="{{ route('settings.domains.index') }}" class="font-medium text-sm">Configuración</a>
         </div>
     </div>
 </x-container>
