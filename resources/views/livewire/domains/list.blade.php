@@ -39,9 +39,9 @@ $validateDomain = function (Domain $domain) {
 
         $domain->save();
 
-        $this->dispatch('toast', message: 'El dominio fue validado correctamente.', data: ['type' => 'success' ]);
+        $this->dispatch('toast', message: 'El dominio fue validado correctamente.', data: ['type' => 'success']);
     } else {
-        $this->dispatch('toast', message: 'El dominio no fue validado correctamente.', data: ['type' => 'warning' ]);
+        $this->dispatch('toast', message: 'El dominio no fue validado correctamente.', data: ['type' => 'warning']);
     }
 
     $this->getDomains();
