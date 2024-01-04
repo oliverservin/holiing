@@ -38,6 +38,10 @@ $validateDomain = function (Domain $domain) {
         Notification::send(User::admin()->get(), new DomainVerificationRequested($domain));
 
         $domain->save();
+
+        $this->dispatch('toast', message: 'El dominio fue validado correctamente.', data: ['type' => 'success']);
+    } else {
+        $this->dispatch('toast', message: 'El dominio no fue validado correctamente.', data: ['type' => 'warning']);
     }
 
     $this->getDomains();

@@ -43,7 +43,7 @@ $updatePassword = function () {
 
     $this->reset('current_password', 'password', 'password_confirmation');
 
-    $this->dispatch('password-updated');
+    $this->dispatch('toast', message: 'Contraseña actualizada correctamente.', data: ['type' => 'success']);
 };
 
 ?>

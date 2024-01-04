@@ -21,5 +21,6 @@
     <footer>
         {{ $footer ?? '' }}
     </footer>
+    <x-toast />
 </body>
 </html>
