@@ -1,12 +1,12 @@
 <x-container>
     <div class="h-20 flex items-center justify-between border-b border-zinc-100">
         <div>
-            <a href="{{ route('dashboard') }}" class="bg-black h-7 w-20 flex items-center justify-center rounded">
+            <x-link href="{{ route('dashboard') }}" class="bg-black h-7 w-20 flex items-center justify-center rounded">
                 <span class="uppercase font-semibold text-white text-xs tracking-wide">Holiing</span>
-            </a>
+            </x-link>
         </div>
         <div>
-            <a href="{{ route('settings.domains') }}" class="font-medium text-sm">Configuración</a>
+            <x-link href="{{ route('settings.domains.index') }}" class="font-medium text-sm">Configuración</x-link>
         </div>
     </div>
 </x-container>

@@ -1,13 +1,13 @@
 <x-container>
     <div class="h-16 flex items-center justify-between">
         <div>
-            <a href="{{ url('/') }}" class=" font-extrabold">
+            <x-link href="{{ route('settings.domains.index') }}" class="font-extrabold">
                 Configuración
-            </a>
+            </x-link>
         </div>
         <div class="text-sm flex gap-5">
-            <a href="{{ route('settings.domains') }}" class="hover:underline">Dominios</a>
-            <a href="{{ route('profile.password') }}" class="hover:underline">Contraseña</a>
+            <x-link href="{{ route('settings.domains.index') }}" class="hover:underline">Dominios</x-link>
+            <x-link href="{{ route('profile.password') }}" class="hover:underline">Contraseña</x-link>
         </div>
     </div>
 </x-container>

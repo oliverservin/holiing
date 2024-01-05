@@ -186,9 +186,9 @@ $classes = Arr::toCssClasses(array_merge(
 ?>
 
 @if ($attributes->has('href'))
-    <a {!! $attributes->except(['class']) !!} class="{{ $classes }}">
+    <x-link {{ $attributes->except(['class'])  }} class="{{ $classes }}">
         {{ $slot }}
-    </a>
+    </x-link>
 @else
     <button {!! $attributes->except(['class']) !!} class="{{ $classes }}">
         {{ $slot }}
