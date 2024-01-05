@@ -57,7 +57,7 @@ $store = function () {
                             <x-fieldset>
                                 <x-fieldset.field-group>
                                     <x-fieldset.field>
-                                        <x-fieldset.label>Dominio</x-fieldset.label>
+                                        <x-fieldset.label>Nombre de dominio</x-fieldset.label>
                                         <x-input wire:model="domain" id="domain" type="text" name="domain" placeholder="holi.ing" required />
                                         @error('domain')
                                             <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>

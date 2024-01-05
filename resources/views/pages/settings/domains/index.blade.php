@@ -68,7 +68,7 @@ $validateDomain = function (Domain $domain) {
         <x-container>
             <div class="flex justify-between items-end">
                 <div>
-                    <h1 class="text-5xl font-extrabold">Dominios</h1>
+                    <h1 class="text-[44px] font-extrabold tracking-tight leading-[1.15]">Dominios</h1>
                 </div>
                 <div>
                     <x-button href="{{ route('settings.domains.create') }}">Agregar dominio</x-button>
