@@ -26,7 +26,7 @@ $store = function () {
         'public_domain' => false,
     ]);
 
-    session()->flash('flash.notification', 'Tu doominio ha sido agregado.');
+    session()->flash('flash.notification', 'Tu dominio ha sido agregado.');
 
     $this->redirect(route('settings.domains.index'), navigate: true);
 };
@@ -42,32 +42,30 @@ $store = function () {
     </x-slot:subheader>
     @volt('pages.settings.domains.create')
         <x-container>
-            <div class="flex justify-between items-end">
-                <div>
-                    <h5 class="text-sm font-bold mb-2">
-                        <a href="{{ route('settings.domains.index') }}" wire:navigate class="underline">Dominios</a>
-                    </h5>
-                    <h1 class="text-[44px] font-extrabold tracking-tight leading-[1.15]">Agregar dominio</h1>
-                </div>
-            </div>
+            <x-page-heading>
+                <x-slot name="breadcrumb">
+                    <x-subtitle>
+                        <x-link href="{{ route('settings.domains.index') }}" class="underline">Dominios</x-link>
+                    </x-subtitle>
+                </x-slot>
+                <x-h1>Agregar dominio</x-h1>
+            </x-page-heading>
             <div class="mt-6 pb-20">
                 <div class="p-8 bg-zinc-50">
-                    <div class="max-w-lg">
-                        <form wire:submit="store" class="w-full space-y-8">
-                            <x-fieldset>
-                                <x-fieldset.field-group>
-                                    <x-fieldset.field>
-                                        <x-fieldset.label>Nombre de dominio</x-fieldset.label>
-                                        <x-input wire:model="domain" id="domain" type="text" name="domain" placeholder="holi.ing" required />
-                                        @error('domain')
-                                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                        @enderror
-                                    </x-fieldset.field>
-                                </x-fieldset.field-group>
-                            </x-fieldset>
-                            <x-button>Agregar dominio</x-button>
-                        </form>
-                    </div>
+                    <form wire:submit="store" class="w-full max-w-lg space-y-8">
+                        <x-fieldset>
+                            <x-fieldset.field-group>
+                                <x-fieldset.field>
+                                    <x-fieldset.label>Nombre de dominio</x-fieldset.label>
+                                    <x-input wire:model="domain" id="domain" type="text" name="domain" placeholder="holi.ing" required />
+                                    @error('domain')
+                                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                    @enderror
+                                </x-fieldset.field>
+                            </x-fieldset.field-group>
+                        </x-fieldset>
+                        <x-button>Agregar dominio</x-button>
+                    </form>
                 </div>
             </div>
         </x-container>

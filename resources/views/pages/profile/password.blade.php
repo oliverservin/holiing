@@ -47,7 +47,7 @@ $updatePassword = function () {
 
     $this->reset('current_password', 'password', 'password_confirmation');
 
-    $this->notification('Contraseña actualizada correctamente.');
+    $this->notify('Contraseña actualizada correctamente.');
 };
 
 ?>
@@ -61,12 +61,12 @@ $updatePassword = function () {
     </x-slot:subheader>
     @volt('pages.profile.password')
         <x-container>
-            <div class="max-w-xl mx-auto pt-16 pb-20">
-                <x-card>
-                    <form wire:submit="updatePassword" class="w-full space-y-8">
-                        <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
-                            Cambiar contraseña
-                        </h3>
+            <x-page-heading>
+                <x-h1>Cambiar contraseña</x-h1>
+            </x-page-heading>
+            <div class="mt-6 pb-20">
+                <div class="p-8 bg-zinc-50">
+                    <form wire:submit="updatePassword" class="w-full max-w-lg space-y-8">
                         <x-fieldset>
                             <x-fieldset.field-group>
                                 <x-fieldset.field>
@@ -76,7 +76,6 @@ $updatePassword = function () {
                                         <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                     @enderror
                                 </x-fieldset.field>
-
                                 <x-fieldset.field>
                                     <x-fieldset.label>Contraseña nueva</x-fieldset.label>
                                     <x-input wire:model="password" id="update_password_password" type="password" name="update_password_password" autocomplete="new-password" />
@@ -84,7 +83,6 @@ $updatePassword = function () {
                                         <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                     @enderror
                                 </x-fieldset.field>
-
                                 <x-fieldset.field>
                                     <x-fieldset.label>Confirmar contraseña</x-fieldset.label>
                                     <x-input wire:model="password_confirmation" id="update_password_password_confirmation" type="password" name="password_confirmation" autocomplete="new-password" />
@@ -94,9 +92,9 @@ $updatePassword = function () {
                                 </x-fieldset.field>
                             </x-fieldset.field-group>
                         </x-fieldset>
-                        <x-button class="w-full">Guardar</x-button>
+                        <x-button>Guardar</x-button>
                     </form>
-                </x-card>
+                </div>
             </div>
         </x-container>
     @endvolt

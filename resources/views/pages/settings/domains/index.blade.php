@@ -66,14 +66,12 @@ $validateDomain = function (Domain $domain) {
     </x-slot:subheader>
     @volt('pages.settings.domains.index')
         <x-container>
-            <div class="flex justify-between items-end">
-                <div>
-                    <h1 class="text-[44px] font-extrabold tracking-tight leading-[1.15]">Dominios</h1>
-                </div>
-                <div>
+            <x-page-heading>
+                <x-h1>Dominios</x-h1>
+                <x-slot name="action">
                     <x-button href="{{ route('settings.domains.create') }}">Agregar dominio</x-button>
-                </div>
-            </div>
+                </x-slot>
+            </x-page-heading>
             <div class="mt-6 pb-20">
                 <div class="space-y-6">
                     @foreach($domains as $domain)
