@@ -18,6 +18,8 @@ class Domain extends Model
     protected $fillable = [
         'name',
         'public_domain',
+        'landing_page',
+        'landing_page',
     ];
 
     public function team()

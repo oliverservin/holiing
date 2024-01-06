@@ -14,15 +14,22 @@ middleware('auth');
 
 name('app.settings.domains.create');
 
-state(['domain' => '']);
+state([
+    'domain' => '',
+    'landing_page' => '',
+]);
 
-rules(['domain' => ['required', 'string', 'max:255', 'regex:/^(?!-)([A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$/']]);
+rules([
+    'domain' => ['required', 'string', 'max:255', 'regex:/^(?!-)([A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$/'],
+    'landing_page' => ['string', 'max:255'],
+]);
 
 $store = function () {
     $validated = $this->validate();
 
     auth()->user()->currentTeam->domains()->create([
         'name' => $validated['domain'],
+        'landing_page' => $validated['landing_page'],
         'public_domain' => false,
     ]);
 
@@ -61,6 +68,16 @@ $store = function () {
                                     @error('domain')
                                         <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                     @enderror
+                                </x-fieldset.field>
+                                <x-fieldset.field>
+                                    <x-fieldset.label>Página de landing</x-fieldset.label>
+                                    <x-input wire:model="landing_page" id="landing_page" type="text" name="landing_page" placeholder="https://tudominio.com" required />
+                                    @error('landing_page')
+                                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                    @enderror
+                                    <x-fieldset.description>
+                                        La página a la que serán redirigidos tus usuarios cuando visiten tu dominio.
+                                    </x-fieldset.description>
                                 </x-fieldset.field>
                             </x-fieldset.field-group>
                         </x-fieldset>

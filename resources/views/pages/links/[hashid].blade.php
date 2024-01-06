@@ -10,7 +10,6 @@ use function Laravel\Folio\render;
 middleware('domain');
 
 render(function (View $view, Request $request) {
-    ray($request->domain);
     $link = $request->domain->links()->where('hashid', $request->hashid)->firstOrFail();
 
     return redirect($link->url, 301);
