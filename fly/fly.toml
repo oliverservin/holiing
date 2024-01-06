@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for holiing-links-long-cloud-7138 on 2023-12-29T16:53:15-06:00
+# fly.toml app configuration file generated for holiing-customers on 2024-01-05T13:08:49-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "holiing-links"
+app = "holiing-customers"
 primary_region = "qro"
 
 [build]
@@ -23,3 +23,7 @@ primary_region = "qro"
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 256
+
+[[services]]
+  http_checks = []
+  tcp_checks = []
