@@ -16,7 +16,7 @@ class CustomDomain
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $domain = $request->getHost();
+        $domain = $request->header('LinksPageHost');
         $tenant = Domain::where('name', $domain)->firstOrFail();
 
         $request->merge([
