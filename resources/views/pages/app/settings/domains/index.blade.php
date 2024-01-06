@@ -113,8 +113,8 @@ $validateDomain = function (Domain $domain) {
                                             </div>
                                             <div class="flex flex-col gap-2">
                                                 <div class="font-medium text-zinc-500 dark:text-zinc-400">Value</div>
-                                                <div>66.241.124.101</div>
-                                                <div>2a09:8280:1::69:d0e7</div>
+                                                <div>66.241.125.98</div>
+                                                <div>2a09:8280:1::2d:d701</div>
                                             </div>
                                             <div class="flex flex-col gap-2">
                                                 <div class="font-medium text-zinc-500 dark:text-zinc-400">TTL</div>
