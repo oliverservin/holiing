@@ -12,7 +12,7 @@ uses(InteractsWithNotifications::class);
 
 middleware('auth');
 
-name('settings.domains.create');
+name('app.settings.domains.create');
 
 state(['domain' => '']);
 
@@ -28,7 +28,7 @@ $store = function () {
 
     session()->flash('flash.notification', 'Tu dominio ha sido agregado.');
 
-    $this->redirect(route('settings.domains.index'), navigate: true);
+    $this->redirect(route('app.settings.domains.index'), navigate: true);
 };
 
 ?>
@@ -40,12 +40,12 @@ $store = function () {
     <x-slot:subheader>
         <x-settings-navbar />
     </x-slot:subheader>
-    @volt('pages.settings.domains.create')
+    @volt('pages.app.settings.domains.create')
         <x-container>
             <x-page-heading>
                 <x-slot name="breadcrumb">
                     <x-subtitle>
-                        <x-link href="{{ route('settings.domains.index') }}" class="underline">Dominios</x-link>
+                        <x-link href="{{ route('app.settings.domains.index') }}" class="underline">Dominios</x-link>
                     </x-subtitle>
                 </x-slot>
                 <x-h1>Agregar dominio</x-h1>

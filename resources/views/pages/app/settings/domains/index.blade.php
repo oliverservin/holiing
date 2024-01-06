@@ -15,7 +15,7 @@ use App\Notifications\DomainVerificationRequested;
 
 middleware('auth');
 
-name('settings.domains.index');
+name('app.settings.domains.index');
 
 uses(InteractsWithNotifications::class);
 
@@ -31,11 +31,11 @@ $validateDomain = function (Domain $domain) {
     $dnsRecords = $dns->getRecords($domain->name, ['A', 'AAAA']);
 
     $validRecord = collect($dnsRecords)->first(function ($record) {
-        if ($record->type() === 'A' && $record->ip() === '66.241.124.101') {
+        if ($record->type() === 'A' && $record->ip() === '66.241.125.98') {
             return true;
         }
 
-        if ($record->type() === 'AAAA' && $record->ipv6() === '2a09:8280:1::69:d0e7') {
+        if ($record->type() === 'AAAA' && $record->ipv6() === '2a09:8280:1::2d:d701') {
             return true;
         }
     });
@@ -64,12 +64,12 @@ $validateDomain = function (Domain $domain) {
     <x-slot:subheader>
         <x-settings-navbar />
     </x-slot:subheader>
-    @volt('pages.settings.domains.index')
+    @volt('pages.app.settings.domains.index')
         <x-container>
             <x-page-heading>
                 <x-h1>Dominios</x-h1>
                 <x-slot name="action">
-                    <x-button href="{{ route('settings.domains.create') }}">Agregar dominio</x-button>
+                    <x-button href="{{ route('app.settings.domains.create') }}">Agregar dominio</x-button>
                 </x-slot>
             </x-page-heading>
             <div class="mt-6 pb-20">

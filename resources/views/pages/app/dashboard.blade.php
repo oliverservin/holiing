@@ -11,7 +11,7 @@ use function Laravel\Folio\name;
 
 $getShortLinks = fn () => $this->shortLinks = Auth::user()->currentTeam->links()->latest()->get();
 
-name('dashboard');
+name('app.dashboard');
 
 middleware(['auth']);
 
@@ -25,13 +25,13 @@ state([
     <x-slot:header>
         <x-auth-navbar />
     </x-slot:header>
-    @volt('pages.dashboard')
+    @volt('pages.app.dashboard')
         <x-container>
             <div class="mt-6">
                 <x-page-heading>
                     <x-h1>Dashboard</x-h1>
                     <x-slot name="action">
-                        <x-button href="/links/create">Crear enlace</x-button>
+                        <x-button href="/app/links/create">Crear enlace</x-button>
                     </x-slot>
                 </x-page-heading>
             </div>

@@ -39,7 +39,7 @@ class DomainVerificationRequested extends Notification
         return (new MailMessage)
                     ->subject('Una verificación de dominio ha sido solicitada')
                     ->line("El dominio a verificar es: {$this->domain->name}")
-                    ->action('Marcar como verficado', URL::signedRoute('domains.mark-as-verified', ['domain' => $this->domain->id]))
+                    ->action('Marcar como verficado', URL::signedRoute('app.domains.mark-as-verified', ['domain' => $this->domain->id]))
                     ->replyTo($this->domain->team->owner->email);
     }
 

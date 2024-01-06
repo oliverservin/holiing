@@ -9,9 +9,13 @@ use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
 use Illuminate\Support\Facades\Auth;
 use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
+
 use Illuminate\Contracts\Database\Query\Builder;
 
 middleware(['auth']);
+
+name('app.links.create');
 
 state([
     'url' => '',
@@ -41,7 +45,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
     session()->flash('flash.notification', 'Enlace creado.');
 
-    $this->redirect(route('dashboard'), navigate: true);
+    $this->redirect(route('app.dashboard'), navigate: true);
 }
 
 ?>
@@ -50,13 +54,13 @@ $store = function (HashIdGenerator $hashIdGenerator) {
     <x-slot:header>
         <x-auth-navbar />
     </x-slot:header>
-    @volt('pages.links.create')
+    @volt('pages.app.links.create')
         <x-container>
             <div class="mt-6">
                 <x-page-heading>
                     <x-slot name="breadcrumb">
                         <x-subtitle>
-                            <x-link href="{{ route('dashboard') }}" class="underline">Dashboard</x-link>
+                            <x-link href="{{ route('app.dashboard') }}" class="underline">Dashboard</x-link>
                         </x-subtitle>
                     </x-slot>
                     <x-h1>Crear enlace</x-h1>
