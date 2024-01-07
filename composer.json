@@ -9,6 +9,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "hashids/hashids": "^5.0",
         "honeybadger-io/honeybadger-laravel": "^3.18",
+        "jenssegers/agent": "^2.6",
         "laravel/folio": "^1.1",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",

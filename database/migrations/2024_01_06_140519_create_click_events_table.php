@@ -17,7 +17,19 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Domain::class);
             $table->foreignIdFor(ShortLink::class);
+            $table->string('country')->nullable();
+            $table->string('device')->nullable();
+            $table->string('browser')->nullable();
+            $table->string('browser_version')->nullable();
+            $table->string('platform')->nullable();
+            $table->string('platform_version')->nullable();
+            $table->unsignedTinyInteger('bot');
+            $table->text('ua')->nullable();
+            $table->string('referer')->nullable();
+            $table->text('referer_url')->nullable();
             $table->timestamps();
+
+            $table->index(['domain_id', 'short_link_id', 'created_at']);
         });
     }
 
