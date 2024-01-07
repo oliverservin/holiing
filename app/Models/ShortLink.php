@@ -12,9 +12,15 @@ class ShortLink extends Model
     protected $fillable = [
         'hashid',
         'url',
-        'visits',
+        'clicks',
         'team_id',
         'domain_id',
+        'last_clicked_at',
+    ];
+
+    protected $casts = [
+        'clicks' => 'integer',
+        'last_clicked_at' => 'datetime',
     ];
 
     public function domain()
