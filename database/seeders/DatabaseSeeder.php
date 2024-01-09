@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Domain::factory()->create([
-            'name' => 'holi.ing',
+            'name' => 'holi.ing.test',
             'team_id' => $user->currentTeam,
             'public_domain' => true,
         ]);
