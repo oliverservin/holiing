@@ -13,6 +13,6 @@ jobs:
       steps:
         - name: Use curl to ping webhook
           env:
-              WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+            WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
           run: |
             curl -n "$WEBHOOK_URL"
