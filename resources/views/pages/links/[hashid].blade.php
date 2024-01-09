@@ -41,7 +41,7 @@ render(function (View $view, Request $request) {
     $link->last_clicked_at = now();
     $link->save();
 
-    return redirect($link->url, 301);
+    return redirect($link->url, 307);
 });
 
 ?>
