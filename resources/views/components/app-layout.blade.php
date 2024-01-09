@@ -22,5 +22,7 @@
         {{ $footer ?? '' }}
     </footer>
     <x-notifications />
+
+    <x-support-bubble />
 </body>
 </html>
