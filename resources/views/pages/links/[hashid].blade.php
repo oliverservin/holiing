@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 use Jenssegers\Agent\Agent;
+use Stevebauman\Location\Facades\Location;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\render;
@@ -24,7 +25,7 @@ render(function (View $view, Request $request) {
     $clickEvent = ClickEvent::create([
         'domain_id' => $request->domain->id,
         'short_link_id' => $link->id,
-        'country' => $request->header('CF-IPCountry') ?? 'Unknown',
+        'country' => ($location = Location::get()) ? $location->countryCode : 'Unknown',
         'device' => $agent->device() ?? 'Unknown',
         'browser' => $browser = $agent->browser() ?? 'Unknown',
         'browser_version' => $agent->version($browser) ?? 'Unknown',

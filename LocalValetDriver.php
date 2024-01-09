@@ -10,7 +10,7 @@ class LocalValetDriver extends LaravelValetDriver
             $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
         }
 
-        if ($siteName !== 'holiing.test') {
+        if ($siteName !== 'holiing') {
             $_SERVER['HTTP_LINKSPAGEHOST'] = $_SERVER['HTTP_HOST'];
             $_SERVER['HTTP_HOST'] = 'links.holiing.test';
         }
