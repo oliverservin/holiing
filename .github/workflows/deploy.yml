@@ -10,9 +10,9 @@ jobs:
   webhook:
     name: Ping webhook
     runs-on: ubuntu-latest
-      steps:
-        - name: Use curl to ping webhook
-          env:
-            WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-          run: |
-            curl -n "$WEBHOOK_URL"
+    steps:
+      - name: Use curl to ping webhook
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: |
+          curl -n "$WEBHOOK_URL"
