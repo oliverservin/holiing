@@ -27,4 +27,9 @@ class ShortLink extends Model
     {
         return $this->belongsTo(Domain::class);
     }
+
+    public function clickEvents()
+    {
+        return $this->hasMany(ClickEvent::class);
+    }
 }
