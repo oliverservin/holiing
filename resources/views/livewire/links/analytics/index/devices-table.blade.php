@@ -12,7 +12,7 @@ $fillDataset = function () {
         ->select('device', DB::raw('COUNT(*) as total'))
         ->groupBy('device')
         ->orderBy('total', 'desc')
-        ->take(9)
+        ->take(5)
         ->get();
 
     $this->dataset = $results;
@@ -35,7 +35,7 @@ with(function () {
                 </th>
 
                 <th class="p-3 text-right text-sm font-semibold text-gray-900">
-                    <div>Total</div>
+                    <div>Clics</div>
                 </th>
             </tr>
         </thead>
