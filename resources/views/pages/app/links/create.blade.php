@@ -58,14 +58,14 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             <x-main>
                 <x-section>
                     <x-container>
-                        <x-page-heading>
-                            <x-slot name="breadcrumb">
-                                <x-subtitle>
-                                    <x-link href="{{ route('app.dashboard') }}" class="underline">Dashboard</x-link>
-                                </x-subtitle>
-                            </x-slot>
-                            <x-h1>Crear enlace</x-h1>
-                        </x-page-heading>
+                        <x-page-header>
+                            <x-back href="{{ route('app.dashboard') }}" />
+                            <x-page-header.content>
+                                <x-page-header.text>
+                                    <x-h1>Crear enlace</x-h1>
+                                </x-page-header.text>
+                            </x-page-header.content>
+                        </x-page-header>
                     </x-container>
                 </x-section>
 

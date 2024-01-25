@@ -1,5 +1,5 @@
 <div class="border-b border-b-zinc-950/10">
-    <div class="border-b border-zinc-100">
+    <div class="border-b border-b-zinc-950/10">
         <x-container class="flex justify-between items-center h-[72px]">
             <div class="flex items-center gap-4">
                 <x-logo />
