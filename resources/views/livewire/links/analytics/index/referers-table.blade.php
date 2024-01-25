@@ -27,32 +27,26 @@ with(function () {
 ?>
 
 <div>
-    <table class="min-w-full table-fixed divide-y divide-gray-300 text-gray-800">
-        <thead>
-            <tr>
-                <th class="p-3 text-left text-sm font-semibold text-gray-900">
-                    <div class="whitespace-nowrap">Referencia</div>
-                </th>
+    <x-table>
+        <x-table.head>
+            <x-table.row>
+                <x-table.header>Referencia</x-table.header>
+                <x-table.header class="text-right">Clics</x-table.header>
+            </x-table.row>
+        </x-table.head>
 
-                <th class="p-3 text-right text-sm font-semibold text-gray-900">
-                    <div>Clics</div>
-                </th>
-            </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200 bg-white text-gray-700">
+        <x-table.body>
             @foreach ($dataset as $set)
-                <tr wire:key="{{ $set->id }}">
-                    <td class="whitespace-nowrap p-3 text-sm">
-                        <div class="flex gap-1">
-                            {{ $set->referer }}
-                        </div>
-                    </td>
+                <x-table.row wire:key="{{ $set->id }}">
+                    <x-table.cell>
+                        {{ $set->referer }}
+                    </x-table.cell>
 
-                    <td class="w-auto whitespace-nowrap p-3 text-sm text-gray-800 font-semibold text-right">
+                    <x-table.cell class="text-right">
                         {{ $set->total }}
-                    </td>
-                </tr>
+                    </x-table.cell>
+                </x-table.row>
             @endforeach
-        </tbody>
-    </table>
+        </x-table.body>
+    </x-table>
 </div>
