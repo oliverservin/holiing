@@ -29,12 +29,16 @@ state([
             <x-main>
                 <x-section>
                     <x-container>
-                        <x-page-heading>
-                            <x-h1>Enlaces</x-h1>
-                            <x-slot name="action">
-                                <x-button href="/app/links/create">Crear enlace</x-button>
-                            </x-slot>
-                        </x-page-heading>
+                        <x-page-header>
+                            <x-page-header.content>
+                                <x-page-header.text>
+                                    <x-h1>Enlaces</x-h1>
+                                </x-page-header.text>
+                                <x-page-header.actions>
+                                    <x-button href="/app/links/create">Crear enlace</x-button>
+                                </x-page-header.actions>
+                            </x-page-header.content>
+                        </x-page-header>
                     </x-container>
                 </x-section>
 
