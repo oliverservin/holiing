@@ -42,7 +42,12 @@
                     {{ $shortLink->dateForHumans() }}
                 </x-table.cell>
                 <x-table.cell class="text-zinc-500">
-                    {{ $shortLink->clicksForHumans() }}
+                    <x-badge.button href="{{ route('app.links.analytics', ['shortLink' => $shortLink]) }}">
+                        <div class="flex items-center gap-1">
+                            <x-icon.chart-bar class="size-3" />
+                            {{ $shortLink->clicksForHumans() }}
+                        </div>
+                    </x-badge.button>
                 </x-table.cell>
                 <x-table.cell class="text-zinc-500">
                     {{ $shortLink->lastClickedForHumans() }}
