@@ -51,61 +51,67 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 ?>
 
 <x-app-layout>
-    <x-slot:header>
-        <x-auth-navbar />
-    </x-slot:header>
     @volt('pages.app.links.create')
-        <x-container>
-            <div class="mt-6">
-                <x-page-heading>
-                    <x-slot name="breadcrumb">
-                        <x-subtitle>
-                            <x-link href="{{ route('app.dashboard') }}" class="underline">Dashboard</x-link>
-                        </x-subtitle>
-                    </x-slot>
-                    <x-h1>Crear enlace</x-h1>
-                </x-page-heading>
-            </div>
-            <div class="mt-6 pb-20">
-                <div class="p-8 bg-zinc-50">
-                    <form wire:submit="store" class="w-full max-w-lg space-y-8">
-                        <x-fieldset>
-                            <x-fieldset.field-group>
-                                <x-fieldset.field>
-                                    <x-fieldset.label>URL de destino</x-fieldset.label>
-                                    <x-input wire:model="url" id="url" type="text" name="url" placeholder="{{ url('/') }}" required />
-                                    @error('url')
-                                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                    @enderror
-                                </x-fieldset.field>
-                                <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
-                                    <x-fieldset.field>
-                                        <x-fieldset.label>Dominio</x-fieldset.label>
-                                        <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
-                                            @foreach($domains as $domain)
-                                                <option value="{{ $domain->id }}">
-                                                    {{ $domain->name }}
-                                                </option>
-                                            @endforeach
-                                        </x-select>
-                                        @error('domain_id')
-                                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                        @enderror
-                                    </x-fieldset.field>
-                                    <x-fieldset.field class="sm:col-span-2">
-                                        <x-fieldset.label>Alias</x-fieldset.label>
-                                        <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
-                                        @error('hashid')
-                                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                        @enderror
-                                    </x-fieldset.field>
-                                </div>
-                            </x-fieldset.field-group>
-                        </x-fieldset>
-                        <x-button>Crear enlace</x-button>
-                    </form>
-                </div>
-            </div>
-        </x-container>
+        <div>
+            <x-app.navigation />
+
+            <x-main>
+                <x-section>
+                    <x-container>
+                        <x-page-header>
+                            <x-back href="{{ route('app.dashboard') }}" />
+                            <x-page-header.content>
+                                <x-page-header.text>
+                                    <x-h1>Crear enlace</x-h1>
+                                </x-page-header.text>
+                            </x-page-header.content>
+                        </x-page-header>
+                    </x-container>
+                </x-section>
+
+                <x-section>
+                    <x-container>
+                        <div class="p-8 bg-zinc-50">
+                            <form wire:submit="store" class="w-full max-w-lg space-y-8">
+                                <x-fieldset>
+                                    <x-fieldset.field-group>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label>URL de destino</x-fieldset.label>
+                                            <x-input wire:model="url" id="url" type="text" name="url" placeholder="{{ url('/') }}" required />
+                                            @error('url')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
+                                        <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
+                                            <x-fieldset.field>
+                                                <x-fieldset.label>Dominio</x-fieldset.label>
+                                                <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
+                                                    @foreach($domains as $domain)
+                                                        <option value="{{ $domain->id }}">
+                                                            {{ $domain->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </x-select>
+                                                @error('domain_id')
+                                                    <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                                @enderror
+                                            </x-fieldset.field>
+                                            <x-fieldset.field class="sm:col-span-2">
+                                                <x-fieldset.label>Alias</x-fieldset.label>
+                                                <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
+                                                @error('hashid')
+                                                    <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                                @enderror
+                                            </x-fieldset.field>
+                                        </div>
+                                    </x-fieldset.field-group>
+                                </x-fieldset>
+                                <x-button>Crear enlace</x-button>
+                            </form>
+                        </div>
+                    </x-container>
+                </x-section>
+            </x-main>
+        </div>
     @endvolt
 </x-app-layout>

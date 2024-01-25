@@ -10,17 +10,9 @@
 
     @vite(['resources/css/app.css'])
 </head>
-<body class="h-screen flex flex-col font-sans bg-white dark:bg-zinc-900">
-    <header>
-        {{ $header ?? '' }}
-        {{ $subheader ?? '' }}
-    </header>
-    <main class="flex-1">
-        {{ $slot }}
-    </main>
-    <footer>
-        {{ $footer ?? '' }}
-    </footer>
+<body class="font-sans bg-white dark:bg-zinc-900">
+    {{ $slot }}
+
     <x-notifications />
 
     <x-support-bubble />

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Number;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ShortLink extends Model
 {
@@ -26,5 +27,33 @@ class ShortLink extends Model
     public function domain()
     {
         return $this->belongsTo(Domain::class);
+    }
+
+    public function clickEvents()
+    {
+        return $this->hasMany(ClickEvent::class);
+    }
+
+    public function dateForHumans()
+    {
+        return $this->created_at->format(
+            $this->created_at->year === now()->year
+                ? 'M d, g:i A'
+                : 'M d, Y, g:i A'
+        );
+    }
+
+    public function clicksForHumans()
+    {
+        return Number::format($this->clicks);
+    }
+
+    public function lastClickedForHumans()
+    {
+        return $this->last_clicked_at->format(
+            $this->last_clicked_at->year === now()->year
+                ? 'M d, g:i A'
+                : 'M d, Y, g:i A'
+        );
     }
 }
