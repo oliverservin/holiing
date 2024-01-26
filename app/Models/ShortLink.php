@@ -50,6 +50,10 @@ class ShortLink extends Model
 
     public function lastClickedForHumans()
     {
+        if (! $this->last_clicked_at) {
+            return '—';
+        }
+
         return $this->last_clicked_at->format(
             $this->last_clicked_at->year === now()->year
                 ? 'M d, g:i A'
