@@ -56,3 +56,12 @@
         @endforeach
     </x-table.body>
 </x-table>
+
+{{-- Pagination... --}}
+<div class="pt-4 flex justify-between items-center">
+    <div class="text-gray-700 text-sm">
+        Results: {{ \Illuminate\Support\Number::format($shortLinks->total()) }}
+    </div>
+
+    {{ $shortLinks->links('livewire.links.index.pagination') }}
+</div>
