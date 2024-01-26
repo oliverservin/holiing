@@ -57,7 +57,7 @@ $validateDomain = function (Domain $domain) {
 
 ?>
 
-<x-app-layout>
+<x-layouts.app>
     @volt('pages.app.settings.domains.index')
         <div>
             <x-app.settings.navigation />
@@ -77,4 +77,4 @@ $validateDomain = function (Domain $domain) {
             </x-main>
         </div>
     @endvolt
-</x-app-layout>
+</x-layouts.app>

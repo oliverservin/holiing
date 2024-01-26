@@ -21,7 +21,7 @@ state([
 
 ?>
 
-<x-app-layout>
+<x-layouts.app>
     @volt('pages.app.dashboard')
         <div>
             <x-app.navigation />
@@ -50,4 +50,4 @@ state([
             </x-main>
         </div>
     @endvolt
-</x-app-layout>
+</x-layouts.app>

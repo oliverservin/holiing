@@ -52,7 +52,7 @@ $updatePassword = function () {
 
 ?>
 
-<x-app-layout>
+<x-layouts.app>
     @volt('pages.app.profile.password')
         <div>
             <x-app.settings.navigation />
@@ -107,4 +107,4 @@ $updatePassword = function () {
             </x-main>
         </div>
     @endvolt
-</x-app-layout>
+</x-layouts.app>

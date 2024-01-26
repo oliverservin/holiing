@@ -16,7 +16,7 @@ render(function ($shortLink) {
 
 ?>
 
-<x-app-layout>
+<x-layouts.app>
     <div>
         <x-app.navigation />
 
@@ -49,4 +49,4 @@ render(function ($shortLink) {
             </x-section>
         </x-main>
     </div>
-</x-app-layout>
+</x-layouts.app>

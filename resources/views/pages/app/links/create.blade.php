@@ -50,7 +50,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
 ?>
 
-<x-app-layout>
+<x-layouts.app>
     @volt('pages.app.links.create')
         <div>
             <x-app.navigation />
@@ -114,4 +114,4 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             </x-main>
         </div>
     @endvolt
-</x-app-layout>
+</x-layouts.app>

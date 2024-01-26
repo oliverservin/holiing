@@ -40,7 +40,7 @@ $store = function () {
 
 ?>
 
-<x-app-layout>
+<x-layouts.app>
     @volt('pages.app.settings.domains.create')
         <div>
             <x-app.settings.navigation />
@@ -92,4 +92,4 @@ $store = function () {
             </x-main>
         </div>
     @endvolt
-</x-app-layout>
+</x-layouts.app>
