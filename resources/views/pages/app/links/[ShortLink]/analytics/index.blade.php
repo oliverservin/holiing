@@ -28,6 +28,7 @@ render(function ($shortLink) {
                         <x-page-header.content>
                             <x-page-header.text>
                                 <x-h1>Analíticas</x-h1>
+                                <p class="text-zinc-600">{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</p>
                             </x-page-header.text>
                         </x-page-header.content>
                     </x-page-header>
