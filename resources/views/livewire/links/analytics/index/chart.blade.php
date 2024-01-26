@@ -8,7 +8,7 @@ use function Livewire\Volt\with;
 state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
 
 $fillDataset = function () {
-    $increment = DB::raw("strftime('%Y', created_at) || '-' || strftime('%m', created_at) as increment");
+    $increment = DB::raw("DATE(ordered_at) as increment");
 
     $results = $this->shortLink->clickEvents()
         ->select($increment, DB::raw('COUNT(*) as total'))
