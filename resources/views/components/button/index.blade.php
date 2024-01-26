@@ -185,8 +185,8 @@ $classes = Arr::toCssClasses(array_merge(
 
 ?>
 
-@if ($attributes->has('href'))
-    <x-link {{ $attributes->except(['class'])  }} class="{{ $classes }}">
+@if ($attributes->has('href') && ! empty($attributes->get('href')))
+    <x-link {{ $attributes->except(['class']) }} class="{{ $classes }}">
         {{ $slot }}
     </x-link>
 @else

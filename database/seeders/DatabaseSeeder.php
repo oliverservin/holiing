@@ -33,5 +33,18 @@ class DatabaseSeeder extends Seeder
         ClickEvent::factory()->count(760)->create(['domain_id' => '1', 'short_link_id' => '2']);
         ClickEvent::factory()->count(543)->create(['domain_id' => '1', 'short_link_id' => '3']);
         ClickEvent::factory()->count(632)->create(['domain_id' => '1', 'short_link_id' => '4']);
+
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
+        ShortLink::factory()->create(['team_id' => 1, 'domain_id' => 1, 'url' => 'https://oliver.mx']);
     }
 }

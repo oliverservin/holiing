@@ -8,16 +8,26 @@ use function Livewire\Volt\state;
 use Illuminate\Support\Facades\Auth;
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+use function Livewire\Volt\usesPagination;
+use function Livewire\Volt\with;
 
-$getShortLinks = fn () => $this->shortLinks = Auth::user()->currentTeam->links()->latest()->get();
+usesPagination();
+
+// $getShortLinks = fn () => $this->shortLinks = Auth::user()->currentTeam->links()->latest()->get();
 
 name('app.dashboard');
 
 middleware(['auth']);
 
-state([
-    'shortLinks' => $getShortLinks,
-]);
+// state([
+//     'shortLinks' => $getShortLinks,
+// ]);
+
+with(function () {
+    return [
+        'shortLinks' => Auth::user()->currentTeam->links()->latest()->paginate(5),
+    ];
+});
 
 ?>
 

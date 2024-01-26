@@ -56,3 +56,8 @@
         @endforeach
     </x-table.body>
 </x-table>
+
+{{-- Pagination... --}}
+<div class="mt-5 flex justify-end">
+    {{ $shortLinks->links('livewire.links.index.pagination') }}
+</div>
