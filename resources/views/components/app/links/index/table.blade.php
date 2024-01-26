@@ -14,7 +14,7 @@
                 <x-table.cell>
                     <div>
                         <div class="flex gap-2">
-                            <h3 class="text-base font-semibold">
+                            <h3 class="text-base font-semibold w-full max-w-[140px] sm:max-w-[300px] md:max-w-[360px] xl:max-w-[500px] truncate">
                                 <a href="{{ 'https://' . $shortLink->domain->name . '/' . $shortLink->hashid }}">{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</a>
                             </h3>
                             <button
