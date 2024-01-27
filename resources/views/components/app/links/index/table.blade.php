@@ -2,9 +2,21 @@
     <x-table.head>
         <x-table.row>
             <x-table.header>Enlace</x-table.header>
-            <x-table.header>Fecha</x-table.header>
-            <x-table.header>Clics</x-table.header>
-            <x-table.header>Último clic</x-table.header>
+            <x-table.header>
+                <x-app.links.index.sortable column="date" :$sortCol :$sortAsc>
+                    <div>Fecha</div>
+                </x-app.links.index.sortable>
+            </x-table.header>
+            <x-table.header>
+                <x-app.links.index.sortable column="clics" :$sortCol :$sortAsc>
+                    <div>Clics</div>
+                </x-app.links.index.sortable>
+            </x-table.header>
+            <x-table.header>
+                <x-app.links.index.sortable column="last_clicked" :$sortCol :$sortAsc>
+                    <div>Último clic</div>
+                </x-app.links.index.sortable>
+            </x-table.header>
         </x-table.row>
     </x-table.head>
 
