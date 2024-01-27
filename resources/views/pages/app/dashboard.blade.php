@@ -2,20 +2,21 @@
 
 use App\HashIdGenerator;
 use App\Models\ShortLink;
-use App\Livewire\App\Links\Index\Sortable;
-use Illuminate\Support\Facades\Auth;
-
 use function Laravel\Folio\name;
 use function Livewire\Volt\uses;
+
 use function Livewire\Volt\with;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
+use Illuminate\Support\Facades\Auth;
 use function Laravel\Folio\middleware;
+use App\Livewire\App\Links\Index\Sortable;
 use function Livewire\Volt\usesPagination;
+use App\Livewire\App\Links\Index\Searchable;
 
 usesPagination();
 
-uses(Sortable::class);
+uses([Searchable::class, Sortable::class]);
 
 name('app.dashboard');
 
@@ -23,6 +24,8 @@ middleware(['auth']);
 
 with(function () {
     $query = Auth::user()->currentTeam->links();
+
+    $query = $this->applySearch($query);
 
     $query = $this->applySorting($query);
 
