@@ -81,7 +81,7 @@ with(function () {
                         labels: labels,
                         datasets: [{
                             tension: 0.1,
-                            label: 'Order amount',
+                            label: 'Clics',
                             data: values,
                             fill: {
                                 target: 'origin',
