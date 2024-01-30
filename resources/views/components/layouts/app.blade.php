@@ -17,8 +17,8 @@
 <body class="font-sans bg-white dark:bg-zinc-900">
     {{ $slot }}
 
-    <x-notifications />
-
     <x-support-bubble />
+
+    <x-notifications />
 </body>
 </html>
