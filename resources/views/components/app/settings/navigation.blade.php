@@ -7,23 +7,23 @@
             <div class="flex items-center gap-4">
                 <!-- Actions -->
                 <div class="flex gap-4">
-                    <x-navigation-menu.button href="{{ route('app.settings.domains.index') }}">
-                        <x-icon.cog-6-tooth class="size-5" />
-                    </x-navigation-menu.button>
+                    <x-button href="{{ route('app.settings.domains.index') }}" plain>
+                        <x-icon.16.solid.cog-6-tooth />
+                    </x-button>
                 </div>
             </div>
         </x-container>
     </div>
 
     <x-container class="flex items-center h-16 gap-8">
-        <div class="flex items-center gap-1">
-            <x-navigation-menu.item href="{{ route('app.settings.domains.index') }}">
+        <div class="flex items-center gap-2">
+            <x-button href="{{ route('app.settings.domains.index') }}" :data-active="request()->is('app/settings/domains')" plain>
                 Dominios
-            </x-navigation-menu.item>
+            </x-button>
 
-            <x-navigation-menu.item href="{{ route('app.profile.password') }}">
+            <x-button href="{{ route('app.profile.password') }}" :data-active="request()->is('app/profile/password')" plain>
                 Contraseña
-            </x-navigation-menu.item>
+            </x-button>
         </div>
     </x-container>
 </div>

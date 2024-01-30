@@ -6,9 +6,9 @@
         <div class="flex items-center gap-4">
             <!-- Actions -->
             <div class="flex gap-4">
-                <x-navigation-menu.button href="{{ route('app.settings.domains.index') }}">
-                    <x-icon.cog-6-tooth class="size-5" />
-                </x-navigation-menu.button>
+                <x-button href="{{ route('app.settings.domains.index') }}" plain>
+                    <x-icon.16.solid.cog-6-tooth />
+                </x-button>
             </div>
         </div>
     </x-container>
