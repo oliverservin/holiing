@@ -9,6 +9,10 @@
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
 
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/anchor@3.x.x/dist/cdn.min.js"></script>
+        <script defer src="https://unpkg.com/@alpinejs/ui@3.13.3-beta.4/dist/cdn.min.js"></script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css'])
     </head>

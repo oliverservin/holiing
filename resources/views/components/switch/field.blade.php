@@ -1,6 +1,13 @@
-<x-switch.field-headless
+@props(['disabled' => false])
+
+<div
+    x-switch:group
     data-slot="field"
-    {{ $attributes->merge(['class' => Arr::toCssClasses([
+    {{ $attributes->except(['class']) }}
+    @class([
+        $attributes->get('class'),
+
+        // Base layout
         'grid grid-cols-[1fr_auto] items-center gap-x-8 gap-y-1 sm:grid-cols-[1fr_auto]',
 
         // Control layout
@@ -14,7 +21,7 @@
 
         // With description
         '[&_[data-slot=label]]:has-[[data-slot=description]]:font-medium'
-    ])]) }}
+    ])
 >
     {{ $slot }}
-</x-switch.field-headless>
+</div>

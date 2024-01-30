@@ -11,6 +11,8 @@
     @vite(['resources/css/app.css'])
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/anchor@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/ui@3.13.3-beta.4/dist/cdn.min.js"></script>
 </head>
 <body class="font-sans h-screen flex flex-col bg-white dark:bg-zinc-900">
     <header>
