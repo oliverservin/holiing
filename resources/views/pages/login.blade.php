@@ -58,10 +58,10 @@ $login = function () {
                 </x-fieldset.field-group>
             </x-fieldset>
             <div>
-                <x-switch.field-headless class="flex items-center gap-4">
-                    <x-switch.label>Recordarme</x-switch.label>
+                <div x-data class="flex items-center gap-4">
+                    <x-fieldset.label x-switch:label>Recordarme</x-fieldset.label>
                     <x-switch name="remember" wire:model="form.remember" />
-                </x-switch.field-headless>
+                </div>
             </div>
             <x-button class="w-full">Iniciar sesión</x-button>
             <x-text>
