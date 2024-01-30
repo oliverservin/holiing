@@ -20,6 +20,9 @@
                         <div>Último clic</div>
                     </x-app.links.index.sortable>
                 </x-table.header>
+                <x-table.header>
+                    {{-- Dropdown menus... --}}
+                </x-table.header>
             </x-table.row>
         </x-table.head>
 
@@ -66,6 +69,11 @@
                     </x-table.cell>
                     <x-table.cell class="text-zinc-500">
                         {{ $shortLink->lastClickedForHumans() }}
+                    </x-table.cell>
+                    <x-table.cell>
+                        <div class="flex items-center justify-end">
+                            <x-app.links.index.row-dropdown :$shortLink />
+                        </div>
                     </x-table.cell>
                 </x-table.row>
             @endforeach
