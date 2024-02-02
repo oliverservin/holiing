@@ -6,7 +6,7 @@
             </a>
         </div>
         <div>
-            <x-button href="{{ route('app.dashboard') }}" outline>Dashboard</x-button>
+            <x-marketing.nav />
         </div>
     </div>
 </x-container>

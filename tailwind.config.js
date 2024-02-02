@@ -15,9 +15,20 @@ export default {
         fontFamily: {
             sans: ['Inter', ...defaultTheme.fontFamily.sans],
         },
+        colors: {
+            'gray': {
+                'aluminum': '#f8f8f8',
+                'platinum': '#e5e5e5',
+                'silver': '#f0f0f0',
+                'matte': '#1f1f1f',
+                'night': '#141414',
+                'gloss': '#262626',
+                'flat': '#1a1a1a',
+            }
+        }
     },
   },
   plugins: [
-    //
+    require('@tailwindcss/typography'),
   ],
 }
