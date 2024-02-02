@@ -14,15 +14,19 @@ class Release extends Model
 
     protected $rows = [
         [
-            'title' => '3',
+            'title' => '1.2.1',
             'date' => '2024-02-01',
         ],
         [
-            'title' => '2',
+            'title' => '1.2.0',
+            'date' => '2024-02-01',
+        ],
+        [
+            'title' => '1.1.0',
             'date' => '2024-01-03',
         ],
         [
-            'title' => '1',
+            'title' => '1.0.0',
             'date' => '2023-12-28',
         ],
     ];
