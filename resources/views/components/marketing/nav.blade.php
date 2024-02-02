@@ -2,7 +2,7 @@
     'links' => [
         ['Tarifas', '/', request()->is('tarifas')],
         ['Changelog', '/changelog', request()->is('changelog')],
-        ['App', '/app', false],
+        ['App', '/app/dashboard', false],
     ]
 ])
 
