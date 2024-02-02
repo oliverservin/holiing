@@ -1,4 +1,4 @@
-@props(['size' => 'md'])
+@props(['size' => 'md', 'outline' => false])
 
 <?php
 
@@ -19,7 +19,10 @@ $classes = [
     'disabled:opacity-40',
 
     // Default style
-    'bg-black dark:bg-white/80 border-black dark:border-white/80 text-white dark:text-black/80 hover:bg-black/80 dark:hover:bg-white disabled:hover:bg-black disabled:dark:hover:bg-white/80'
+    'bg-black dark:bg-white/80 border-black dark:border-white/80 text-white dark:text-black/80 hover:bg-black/80 dark:hover:bg-white disabled:hover:bg-black disabled:dark:hover:bg-white/80' => ! $outline,
+
+    // Outline style
+    'border-black/15 dark:border-white/15 text-black dark:text-white/80 hover:bg-black/5 dark:hover:bg-white/5 disabled:hover:bg-transparent disabled:dark:hover:bg-transparent' => $outline,
 ];
 
 ?>
