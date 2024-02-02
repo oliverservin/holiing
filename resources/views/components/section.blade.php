@@ -1,3 +1,3 @@
-<div class="flex flex-row gap-6">
+<div class="space-y-6">
     {{ $slot }}
 </div>

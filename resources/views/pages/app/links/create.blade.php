@@ -53,7 +53,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 <x-layouts.app>
     @volt('pages.app.links.create')
         <div>
-            <x-app.navigation />
+            <x-app.settings.header />
 
             <x-main>
                 <x-section>

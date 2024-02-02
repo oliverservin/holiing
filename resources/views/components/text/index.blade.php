@@ -1,3 +1,3 @@
-<p data-slot="text" {{ $attributes->merge(['class' => 'text-base/6 text-zinc-500 sm:text-sm/6 dark:text-zinc-400']) }}>
+<p {{ $attributes->merge(['class' => 'text-black/60 dark:text-white/60 text-sm/[1.4]']) }}>
     {{ $slot }}
 </p>

@@ -43,52 +43,60 @@ $store = function () {
 <x-layouts.app>
     @volt('pages.app.settings.domains.create')
         <div>
-            <x-app.settings.navigation />
+            <x-app.settings.header />
 
             <x-main>
-                <x-section>
-                    <x-container>
-                        <x-page-header>
-                            <x-back href="{{ route('app.settings.domains.index') }}" />
-                            <x-page-header.content>
-                                <x-page-header.text>
-                                    <x-h1>Agregar dominio</x-h1>
-                                </x-page-header.text>
-                            </x-page-header.content>
-                        </x-page-header>
-                    </x-container>
-                </x-section>
-
-                <x-section>
-                    <x-container>
-                        <div class="p-8 bg-zinc-50">
-                            <form wire:submit="store" class="w-full max-w-lg space-y-8">
-                                <x-fieldset>
-                                    <x-fieldset.field-group>
-                                        <x-fieldset.field>
-                                            <x-fieldset.label>Nombre de dominio</x-fieldset.label>
-                                            <x-input wire:model="domain" id="domain" type="text" name="domain" placeholder="holi.ing" required />
-                                            @error('domain')
-                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                            @enderror
-                                        </x-fieldset.field>
-                                        <x-fieldset.field>
-                                            <x-fieldset.label>Página de landing</x-fieldset.label>
-                                            <x-input wire:model="landing_page" id="landing_page" type="text" name="landing_page" placeholder="https://tudominio.com" required />
-                                            @error('landing_page')
-                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                            @enderror
-                                            <x-fieldset.description>
-                                                La página a la que serán redirigidos tus usuarios cuando visiten tu dominio.
-                                            </x-fieldset.description>
-                                        </x-fieldset.field>
-                                    </x-fieldset.field-group>
-                                </x-fieldset>
-                                <x-button>Agregar dominio</x-button>
-                            </form>
+                <x-container>
+                    <x-section>
+                        <div class="space-y-0.5">
+                            <x-heading.h1>Configuración</x-heading.h1>
+                            <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
-                    </x-container>
-                </x-section>
+
+                        <x-divider />
+
+                        <x-app.settings.nav />
+
+                        <div class="max-w-2xl">
+                            <x-section>
+                                <div class="space-y-0.5">
+                                    <x-heading.h2>Agregar dominio</x-heading.h2>
+                                    <x-text>Crea enlaces cortos utilizando dominios personalizados.</x-text>
+                                </div>
+
+                                <x-divider />
+
+                                <form wire:submit="store" class="space-y-8">
+                                    <x-field.group>
+                                        <x-field>
+                                            <x-field.label for="domain">Nombre de dominio</x-field.label>
+                                            <x-input-kube wire:model="domain" id="domain" type="text" name="domain" :invalid="$errors->has('domain')" placeholder="holi.ing" required />
+                                            @error('domain')
+                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                            @enderror
+                                            <x-field.description>
+                                                El nombre de dominio que deseas agregar.
+                                            </x-field.description>
+                                        </x-field>
+
+                                        <x-field>
+                                            <x-field.label for="landing_page">Página de landing</x-field.label>
+                                            <x-input-kube wire:model="landing_page" id="landing_page" type="text" name="landing_page" :invalid="$errors->has('landing_page')" placeholder="https://tudominio.com" required />
+                                            @error('landing_page')
+                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                            @enderror
+                                            <x-field.description>
+                                                La página a la que serán redirigidos tus usuarios cuando visiten tu dominio.
+                                            </x-field.description>
+                                        </x-field>
+                                    </x-field.group>
+
+                                    <x-button.kube>Agregar dominio</x-button.kube>
+                                </form>
+                            </x-section>
+                        </div>
+                    </x-section>
+                </x-container>
             </x-main>
         </div>
     @endvolt

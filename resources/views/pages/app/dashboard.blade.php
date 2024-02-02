@@ -48,7 +48,7 @@ with(function () {
 <x-layouts.app>
     @volt('pages.app.dashboard')
         <div>
-            <x-app.navigation />
+            <x-app.settings.header />
 
             <x-main>
                 <x-section>
