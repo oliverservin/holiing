@@ -24,7 +24,9 @@ render(function ($shortLink) {
             <x-container>
                 <x-app.section>
                     <div>
-                        <x-app.back href="{{ route('app.dashboard') }}" />
+                        <x-link href="{{ route('app.dashboard') }}" class="text-black dark:text-white/80 text-sm">
+                            ← Regresar
+                        </x-link>
                     </div>
 
                     <div class="space-y-0.5">
@@ -32,7 +34,7 @@ render(function ($shortLink) {
                         <x-text.lead>{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</x-text.lead>
                     </div>
 
-                    <x-divider />
+                    <x-separator />
 
                     <div class="w-full flex flex-col gap-8">
                         <livewire:links.analytics.index.chart :$shortLink />

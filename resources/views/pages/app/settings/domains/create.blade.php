@@ -53,7 +53,7 @@ $store = function () {
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
-                        <x-divider />
+                        <x-separator />
 
                         <x-app.settings.nav />
 
@@ -64,7 +64,7 @@ $store = function () {
                                     <x-text>Crea enlaces cortos utilizando dominios personalizados.</x-text>
                                 </div>
 
-                                <x-divider />
+                                <x-separator />
 
                                 <form wire:submit="store" class="space-y-8">
                                     <x-field.group>

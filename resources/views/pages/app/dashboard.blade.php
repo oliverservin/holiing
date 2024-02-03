@@ -63,7 +63,7 @@ with(function () {
                             </div>
                         </div>
 
-                        <x-divider />
+                        <x-separator />
 
                         <x-app.links.index.table :$shortLinks :$sortCol :$sortAsc />
                     </x-app.section>

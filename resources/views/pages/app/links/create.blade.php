@@ -63,7 +63,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                             <x-text.lead>Proporciona los detalles de tu enlace y obtén un enlace corto.</x-text.lead>
                         </div>
 
-                        <x-divider />
+                        <x-separator />
 
                         <div class="max-w-2xl">
                             <form wire:submit="store" class="space-y-8">

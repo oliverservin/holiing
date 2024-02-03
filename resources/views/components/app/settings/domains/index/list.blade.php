@@ -23,7 +23,7 @@
                     @endif
                 </div>
                 @unless ($domain->validated_at)
-                    <x-divider />
+                    <x-separator />
                     <div>
                         <x-text>Para configurar tu dominio <x-text.code>{{ $domain->name }}</x-text.code>, configura los siguiente registros A y AAAA con tu proveedor de DNS:</x-text>
                         <div class="flex gap-4 mt-5 text-black/60 dark:text-white/60 text-sm/[1.4]">
@@ -52,7 +52,7 @@
                     </div>
                 @endunless
                 @if ($domain->validated_at && ! $domain->verified_at)
-                    <x-divider />
+                    <x-separator />
 
                     <div>
                         <x-text>Tu dominio ha sido configurado correctamente. Por favor, <x-text.strong>espera hasta 24 horas</x-text.strong> para que manualmente verifiquemos y activemos tu dominio. Te enviaremos una notificación por email cuando haya sido verificado.</x-text>

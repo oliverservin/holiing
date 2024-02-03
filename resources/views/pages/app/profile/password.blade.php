@@ -65,7 +65,7 @@ $updatePassword = function () {
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
-                        <x-divider />
+                        <x-separator />
 
                         <x-app.settings.nav />
 
@@ -76,7 +76,7 @@ $updatePassword = function () {
                                     <x-text>Actualiza la contraseña utilizada para iniciar sesión en tu cuenta.</x-text>
                                 </div>
 
-                                <x-divider />
+                                <x-separator />
 
                                 <form wire:submit="updatePassword" class="space-y-8">
                                     <x-field.group>

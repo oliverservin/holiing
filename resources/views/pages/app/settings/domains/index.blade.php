@@ -70,7 +70,7 @@ $validateDomain = function (Domain $domain) {
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
-                        <x-divider />
+                        <x-separator />
 
                         <x-app.settings.nav />
 
