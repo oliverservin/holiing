@@ -1,6 +1,6 @@
 @props(['href', 'current' => false])
 
-<x-button.kube
+<x-button
     size="sm"
     :href="$href ?? null"
     plain
@@ -14,4 +14,4 @@
     <span class="-mx-0.5">
         {{ $slot }}
     </span>
-</x-button.kube>
+</x-button>

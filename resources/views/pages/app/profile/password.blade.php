@@ -112,7 +112,7 @@ $updatePassword = function () {
                                         </x-field>
                                     </x-field.group>
 
-                                    <x-button.kube>Guardar</x-button.kube>
+                                    <x-button>Guardar</x-button>
                                 </form>
                             </x-section>
                         </div>

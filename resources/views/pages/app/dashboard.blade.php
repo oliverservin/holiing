@@ -59,7 +59,7 @@ with(function () {
                                     <x-h1>Enlaces</x-h1>
                                 </x-page-header.text>
                                 <x-page-header.actions>
-                                    <x-button href="{{ route('app.links.create') }}">Crear enlace</x-button>
+                                    <x-button size="sm" href="{{ route('app.links.create') }}">Crear enlace</x-button>
                                 </x-page-header.actions>
                             </x-page-header.content>
                         </x-page-header>

@@ -80,7 +80,7 @@ $validateDomain = function (Domain $domain) {
                                 <x-text>Gestiona los dominios que puedes utilizar para crear enlaces cortos.</x-text>
                             </div>
                             <div>
-                                <x-button.kube size="sm" href="{{ route('app.settings.domains.create') }}">Agregar dominio</x-button.kube>
+                                <x-button size="sm" href="{{ route('app.settings.domains.create') }}">Agregar dominio</x-button>
                             </div>
                         </div>
 

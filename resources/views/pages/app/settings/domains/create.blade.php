@@ -91,7 +91,7 @@ $store = function () {
                                         </x-field>
                                     </x-field.group>
 
-                                    <x-button.kube>Agregar dominio</x-button.kube>
+                                    <x-button>Agregar dominio</x-button>
                                 </form>
                             </x-section>
                         </div>
