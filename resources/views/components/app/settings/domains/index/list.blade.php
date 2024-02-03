@@ -26,26 +26,26 @@
                     <x-divider />
                     <div>
                         <x-text>Para configurar tu dominio <x-text.code>{{ $domain->name }}</x-text.code>, configura los siguiente registros A y AAAA con tu proveedor de DNS:</x-text>
-                        <div class="flex gap-4 mt-5 text-sm">
+                        <div class="flex gap-4 mt-5 text-black/60 dark:text-white/60 text-sm/[1.4]">
                             <div class="flex flex-col gap-2">
-                                <div class="font-medium text-black/60 dark:text-white/60 text-sm/[1.4]">Type</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">A</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">AAAA</div>
+                                <div class="font-medium">Type</div>
+                                <div>A</div>
+                                <div>AAAA</div>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <div class="font-medium text-black/60 dark:text-white/60 text-sm/[1.4]">Name</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">@</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">@</div>
+                                <div class="font-medium">Name</div>
+                                <div>@</div>
+                                <div>@</div>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <div class="font-medium text-black/60 dark:text-white/60 text-sm/[1.4]">Value</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">66.241.125.98</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">2a09:8280:1::2d:d701</div>
+                                <div class="font-medium">Value</div>
+                                <div>66.241.125.98</div>
+                                <div>2a09:8280:1::2d:d701</div>
                             </div>
                             <div class="flex flex-col gap-2">
-                                <div class="font-medium text-black/60 dark:text-white/60 text-sm/[1.4]">TTL</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">86400</div>
-                                <div class="text-black/60 dark:text-white/60 text-sm/[1.4]">86400</div>
+                                <div class="font-medium">TTL</div>
+                                <div>86400</div>
+                                <div>86400</div>
                             </div>
                         </div>
                         <x-text class="mt-5">Nota: para el TTL, si <x-text.code>86400</x-text.code> no está disponible, establece el valor más alto posible. Además, la propagación de dominios puede tardar entre 1 y 12 horas.</x-text>
