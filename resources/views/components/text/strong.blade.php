@@ -1,1 +1,1 @@
-<strong {{ $attributes->merge(['class' => 'font-medium text-zinc-950 dark:text-white']) }}>{{ $slot }}</strong>
+<strong {{ $attributes->merge(['class' => 'font-medium text-black dark:text-white/80']) }}>{{ $slot }}</strong>

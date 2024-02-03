@@ -1,1 +1,1 @@
-<code {{ $attributes->merge(['class' => 'rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-0.5 text-sm font-medium text-zinc-950 sm:text-[0.8125rem] dark:border-white/20 dark:bg-white/5 dark:text-white']) }}>{{ $slot }}</code>
+<code {{ $attributes->merge(['class' => 'rounded border border-black/15 dark:border-white/15 bg-aluminum dark:bg-flat px-0.5 text-[13px] font-medium text-black/80 dark:text-white/80']) }}>{{ $slot }}</code>
