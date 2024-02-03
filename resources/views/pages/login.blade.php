@@ -36,9 +36,7 @@ $login = function () {
     </x-slot:header>
     @volt('pages.login')
         <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
-            <x-heading.h1>
-                Iniciar sesión
-            </x-heading.h1>
+            <x-heading.h1>Iniciar sesión</x-heading.h1>
 
             <x-field.group>
                 <x-field>
