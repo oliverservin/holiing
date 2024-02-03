@@ -66,28 +66,28 @@ $register = function () {
                 <x-field.group>
                     <x-field>
                         <x-field.label>Nombre</x-field.label>
-                        <x-input-kube wire:model="name" id="name" type="text" name="name" required autofocus autocomplete="name" />
+                        <x-input wire:model="name" id="name" type="text" name="name" required autofocus autocomplete="name" />
                         @error('name')
                             <x-field.error-message>{{ $message }}</x-field.error-message>
                         @enderror
                     </x-field>
                     <x-field>
                         <x-field.label>Email</x-field.label>
-                        <x-input-kube wire:model="email" id="email" type="email" name="email" required />
+                        <x-input wire:model="email" id="email" type="email" name="email" required />
                         @error('email')
                             <x-field.error-message>{{ $message }}</x-field.error-message>
                         @enderror
                     </x-field>
                     <x-field>
                         <x-field.label>Contraseña</x-field.label>
-                        <x-input-kube wire:model="password" id="password" type="password" name="password" required />
+                        <x-input wire:model="password" id="password" type="password" name="password" required />
                         @error('password')
                             <x-field.error-message>{{ $message }}</x-field.error-message>
                         @enderror
                     </x-field>
                     <x-field>
                         <x-field.label>Confirmar contraseña</x-field.label>
-                        <x-input-kube wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" required />
+                        <x-input wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" required />
                         @error('password')
                             <x-field.error-message>{{ $message }}</x-field.error-message>
                         @enderror

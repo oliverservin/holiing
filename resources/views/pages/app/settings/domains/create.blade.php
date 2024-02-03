@@ -70,7 +70,7 @@ $store = function () {
                                     <x-field.group>
                                         <x-field>
                                             <x-field.label for="domain">Nombre de dominio</x-field.label>
-                                            <x-input-kube wire:model="domain" id="domain" type="text" name="domain" :invalid="$errors->has('domain')" placeholder="holi.ing" required />
+                                            <x-input wire:model="domain" id="domain" type="text" name="domain" :invalid="$errors->has('domain')" placeholder="holi.ing" required />
                                             @error('domain')
                                                 <x-field.error-message>{{ $message }}</x-field.error-message>
                                             @enderror
@@ -81,7 +81,7 @@ $store = function () {
 
                                         <x-field>
                                             <x-field.label for="landing_page">Página de landing</x-field.label>
-                                            <x-input-kube wire:model="landing_page" id="landing_page" type="text" name="landing_page" :invalid="$errors->has('landing_page')" placeholder="https://tudominio.com" required />
+                                            <x-input wire:model="landing_page" id="landing_page" type="text" name="landing_page" :invalid="$errors->has('landing_page')" placeholder="https://tudominio.com" required />
                                             @error('landing_page')
                                                 <x-field.error-message>{{ $message }}</x-field.error-message>
                                             @enderror

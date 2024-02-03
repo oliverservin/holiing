@@ -2,63 +2,33 @@
 
 <?php
 
-use Illuminate\Support\Arr;
-
-$controlClasses = Arr::toCssClasses([
+$classes = [
     // Basic layout
-    'relative block w-full',
-
-    // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-    'before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-white before:shadow',
-
-    // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
-    'dark:before:hidden',
-
-    // Focus ring
-    'after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500',
-
-    // Disabled state
-    'has-[:disabled]:opacity-50 before:has-[:disabled]:bg-zinc-950/5 before:has-[:disabled]:shadow-none',
-
-    // Invalid state
-    'before:has-[[data-invalid]]:shadow-red-500/10',
-]);
-
-$classes = Arr::toCssClasses([
-    // Basic layout
-    'relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]',
+    'relative block w-full appearance-none rounded-lg px-3 py-2.5 ring-inset',
 
     // Typography
-    'text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white',
+    'text-sm/[22px] text-black/80 dark:text-white/80 placeholder:text-black/50 dark:placeholder:text-white/50',
 
     // Border
-    'border border-zinc-950/10 hover:border-zinc-950/20 dark:border-white/10 dark:hover:border-white/20',
+    'ring-1 ring-black/15 dark:ring-white/15' => ! $invalid,
 
     // Background color
-    'bg-transparent dark:bg-white/5',
+    'bg-white dark:bg-gray-matte',
 
-    // Hide default focus styles
-    'focus:outline-none',
+    // Focus
+    'focus:outline-none focus:ring-2 focus:ring-[#0070F3] focus:dark:ring-[#6CAFFF]',
 
     // Invalid state
-    'data-[invalid]:border-red-500 data-[invalid]:hover:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:hover:dark:border-red-500',
+    'ring-1 ring-[#D3222A] dark:ring-[#EE696F]' => $invalid,
 
     // Disabled state
-    'disabled:border-zinc-950/20 dark:hover:disabled:border-white/15 disabled:dark:border-white/15 disabled:dark:bg-white/[2.5%]',
-]);
+    'disabled:opacity-60',
+];
 
 ?>
 
-<span
-    data-slot="control"
-    class="{{ Arr::toCssClasses([
-        $attributes->get('class'),
-        $controlClasses,
-    ]) }}"
+<input
+    {{ $attributes->except('class') }}
+    {{ $invalid ? 'data-invalid' : '' }}
+    @class($classes)
 >
-    <input
-        {{ $attributes->except('class') }}
-        {{ $invalid ? 'data-invalid' : '' }}
-        class="{{ $classes }}"
-    >
-</span>

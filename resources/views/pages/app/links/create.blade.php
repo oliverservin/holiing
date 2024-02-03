@@ -70,7 +70,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                 <x-field.group>
                                     <x-field>
                                         <x-field.label>URL de destino</x-field.label>
-                                        <x-input-kube wire:model="url" id="url" type="text" name="url" placeholder="{{ url('/') }}" required />
+                                        <x-input wire:model="url" id="url" type="text" name="url" placeholder="{{ url('/') }}" required />
                                         @error('url')
                                             <x-field.error-message>{{ $message }}</x-field.error-message>
                                         @enderror
@@ -91,7 +91,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         </x-field>
                                         <x-field class="sm:col-span-2">
                                             <x-field.label>Alias</x-field.label>
-                                            <x-input-kube wire:model="hashid" id="hashid" type="text" name="hashid"  />
+                                            <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
                                             @error('hashid')
                                                 <x-field.error-message>{{ $message }}</x-field.error-message>
                                             @enderror

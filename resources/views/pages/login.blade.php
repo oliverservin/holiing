@@ -41,14 +41,14 @@ $login = function () {
             <x-field.group>
                 <x-field>
                     <x-field.label>Email</x-field.label>
-                    <x-input-kube wire:model="form.email" id="email" type="email" name="email" required />
+                    <x-input wire:model="form.email" id="email" type="email" name="email" required />
                     @error('form.email')
                         <x-field.error-message>{{ $message }}</x-field.error-message>
                     @enderror
                 </x-field>
                 <x-field>
                     <x-field.label>Contraseña</x-field.label>
-                    <x-input-kube wire:model="form.password" id="password" type="password" name="password" required />
+                    <x-input wire:model="form.password" id="password" type="password" name="password" required />
                     @error('form.password')
                         <x-field.error-message>{{ $message }}</x-field.error-message>
                     @enderror
