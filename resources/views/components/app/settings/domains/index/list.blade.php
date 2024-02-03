@@ -1,6 +1,6 @@
 <div class="space-y-6">
     @foreach($domains as $domain)
-        <div wire:key="{{ $domain->id }}" class="bg-gray-aluminum dark:bg-gray-flat rounded-md p-8">
+        <div wire:key="{{ $domain->id }}" class="bg-aluminum dark:bg-flat rounded-md p-8">
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between">
                     <div>

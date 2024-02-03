@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 </head>
-<body class="font-sans bg-white dark:bg-gray-night text-black/80 dark:text-white/80">
+<body class="font-sans bg-white dark:bg-night text-black/80 dark:text-white/80">
     {{ $slot }}
 </body>
 </html>

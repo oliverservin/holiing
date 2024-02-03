@@ -14,7 +14,7 @@
 
     @vite(['resources/css/app.css'])
 </head>
-<body class="font-sans bg-white dark:bg-zinc-900">
+<body class="font-sans bg-white dark:bg-night text-black/80 dark:text-white/80">
     {{ $slot }}
 
     <x-support-bubble />

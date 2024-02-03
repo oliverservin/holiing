@@ -29,7 +29,7 @@ render(function (View $view) {
 
                 <div class="mt-6 space-y-8">
                     @foreach($releases as $release)
-                        <div class="bg-gray-aluminum p-8 rounded-lg">
+                        <div class="bg-aluminum p-8 rounded-lg">
                             <div>
                                 <h2 class="text-2xl font-bold">{{ $release->title }}</h2>
                                 <p class="text-sm text-black/60">{{ $release->dateForHumans() }}</p>
