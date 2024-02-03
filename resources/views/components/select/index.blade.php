@@ -1,86 +1,37 @@
-@props(['multiple' => false, 'invalid' => false])
+@props(['invalid' => false])
 
 <?php
 
-use Illuminate\Support\Arr;
-
-$controlClasses = Arr::toCssClasses([
+$classes = [
     // Basic layout
-    'group relative block w-full',
-
-    // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
-    'before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-white before:shadow',
-
-    // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
-    'dark:before:hidden',
-
-    // Focus ring
-    'after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:has-[:focus-visible]:ring-2 sm:after:has-[:focus-visible]:ring-blue-500',
-
-    // Disabled state
-    'has-[:disabled]:opacity-50 before:has-[:disabled]:bg-zinc-950/5 before:has-[:disabled]:shadow-none',
-]);
-
-
-$classes = Arr::toCssClasses([
-    // Basic layout
-    'relative block w-full appearance-none rounded-lg py-[calc(theme(spacing[2.5])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]',
-
-    // Horizontal padding
-    'px-[calc(theme(spacing[3.5])-1px)] sm:px-[calc(theme(spacing.3)-1px)]' => $multiple,
-    'pl-[calc(theme(spacing[3.5])-1px)] pr-[calc(theme(spacing.10)-1px)] sm:pl-[calc(theme(spacing.3)-1px)] sm:pr-[calc(theme(spacing.9)-1px)]' => !$multiple,
-
-    // Options (multi-select)
-    '[&_optgroup]:font-semibold',
+    'relative block w-full appearance-none rounded-lg px-3 py-2.5 ring-inset border-0',
 
     // Typography
-    'text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white dark:*:text-white',
+    'text-sm/[22px] text-black/80 dark:text-white/80 placeholder:text-black/50 dark:placeholder:text-white/50',
 
     // Border
-    'border border-zinc-950/10 hover:border-zinc-950/20 dark:border-white/10 dark:hover:border-white/20',
+    'ring-1 ring-black/15 dark:ring-white/15' => ! $invalid,
 
     // Background color
-    'bg-transparent dark:bg-white/5 dark:*:bg-zinc-800',
+    'bg-white dark:bg-matte',
 
-    // Hide default focus styles
-    'focus:outline-none',
+    // Focus
+    'focus:outline-none focus:ring-2 focus:ring-[#0070F3] focus:dark:ring-[#6CAFFF]',
 
     // Invalid state
-    'data-[invalid]:border-red-500 data-[invalid]:hover:border-red-500 data-[invalid]:dark:border-red-600 data-[invalid]:hover:dark:border-red-600',
+    'ring-1 ring-[#D3222A] dark:ring-[#EE696F]' => $invalid,
 
     // Disabled state
-    'disabled:border-zinc-950/20 disabled:opacity-100 dark:hover:disabled:border-white/15 disabled:dark:border-white/15 disabled:dark:bg-white/[2.5%]',
-]);
+    'disabled:opacity-60',
+];
+
 
 ?>
 
-<span
-    data-slot="control"
-    class="{{ Arr::toCssClasses([
-        $attributes->get('class'),
-        $controlClasses,
-    ]) }}"
->
-    <select
-        {{ $multiple ? 'multiple' : '' }}
-        {{ $attributes->except('class') }}
-        {{ $invalid ? 'data-invalid' : '' }}
-        class="{{ $classes }}"
-    >
-        {{ $slot }}
-    </select>
 
-    @if (!$multiple)
-        <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-            <svg
-                class="size-5 stroke-zinc-500 group-has-[:disabled]:stroke-zinc-600 sm:size-4 dark:stroke-zinc-400 forced-colors:stroke-[CanvasText]"
-                viewBox="0 0 16 16"
-                aria-hidden="true"
-                fill="none"
-            >
-                <path d="M5.75 10.75L8 13L10.25 10.75" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M10.25 5.25L8 3L5.75 5.25" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-        </span>
-    @endif
-</span>
+<select
+    {{ $attributes->except('class') }}
+    @class($classes)
+>
+    {{ $slot }}
+</select>

@@ -29,6 +29,5 @@ $classes = [
 
 <input
     {{ $attributes->except('class') }}
-    {{ $invalid ? 'data-invalid' : '' }}
     @class($classes)
 >
