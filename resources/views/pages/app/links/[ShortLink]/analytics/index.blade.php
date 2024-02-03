@@ -20,9 +20,9 @@ render(function ($shortLink) {
     <div>
         <x-app.settings.header />
 
-        <x-main>
+        <x-app.main>
             <x-container>
-                <x-section>
+                <x-app.section>
                     <div>
                         <x-back href="{{ route('app.dashboard') }}" />
                     </div>
@@ -42,8 +42,8 @@ render(function ($shortLink) {
                             <livewire:links.analytics.index.referers-table :$shortLink />
                         </div>
                     </div>
-                </x-section>
+                </x-app.section>
             </x-container>
-        </x-main>
+        </x-app.main>
     </div>
 </x-layouts.app>

@@ -36,34 +36,36 @@ $login = function () {
     </x-slot:header>
     @volt('pages.login')
         <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
-            <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
+            <x-heading.h1>
                 Iniciar sesión
-            </h3>
-            <x-fieldset>
-                <x-fieldset.field-group>
-                    <x-fieldset.field>
-                        <x-fieldset.label>Email</x-fieldset.label>
-                        <x-input wire:model="form.email" id="email" type="email" name="email" required />
-                        @error('form.email')
-                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                        @enderror
-                    </x-fieldset.field>
-                    <x-fieldset.field>
-                        <x-fieldset.label>Contraseña</x-fieldset.label>
-                        <x-input wire:model="form.password" id="password" type="password" name="password" required />
-                        @error('form.password')
-                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                        @enderror
-                    </x-fieldset.field>
-                </x-fieldset.field-group>
-            </x-fieldset>
+            </x-heading.h1>
+
+            <x-field.group>
+                <x-field>
+                    <x-field.label>Email</x-field.label>
+                    <x-input-kube wire:model="form.email" id="email" type="email" name="email" required />
+                    @error('form.email')
+                        <x-field.error-message>{{ $message }}</x-field.error-message>
+                    @enderror
+                </x-field>
+                <x-field>
+                    <x-field.label>Contraseña</x-field.label>
+                    <x-input-kube wire:model="form.password" id="password" type="password" name="password" required />
+                    @error('form.password')
+                        <x-field.error-message>{{ $message }}</x-field.error-message>
+                    @enderror
+                </x-field>
+            </x-field.group>
+
             <div>
                 <div x-data class="flex items-center gap-4">
-                    <x-fieldset.label x-switch:label>Recordarme</x-fieldset.label>
+                    <x-field.label x-switch:label>Recordarme</x-field.label>
                     <x-switch name="remember" wire:model="form.remember" />
                 </div>
             </div>
+
             <x-button class="w-full">Iniciar sesión</x-button>
+
             <x-text>
                 ¿Aún no tienes una cuenta?
                 <a

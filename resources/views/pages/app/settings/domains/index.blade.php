@@ -62,9 +62,9 @@ $validateDomain = function (Domain $domain) {
         <div>
             <x-app.settings.header />
 
-            <x-main>
+            <x-app.main>
                 <x-container>
-                    <x-section>
+                    <x-app.section>
                         <div class="space-y-0.5">
                             <x-heading.h1>Configuración</x-heading.h1>
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
@@ -85,9 +85,9 @@ $validateDomain = function (Domain $domain) {
                         </div>
 
                         <x-app.settings.domains.index.list :$domains />
-                    </x-section>
+                    </x-app.section>
                 </x-container>
-            </x-main>
+            </x-app.main>
         </div>
     @endvolt
 </x-layouts.app>

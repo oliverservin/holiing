@@ -45,9 +45,9 @@ $store = function () {
         <div>
             <x-app.settings.header />
 
-            <x-main>
+            <x-app.main>
                 <x-container>
-                    <x-section>
+                    <x-app.section>
                         <div class="space-y-0.5">
                             <x-heading.h1>Configuración</x-heading.h1>
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
@@ -58,7 +58,7 @@ $store = function () {
                         <x-app.settings.nav />
 
                         <div class="max-w-2xl">
-                            <x-section>
+                            <x-app.section>
                                 <div class="space-y-0.5">
                                     <x-heading.h2>Agregar dominio</x-heading.h2>
                                     <x-text>Crea enlaces cortos utilizando dominios personalizados.</x-text>
@@ -93,11 +93,11 @@ $store = function () {
 
                                     <x-button>Agregar dominio</x-button>
                                 </form>
-                            </x-section>
+                            </x-app.section>
                         </div>
-                    </x-section>
+                    </x-app.section>
                 </x-container>
-            </x-main>
+            </x-app.main>
         </div>
     @endvolt
 </x-layouts.app>

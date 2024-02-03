@@ -50,9 +50,9 @@ with(function () {
         <div>
             <x-app.settings.header />
 
-            <x-main>
+            <x-app.main>
                 <x-container>
-                    <x-section>
+                    <x-app.section>
                         <div class="space-y-0.5">
                             <x-heading.h1>Enlaces</x-heading.h1>
                             <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
@@ -61,9 +61,9 @@ with(function () {
                         <x-divider />
 
                         <x-app.links.index.table :$shortLinks :$sortCol :$sortAsc />
-                    </x-section>
+                    </x-app.section>
                 </x-container>
-            </x-main>
+            </x-app.main>
         </div>
     @endvolt
 </x-layouts.app>
