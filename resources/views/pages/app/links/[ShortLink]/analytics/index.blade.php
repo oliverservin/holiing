@@ -28,7 +28,7 @@ render(function ($shortLink) {
                     </div>
 
                     <div class="space-y-0.5">
-                        <x-heading.h1>Analíticas</x-heading.h1>
+                        <x-app.heading.h1>Analíticas</x-app.heading.h1>
                         <x-text.lead>{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</x-text.lead>
                     </div>
 

@@ -66,7 +66,7 @@ $validateDomain = function (Domain $domain) {
                 <x-container>
                     <x-app.section>
                         <div class="space-y-0.5">
-                            <x-heading.h1>Configuración</x-heading.h1>
+                            <x-app.heading.h1>Configuración</x-app.heading.h1>
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
@@ -76,7 +76,7 @@ $validateDomain = function (Domain $domain) {
 
                         <div class="flex justify-between">
                             <div class="space-y-0.5">
-                                <x-heading.h2>Dominios</x-heading.h2>
+                                <x-app.heading.h2>Dominios</x-app.heading.h2>
                                 <x-text>Gestiona los dominios que puedes utilizar para crear enlaces cortos.</x-text>
                             </div>
                             <div>

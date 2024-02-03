@@ -55,7 +55,7 @@ with(function () {
                     <x-app.section>
                         <div class="flex justify-between">
                             <div class="space-y-0.5">
-                                <x-heading.h1>Enlaces</x-heading.h1>
+                                <x-app.heading.h1>Enlaces</x-app.heading.h1>
                                 <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
                             </div>
                             <div>

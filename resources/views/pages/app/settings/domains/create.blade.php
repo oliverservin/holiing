@@ -49,7 +49,7 @@ $store = function () {
                 <x-container>
                     <x-app.section>
                         <div class="space-y-0.5">
-                            <x-heading.h1>Configuración</x-heading.h1>
+                            <x-app.heading.h1>Configuración</x-app.heading.h1>
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
@@ -60,7 +60,7 @@ $store = function () {
                         <div class="max-w-2xl">
                             <x-app.section>
                                 <div class="space-y-0.5">
-                                    <x-heading.h2>Agregar dominio</x-heading.h2>
+                                    <x-app.heading.h2>Agregar dominio</x-app.heading.h2>
                                     <x-text>Crea enlaces cortos utilizando dominios personalizados.</x-text>
                                 </div>
 

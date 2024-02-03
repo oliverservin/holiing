@@ -61,7 +61,7 @@ $updatePassword = function () {
                 <x-container>
                     <x-app.section>
                         <div class="space-y-0.5">
-                            <x-heading.h1>Configuración</x-heading.h1>
+                            <x-app.heading.h1>Configuración</x-app.heading.h1>
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
@@ -72,7 +72,7 @@ $updatePassword = function () {
                         <div class="max-w-2xl">
                             <x-app.section>
                                 <div class="space-y-0.5">
-                                    <x-heading.h2>Cambiar contraseña</x-heading.h2>
+                                    <x-app.heading.h2>Cambiar contraseña</x-app.heading.h2>
                                     <x-text>Actualiza la contraseña utilizada para iniciar sesión en tu cuenta.</x-text>
                                 </div>
 

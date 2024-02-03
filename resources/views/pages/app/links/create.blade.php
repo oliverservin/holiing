@@ -59,7 +59,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                 <x-container>
                     <x-app.section>
                         <div class="space-y-0.5">
-                            <x-heading.h1>Crear enlace corto</x-heading.h1>
+                            <x-app.heading.h1>Crear enlace corto</x-app.heading.h1>
                             <x-text.lead>Proporciona los detalles de tu enlace y obtén un enlace corto.</x-text.lead>
                         </div>
 
