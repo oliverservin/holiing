@@ -51,26 +51,18 @@ with(function () {
             <x-app.settings.header />
 
             <x-main>
-                <x-section>
-                    <x-container>
-                        <x-page-header>
-                            <x-page-header.content>
-                                <x-page-header.text>
-                                    <x-h1>Enlaces</x-h1>
-                                </x-page-header.text>
-                                <x-page-header.actions>
-                                    <x-button size="sm" href="{{ route('app.links.create') }}">Crear enlace</x-button>
-                                </x-page-header.actions>
-                            </x-page-header.content>
-                        </x-page-header>
-                    </x-container>
-                </x-section>
+                <x-container>
+                    <x-section>
+                        <div class="space-y-0.5">
+                            <x-heading.h1>Enlaces</x-heading.h1>
+                            <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
+                        </div>
 
-                <x-section>
-                    <x-container>
+                        <x-divider />
+
                         <x-app.links.index.table :$shortLinks :$sortCol :$sortAsc />
-                    </x-container>
-                </x-section>
+                    </x-section>
+                </x-container>
             </x-main>
         </div>
     @endvolt

@@ -18,25 +18,22 @@ render(function ($shortLink) {
 
 <x-layouts.app>
     <div>
-        <x-app.navigation />
+        <x-app.settings.header />
 
         <x-main>
-            <x-section>
-                <x-container>
-                    <x-page-header>
+            <x-container>
+                <x-section>
+                    <div>
                         <x-back href="{{ route('app.dashboard') }}" />
-                        <x-page-header.content>
-                            <x-page-header.text>
-                                <x-h1>Analíticas</x-h1>
-                                <p class="text-zinc-600">{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</p>
-                            </x-page-header.text>
-                        </x-page-header.content>
-                    </x-page-header>
-                </x-container>
-            </x-section>
+                    </div>
 
-            <x-section>
-                <x-container>
+                    <div class="space-y-0.5">
+                        <x-heading.h1>Analíticas</x-heading.h1>
+                        <x-text.lead>{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</x-text.lead>
+                    </div>
+
+                    <x-divider />
+
                     <div class="w-full flex flex-col gap-8">
                         <livewire:links.analytics.index.chart :$shortLink />
                         <div class="grid grid-cols-2 gap-6">
@@ -45,8 +42,8 @@ render(function ($shortLink) {
                             <livewire:links.analytics.index.referers-table :$shortLink />
                         </div>
                     </div>
-                </x-container>
-            </x-section>
+                </x-section>
+            </x-container>
         </x-main>
     </div>
 </x-layouts.app>
