@@ -53,9 +53,14 @@ with(function () {
             <x-app.main>
                 <x-container>
                     <x-app.section>
-                        <div class="space-y-0.5">
-                            <x-heading.h1>Enlaces</x-heading.h1>
-                            <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
+                        <div class="flex justify-between">
+                            <div class="space-y-0.5">
+                                <x-heading.h1>Enlaces</x-heading.h1>
+                                <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
+                            </div>
+                            <div>
+                                <x-button size="sm" href="{{ route('app.links.create') }}">Crear enlace</x-button>
+                            </div>
                         </div>
 
                         <x-divider />
