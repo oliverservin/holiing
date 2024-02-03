@@ -7,13 +7,6 @@
 
 <nav class="flex gap-6">
     @foreach($links as [$label, $url, $active])
-        <x-link href="{{ $url }}" @class([
-                'flex items-center py-2 text-sm',
-                'text-black dark:text-white/80' => ! $active,
-                'text-black/60 dark:text-white/60' => $active,
-            ])
-        >
-            {{ $label }}
-        </x-link>
+        <x-app.nav.item :href="$url" :$active>{{ $label }}</x-app.nav.item>
     @endforeach
 </nav>

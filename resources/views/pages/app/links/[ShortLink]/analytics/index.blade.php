@@ -24,7 +24,7 @@ render(function ($shortLink) {
             <x-container>
                 <x-app.section>
                     <div>
-                        <x-back href="{{ route('app.dashboard') }}" />
+                        <x-app.back href="{{ route('app.dashboard') }}" />
                     </div>
 
                     <div class="space-y-0.5">

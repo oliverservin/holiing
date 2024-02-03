@@ -57,7 +57,7 @@ $register = function () {
 
 <x-layouts.marketing>
     <x-slot:header>
-        <x-header />
+        <x-marketing.header />
     </x-slot:header>
     @volt('pages.register')
         <x-container>
@@ -107,6 +107,6 @@ $register = function () {
         </x-container>
     @endvolt
     <x-slot:footer>
-        <x-footer />
+        <x-marketing.footer />
     </x-slot:footer>
 </x-layouts.marketing>

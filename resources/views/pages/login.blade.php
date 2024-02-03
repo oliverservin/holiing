@@ -32,7 +32,7 @@ $login = function () {
 
 <x-layouts.marketing>
     <x-slot:header>
-        <x-header />
+        <x-marketing.header />
     </x-slot:header>
     @volt('pages.login')
         <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
@@ -76,6 +76,6 @@ $login = function () {
         </form>
     @endvolt
     <x-slot:footer>
-        <x-footer />
+        <x-marketing.footer />
     </x-slot:footer>
 </x-layouts.marketing>
