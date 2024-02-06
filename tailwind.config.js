@@ -23,11 +23,16 @@ export default {
             'night': '#141414',
             'gloss': '#262626',
             'flat': '#1a1a1a',
+            'blue': {
+                DEFAULT: '#0067E0',
+                'mid': '#4B9FFF',
+                'dark': '#004392',
+                'light': '#76B5FF',
+            }
         }
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
 }

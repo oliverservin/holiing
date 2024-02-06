@@ -1,3 +1,5 @@
-<x-button x-menu:button trigger {{ $attributes }}>
-    {{ $slot }}
-</x-button>
+<div x-menu:button trigger>
+    <x-button {{ $attributes }}>
+        {{ $slot }}
+    </x-button>
+</div>

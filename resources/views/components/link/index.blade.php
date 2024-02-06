@@ -1,1 +1,6 @@
-<a {{ $attributes }} wire:navigate>{{ $slot }}</a>
+<a
+    wire:navigate
+    {{ $attributes }}
+>
+    {{ $slot }}
+</a>

@@ -9,6 +9,15 @@
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <script defer type="module">
+        import { useHover, useFocus } from '/alpine-hooks.js'
+
+        document.addEventListener('alpine:init', () => {
+            Alpine.plugin(useHover)
+            Alpine.plugin(useFocus)
+        })
+    </script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/anchor@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/ui@3.13.3-beta.4/dist/cdn.min.js"></script>
 

@@ -6,7 +6,7 @@
 
 $colors = of(
     darkZinc: [
-        '[--switch-bg-ring:theme(colors.zinc.950/90%)] [--switch-bg:theme(colors.zinc.900)] dark:[--switch-bg-ring:theme(colors.zinc.700/90%)] dark:[--switch-bg-ring:transparent] dark:[--switch-bg:theme(colors.white/25%)]',
+        '[--switch-bg-ring:theme(colors.zinc.950/90%)] [--switch-bg:theme(colors.zinc.900)] dark:[--switch-bg-ring:transparent] dark:[--switch-bg:theme(colors.white/25%)]',
         '[--switch-ring:theme(colors.zinc.950/90%)] [--switch-shadow:theme(colors.black/10%)] [--switch:white] dark:[--switch-ring:theme(colors.zinc.700/90%)]',
     ],
     darkWhite: [
@@ -123,19 +123,24 @@ $colors = of(
         'data-[checked]:bg-[--switch-bg] data-[checked]:ring-[--switch-bg-ring] dark:data-[checked]:bg-[--switch-bg] dark:data-[checked]:ring-[--switch-bg-ring]',
 
         // Focus
-        'focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-blue-500',
+        'focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500',
 
         // Hover
-        'hover:data-[checked]:ring-[--switch-bg-ring] hover:ring-black/15',
-        'dark:hover:data-[checked]:ring-[--switch-bg-ring] dark:hover:ring-white/25',
+        'data-[hover]:data-[checked]:ring-[--switch-bg-ring] data-[hover]:ring-black/15',
+        'dark:data-[hover]:data-[checked]:ring-[--switch-bg-ring] dark:data-[hover]:ring-white/25',
 
         // Disabled
-        'disabled:bg-zinc-200 disabled:data-[checked]:bg-zinc-200 disabled:opacity-50 disabled:data-[checked]:ring-black/5',
-        'dark:disabled:bg-white/15 dark:disabled:data-[checked]:bg-white/15 dark:disabled:data-[checked]:ring-white/15',
+        'data-[disabled]:bg-zinc-200 data-[disabled]:data-[checked]:bg-zinc-200 data-[disabled]:opacity-50 data-[disabled]:data-[checked]:ring-black/5',
+        'dark:data-[disabled]:bg-white/15 dark:data-[disabled]:data-[checked]:bg-white/15 dark:data-[disabled]:data-[checked]:ring-white/15',
 
         // Color specific styles
         Arr::join($colors->{$color}, ' ')
     ])
+    x-data="{ hovering: $useHover($refs.target), focusing: $useFocus($refs.target), disabled: $refs.target.disabled }"
+    x-ref="target"
+    x-bind:data-hover="hovering && ! disabled"
+    x-bind:data-focus="focusing && ! disabled"
+    x-bind:data-disabled="disabled"
 >
     <span
         aria-hidden="true"
@@ -157,7 +162,7 @@ $colors = of(
             'group-data-[checked]:translate-x-4 sm:group-data-[checked]:translate-x-3',
 
             // Disabled
-            'group-disabled:group-data-[checked]:bg-white group-disabled:group-data-[checked]:shadow group-disabled:group-data-[checked]:ring-black/5'
+            'group-data-[disabled]:group-data-[checked]:bg-white group-data-[disabled]:group-data-[checked]:shadow group-data-[disabled]:group-data-[checked]:ring-black/5'
         ]) }}"
     ></span>
 </button>
