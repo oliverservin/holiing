@@ -89,7 +89,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>
-                                        <x-field class="sm:col-span-2">
+                                        <x-fieldset.field class="sm:col-span-2">
                                             <x-fieldset.label>Alias</x-fieldset.label>
                                             <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
                                             @error('hashid')
