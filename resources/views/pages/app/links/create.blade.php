@@ -67,17 +67,17 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
                         <div class="max-w-2xl">
                             <form wire:submit="store" class="space-y-8">
-                                <x-field.group>
-                                    <x-field>
-                                        <x-field.label>URL de destino</x-field.label>
+                                <x-fieldset.field-group>
+                                    <x-fieldset.field>
+                                        <x-fieldset.label>URL de destino</x-fieldset.label>
                                         <x-input wire:model="url" id="url" type="text" name="url" placeholder="{{ url('/') }}" required />
                                         @error('url')
-                                            <x-field.error-message>{{ $message }}</x-field.error-message>
+                                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                         @enderror
-                                    </x-field>
+                                    </x-fieldset.field>
                                     <div class="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-4">
-                                        <x-field>
-                                            <x-field.label>Dominio</x-field.label>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label>Dominio</x-fieldset.label>
                                             <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
                                                 @foreach($domains as $domain)
                                                     <option value="{{ $domain->id }}">
@@ -86,18 +86,18 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 @endforeach
                                             </x-select>
                                             @error('domain_id')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                        </x-field>
+                                        </x-fieldset.field>
                                         <x-field class="sm:col-span-2">
-                                            <x-field.label>Alias</x-field.label>
+                                            <x-fieldset.label>Alias</x-fieldset.label>
                                             <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
                                             @error('hashid')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                        </x-field>
+                                        </x-fieldset.field>
                                     </div>
-                                </x-field.group>
+                                </x-fieldset.field-group>
 
                                 <x-button>Crear enlace</x-button>
                             </form>

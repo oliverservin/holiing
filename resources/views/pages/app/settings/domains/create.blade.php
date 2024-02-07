@@ -67,29 +67,29 @@ $store = function () {
                                 <x-separator />
 
                                 <form wire:submit="store" class="space-y-8">
-                                    <x-field.group>
-                                        <x-field>
-                                            <x-field.label for="domain">Nombre de dominio</x-field.label>
+                                    <x-fieldset.field-group>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label for="domain">Nombre de dominio</x-fieldset.label>
                                             <x-input wire:model="domain" id="domain" type="text" name="domain" :invalid="$errors->has('domain')" placeholder="holi.ing" required />
                                             @error('domain')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                            <x-field.description>
+                                            <x-fieldset.description>
                                                 El nombre de dominio que deseas agregar.
-                                            </x-field.description>
-                                        </x-field>
+                                            </x-fieldset.description>
+                                        </x-fieldset.field>
 
-                                        <x-field>
-                                            <x-field.label for="landing_page">Página de landing</x-field.label>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label for="landing_page">Página de landing</x-fieldset.label>
                                             <x-input wire:model="landing_page" id="landing_page" type="text" name="landing_page" :invalid="$errors->has('landing_page')" placeholder="https://tudominio.com" required />
                                             @error('landing_page')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                            <x-field.description>
+                                            <x-fieldset.description>
                                                 La página a la que serán redirigidos tus usuarios cuando visiten tu dominio.
-                                            </x-field.description>
-                                        </x-field>
-                                    </x-field.group>
+                                            </x-fieldset.description>
+                                        </x-fieldset.field>
+                                    </x-fieldset.field-group>
 
                                     <x-button>Agregar dominio</x-button>
                                 </form>

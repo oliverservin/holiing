@@ -8,7 +8,7 @@
                     </div>
                     @unless ($domain->validated_at)
                         <div>
-                            <x-button size="sm" wire:click="validateDomain({{ $domain->id }})" outline>Validar</x-button>
+                            <x-button wire:click="validateDomain({{ $domain->id }})" outline>Validar</x-button>
                         </div>
                     @endunless
                 </div>

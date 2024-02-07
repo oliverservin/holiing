@@ -38,26 +38,26 @@ $login = function () {
         <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
             <x-app.heading.h1>Iniciar sesión</x-app.heading.h1>
 
-            <x-field.group>
-                <x-field>
-                    <x-field.label>Email</x-field.label>
+            <x-fieldset.field-group>
+                <x-fieldset.field>
+                    <x-fieldset.label>Email</x-fieldset.label>
                     <x-input wire:model="form.email" id="email" type="email" name="email" required />
                     @error('form.email')
-                        <x-field.error-message>{{ $message }}</x-field.error-message>
+                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                     @enderror
-                </x-field>
-                <x-field>
-                    <x-field.label>Contraseña</x-field.label>
+                </x-fieldset.field>
+                <x-fieldset.field>
+                    <x-fieldset.label>Contraseña</x-fieldset.label>
                     <x-input wire:model="form.password" id="password" type="password" name="password" required />
                     @error('form.password')
-                        <x-field.error-message>{{ $message }}</x-field.error-message>
+                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                     @enderror
-                </x-field>
-            </x-field.group>
+                </x-fieldset.field>
+            </x-fieldset.field-group>
 
             <div>
                 <div x-data class="flex items-center gap-4">
-                    <x-field.label x-switch:label>Recordarme</x-field.label>
+                    <x-fieldset.label x-switch:label>Recordarme</x-fieldset.label>
                     <x-switch name="remember" wire:model="form.remember" />
                 </div>
             </div>

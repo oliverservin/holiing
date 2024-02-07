@@ -79,38 +79,38 @@ $updatePassword = function () {
                                 <x-separator />
 
                                 <form wire:submit="updatePassword" class="space-y-8">
-                                    <x-field.group>
-                                        <x-field>
-                                            <x-field.label for="update_password_current_password">Contraseña actual</x-field.label>
+                                    <x-fieldset.field-group>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label for="update_password_current_password">Contraseña actual</x-fieldset.label>
                                             <x-input wire:model="current_password" id="update_password_current_password" type="password" name="current_password" :invalid="$errors->has('current_password')" autocomplete="current-password" />
-                                            <x-field.description>
+                                            <x-fieldset.description>
                                                 Por seguridad, antes de cambiar tu contraseña, indícanos cuál es tu contraseña actual.
-                                            </x-field.description>
+                                            </x-fieldset.description>
                                             @error('current_password')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                        </x-field>
-                                        <x-field>
-                                            <x-field.label for="update_password_password">Contraseña nueva</x-field.label>
+                                        </x-fieldset.field>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label for="update_password_password">Contraseña nueva</x-fieldset.label>
                                             <x-input wire:model="password" id="update_password_password" type="password" name="update_password_password" :invalid="$errors->has('password')" autocomplete="new-password" />
-                                            <x-field.description>
+                                            <x-fieldset.description>
                                                 Elige una nueva contraseña. Asegúrate de que sea segura.
-                                            </x-field.description>
+                                            </x-fieldset.description>
                                             @error('password')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                        </x-field>
-                                        <x-field>
-                                            <x-field.label for="update_password_password_confirmation">Confirmar contraseña</x-field.label>
+                                        </x-fieldset.field>
+                                        <x-fieldset.field>
+                                            <x-fieldset.label for="update_password_password_confirmation">Confirmar contraseña</x-fieldset.label>
                                             <x-input wire:model="password_confirmation" id="update_password_password_confirmation" type="password" name="password_confirmation" :invalid="$errors->has('password_confirmation')" autocomplete="new-password" />
-                                            <x-field.description>
+                                            <x-fieldset.description>
                                                 Vuelve a repetir tu nueva contraseña para validarla.
-                                            </x-field.description>
+                                            </x-fieldset.description>
                                             @error('password_confirmation')
-                                                <x-field.error-message>{{ $message }}</x-field.error-message>
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                        </x-field>
-                                    </x-field.group>
+                                        </x-fieldset.field>
+                                    </x-fieldset.field-group>
 
                                     <x-button>Guardar</x-button>
                                 </form>

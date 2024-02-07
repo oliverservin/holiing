@@ -2,7 +2,7 @@
 
 <div x-data="{ menuOpen: false }">
     <x-dropdown x-model="menuOpen">
-        <x-dropdown.button size="sm" plain aria-label="Más opciones">
+        <x-dropdown.button plain aria-label="Más opciones">
             <x-icon.16.solid.ellipsis-vertical class="size-4" />
         </x-dropdown.button>
         <x-dropdown.menu>

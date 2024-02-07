@@ -63,36 +63,36 @@ $register = function () {
         <x-container>
             <form wire:submit="register" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
                 <x-app.heading.h1>Registrarse</x-app.heading.h1>
-                <x-field.group>
-                    <x-field>
-                        <x-field.label>Nombre</x-field.label>
+                <x-fieldset.field-group>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Nombre</x-fieldset.label>
                         <x-input wire:model="name" id="name" type="text" name="name" required autofocus autocomplete="name" />
                         @error('name')
-                            <x-field.error-message>{{ $message }}</x-field.error-message>
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                         @enderror
-                    </x-field>
-                    <x-field>
-                        <x-field.label>Email</x-field.label>
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Email</x-fieldset.label>
                         <x-input wire:model="email" id="email" type="email" name="email" required />
                         @error('email')
-                            <x-field.error-message>{{ $message }}</x-field.error-message>
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                         @enderror
-                    </x-field>
-                    <x-field>
-                        <x-field.label>Contraseña</x-field.label>
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Contraseña</x-fieldset.label>
                         <x-input wire:model="password" id="password" type="password" name="password" required />
                         @error('password')
-                            <x-field.error-message>{{ $message }}</x-field.error-message>
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                         @enderror
-                    </x-field>
-                    <x-field>
-                        <x-field.label>Confirmar contraseña</x-field.label>
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Confirmar contraseña</x-fieldset.label>
                         <x-input wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" required />
                         @error('password')
-                            <x-field.error-message>{{ $message }}</x-field.error-message>
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                         @enderror
-                    </x-field>
-                </x-field.group>
+                    </x-fieldset.field>
+                </x-fieldset.field-group>
                 <x-button class="w-full">Registrarse</x-button>
                 <x-text>
                     ¿Ya tienes una cuenta?

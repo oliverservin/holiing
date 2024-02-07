@@ -59,7 +59,7 @@ with(function () {
                                 <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
                             </div>
                             <div>
-                                <x-button size="sm" href="{{ route('app.links.create') }}">Crear enlace</x-button>
+                                <x-button href="{{ route('app.links.create') }}">Crear enlace</x-button>
                             </div>
                         </div>
 
