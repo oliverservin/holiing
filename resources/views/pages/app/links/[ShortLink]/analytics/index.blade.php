@@ -24,7 +24,7 @@ render(function ($shortLink) {
             <x-container>
                 <x-app.section>
                     <div>
-                        <x-link href="{{ route('app.dashboard') }}" class="text-black dark:text-white/80 text-sm">
+                        <x-link href="{{ route('app.dashboard') }}" class="text-zinc-950 dark:text-white text-sm">
                             ← Regresar
                         </x-link>
                     </div>

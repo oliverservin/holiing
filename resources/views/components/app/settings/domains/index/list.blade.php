@@ -1,10 +1,10 @@
 <div class="space-y-6">
     @foreach($domains as $domain)
-        <div wire:key="{{ $domain->id }}" class="bg-aluminum dark:bg-flat rounded-md p-8">
+        <div wire:key="{{ $domain->id }}" class="bg-zinc-100 dark:bg-zinc-800 rounded-md p-8">
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between">
                     <div>
-                        <a href="https://{{ $domain->name }}" class="text-black dark:text-white/80 font-bold text-xl/[1.3] tracking-[-0.01em]">{{ $domain->name }}</a>
+                        <a href="https://{{ $domain->name }}" class="text-zinc-950 dark:text-white font-bold text-xl/[1.3] tracking-[-0.01em]">{{ $domain->name }}</a>
                     </div>
                     @unless ($domain->validated_at)
                         <div>

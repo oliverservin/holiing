@@ -9,7 +9,7 @@
 <nav class="flex gap-6">
     @foreach($links as [$label, $url, $active])
         <a href="{{ $url }}" @class([
-                'flex items-center py-2 text-sm text-black dark:text-white/80 group',
+                'flex items-center py-2 text-sm text-zinc-950 dark:text-white group',
                 'font-semibold' => $active,
             ])
         >
