@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-6">
+<x-app.section>
     <x-app.links.index.search />
 
     <x-table>
@@ -25,7 +25,6 @@
                 </x-table.header>
             </x-table.row>
         </x-table.head>
-
         <x-table.body>
             @foreach ($shortLinks as $shortLink)
                 <x-table.row>
@@ -76,4 +75,4 @@
     <div class="flex justify-end">
         {{ $shortLinks->links('livewire.links.index.pagination') }}
     </div>
-</div>
+</x-app.section>
