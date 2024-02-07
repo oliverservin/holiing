@@ -1,6 +1,6 @@
 <x-layouts.marketing>
     <x-slot:header>
-        <x-header />
+        <x-marketing.header />
     </x-slot:header>
     <x-container>
         <div class="pt-16 pb-20 border-b border-zinc-100">
@@ -56,6 +56,6 @@
         </div>
     </x-container>
     <x-slot:footer>
-        <x-footer />
+        <x-marketing.footer />
     </x-slot:footer>
 </x-layouts.marketing>

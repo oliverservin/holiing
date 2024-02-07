@@ -57,46 +57,42 @@ $register = function () {
 
 <x-layouts.marketing>
     <x-slot:header>
-        <x-header />
+        <x-marketing.header />
     </x-slot:header>
     @volt('pages.register')
         <x-container>
             <form wire:submit="register" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
-                <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
-                    Registrarse
-                </h3>
-                <x-fieldset>
-                    <x-fieldset.field-group>
-                        <x-fieldset.field>
-                            <x-fieldset.label>Nombre</x-fieldset.label>
-                            <x-input wire:model="name" id="name" type="text" name="name" required autofocus autocomplete="name" />
-                            @error('name')
-                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                            @enderror
-                        </x-fieldset.field>
-                        <x-fieldset.field>
-                            <x-fieldset.label>Email</x-fieldset.label>
-                            <x-input wire:model="email" id="email" type="email" name="email" required />
-                            @error('email')
-                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                            @enderror
-                        </x-fieldset.field>
-                        <x-fieldset.field>
-                            <x-fieldset.label>Contraseña</x-fieldset.label>
-                            <x-input wire:model="password" id="password" type="password" name="password" required />
-                            @error('password')
-                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                            @enderror
-                        </x-fieldset.field>
-                        <x-fieldset.field>
-                            <x-fieldset.label>Confirmar contraseña</x-fieldset.label>
-                            <x-input wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" required />
-                            @error('password')
-                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                            @enderror
-                        </x-fieldset.field>
-                    </x-fieldset.field-group>
-                </x-fieldset>
+                <x-app.heading.h1>Registrarse</x-app.heading.h1>
+                <x-fieldset.field-group>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Nombre</x-fieldset.label>
+                        <x-input wire:model="name" id="name" type="text" name="name" required autofocus autocomplete="name" />
+                        @error('name')
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                        @enderror
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Email</x-fieldset.label>
+                        <x-input wire:model="email" id="email" type="email" name="email" required />
+                        @error('email')
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                        @enderror
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Contraseña</x-fieldset.label>
+                        <x-input wire:model="password" id="password" type="password" name="password" required />
+                        @error('password')
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                        @enderror
+                    </x-fieldset.field>
+                    <x-fieldset.field>
+                        <x-fieldset.label>Confirmar contraseña</x-fieldset.label>
+                        <x-input wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" required />
+                        @error('password')
+                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                        @enderror
+                    </x-fieldset.field>
+                </x-fieldset.field-group>
                 <x-button class="w-full">Registrarse</x-button>
                 <x-text>
                     ¿Ya tienes una cuenta?
@@ -111,6 +107,6 @@ $register = function () {
         </x-container>
     @endvolt
     <x-slot:footer>
-        <x-footer />
+        <x-marketing.footer />
     </x-slot:footer>
 </x-layouts.marketing>

@@ -60,21 +60,34 @@ $validateDomain = function (Domain $domain) {
 <x-layouts.app>
     @volt('pages.app.settings.domains.index')
         <div>
-            <x-app.settings.navigation />
+            <x-app.settings.header />
 
-            <x-main>
-                <x-section>
-                    <x-container>
-                        <x-app.settings.domains.index.page-header />
-                    </x-container>
-                </x-section>
+            <x-app.main>
+                <x-container>
+                    <x-app.section>
+                        <div class="space-y-0.5">
+                            <x-app.heading.h1>Configuración</x-app.heading.h1>
+                            <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
+                        </div>
 
-                <x-section>
-                    <x-container>
+                        <x-separator />
+
+                        <x-app.settings.nav />
+
+                        <div class="flex justify-between">
+                            <div class="space-y-0.5">
+                                <x-app.heading.h2>Dominios</x-app.heading.h2>
+                                <x-text>Gestiona los dominios que puedes utilizar para crear enlaces cortos.</x-text>
+                            </div>
+                            <div>
+                                <x-button href="{{ route('app.settings.domains.create') }}">Agregar dominio</x-button>
+                            </div>
+                        </div>
+
                         <x-app.settings.domains.index.list :$domains />
-                    </x-container>
-                </x-section>
-            </x-main>
+                    </x-app.section>
+                </x-container>
+            </x-app.main>
         </div>
     @endvolt
 </x-layouts.app>

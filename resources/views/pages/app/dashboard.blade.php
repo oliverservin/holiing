@@ -48,30 +48,27 @@ with(function () {
 <x-layouts.app>
     @volt('pages.app.dashboard')
         <div>
-            <x-app.navigation />
+            <x-app.settings.header />
 
-            <x-main>
-                <x-section>
-                    <x-container>
-                        <x-page-header>
-                            <x-page-header.content>
-                                <x-page-header.text>
-                                    <x-h1>Enlaces</x-h1>
-                                </x-page-header.text>
-                                <x-page-header.actions>
-                                    <x-button href="{{ route('app.links.create') }}">Crear enlace</x-button>
-                                </x-page-header.actions>
-                            </x-page-header.content>
-                        </x-page-header>
-                    </x-container>
-                </x-section>
+            <x-app.main>
+                <x-container>
+                    <x-app.section>
+                        <div class="flex justify-between">
+                            <div class="space-y-0.5">
+                                <x-app.heading.h1>Enlaces</x-app.heading.h1>
+                                <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
+                            </div>
+                            <div>
+                                <x-button href="{{ route('app.links.create') }}">Crear enlace</x-button>
+                            </div>
+                        </div>
 
-                <x-section>
-                    <x-container>
+                        <x-separator />
+
                         <x-app.links.index.table :$shortLinks :$sortCol :$sortAsc />
-                    </x-container>
-                </x-section>
-            </x-main>
+                    </x-app.section>
+                </x-container>
+            </x-app.main>
         </div>
     @endvolt
 </x-layouts.app>

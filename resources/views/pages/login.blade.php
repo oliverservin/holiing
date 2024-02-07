@@ -32,38 +32,38 @@ $login = function () {
 
 <x-layouts.marketing>
     <x-slot:header>
-        <x-header />
+        <x-marketing.header />
     </x-slot:header>
     @volt('pages.login')
         <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
-            <h3 class="text-lg/7 font-semibold tracking-[-0.015em] text-zinc-950 sm:text-base/7 dark:text-white">
-                Iniciar sesión
-            </h3>
-            <x-fieldset>
-                <x-fieldset.field-group>
-                    <x-fieldset.field>
-                        <x-fieldset.label>Email</x-fieldset.label>
-                        <x-input wire:model="form.email" id="email" type="email" name="email" required />
-                        @error('form.email')
-                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                        @enderror
-                    </x-fieldset.field>
-                    <x-fieldset.field>
-                        <x-fieldset.label>Contraseña</x-fieldset.label>
-                        <x-input wire:model="form.password" id="password" type="password" name="password" required />
-                        @error('form.password')
-                            <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                        @enderror
-                    </x-fieldset.field>
-                </x-fieldset.field-group>
-            </x-fieldset>
+            <x-app.heading.h1>Iniciar sesión</x-app.heading.h1>
+
+            <x-fieldset.field-group>
+                <x-fieldset.field>
+                    <x-fieldset.label>Email</x-fieldset.label>
+                    <x-input wire:model="form.email" id="email" type="email" name="email" required />
+                    @error('form.email')
+                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                    @enderror
+                </x-fieldset.field>
+                <x-fieldset.field>
+                    <x-fieldset.label>Contraseña</x-fieldset.label>
+                    <x-input wire:model="form.password" id="password" type="password" name="password" required />
+                    @error('form.password')
+                        <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                    @enderror
+                </x-fieldset.field>
+            </x-fieldset.field-group>
+
             <div>
                 <div x-data class="flex items-center gap-4">
                     <x-fieldset.label x-switch:label>Recordarme</x-fieldset.label>
                     <x-switch name="remember" wire:model="form.remember" />
                 </div>
             </div>
+
             <x-button class="w-full">Iniciar sesión</x-button>
+
             <x-text>
                 ¿Aún no tienes una cuenta?
                 <a
@@ -76,6 +76,6 @@ $login = function () {
         </form>
     @endvolt
     <x-slot:footer>
-        <x-footer />
+        <x-marketing.footer />
     </x-slot:footer>
 </x-layouts.marketing>

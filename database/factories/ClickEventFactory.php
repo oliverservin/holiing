@@ -31,7 +31,7 @@ class ClickEventFactory extends Factory
             'ua' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15',
             'referer' => '(direct)',
             'referer_url' => '(direct)',
-            'created_at' => fake()->dateTimeBetween('-2 years', 'now'),
+            'created_at' => fake()->dateTimeBetween('-3 months', 'now'),
         ];
     }
 }

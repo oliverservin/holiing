@@ -33,7 +33,7 @@
                     }"
                 x-show="show"
                 x-transition.duration.500ms
-                class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white/75 backdrop-blur-xl dark:bg-zinc-800/75 shadow-lg ring-1 ring-zinc-950/10 dark:ring-inset dark:ring-white/10"
             >
                 <div class="p-4">
                     <div class="flex items-start">
@@ -43,15 +43,15 @@
                             </svg>
                         </div>
                         <div class="w-0 flex-1">
-                            <p x-text="notification.content" class="text-sm font-medium text-zinc-900"></p>
+                            <p x-text="notification.content" class="text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white font-medium"></p>
                         </div>
                         <div class="ml-4 flex flex-shrink-0">
-                            <button @click="transitionOut()" type="button" class="inline-flex rounded-md bg-white text-zinc-400 hover:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            <x-button @click="transitionOut()" type="button" plain>
                                 <span class="sr-only">Cerrar</span>
-                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <svg class="h-5 w-5" data-slot="icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
                                 </svg>
-                            </button>
+                            </x-button>
                         </div>
                     </div>
                 </div>
