@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Country;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,5 +27,6 @@ class ClickEvent extends Model
 
     protected $casts = [
         'bot' => 'boolean',
+        'country' => Country::class,
     ];
 }

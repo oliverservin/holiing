@@ -39,7 +39,7 @@ with(function () {
             @foreach ($dataset as $set)
                 <x-table.row wire:key="{{ $set->id }}">
                     <x-table.cell>
-                        {{ $set->country }}
+                        {{ $set->country->label() }}
                     </x-table.cell>
 
                     <x-table.cell class="text-right">
