@@ -16,7 +16,7 @@
             <span class="relative flex py-0.5">
                 {{ $label }}
                 <span @class([
-                        'absolute opacity-0 group-hover:opacity-100 inset-x-0 bottom-0 h-0.5 bg-black/10 dark:bg-white/10',
+                        'absolute opacity-0 group-hover:opacity-100 inset-x-0 bottom-0 h-0.5 bg-zinc-950/10 dark:bg-white/10',
                         'opacity-100' => $active,
                         'opacity-0' => ! $active,
                     ])
