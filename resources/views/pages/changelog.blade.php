@@ -29,13 +29,13 @@ render(function (View $view) {
 
                 <div class="mt-6 space-y-8">
                     @foreach($releases as $release)
-                        <div class="bg-aluminum p-8 rounded-lg">
+                        <div class="bg-zinc-100 dark:bg-zinc-800 p-8 rounded-lg">
                             <div>
                                 <h2 class="text-2xl font-bold">{{ $release->title }}</h2>
-                                <p class="text-sm text-black/60">{{ $release->dateForHumans() }}</p>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">{{ $release->dateForHumans() }}</p>
                             </div>
                             <div class="mt-4">
-                                <div class="prose prose-sm">{!! $release->description() !!}</div>
+                                <div class="prose prose-zinc prose-sm dark:prose-invert">{!! $release->description() !!}</div>
                             </div>
                         </div>
                     @endforeach

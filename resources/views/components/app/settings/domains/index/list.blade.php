@@ -26,7 +26,7 @@
                     <x-separator />
                     <div>
                         <x-text>Para configurar tu dominio <x-text.code>{{ $domain->name }}</x-text.code>, configura los siguiente registros A y AAAA con tu proveedor de DNS:</x-text>
-                        <div class="flex gap-4 mt-5 text-black/60 dark:text-white/60 text-sm/[1.4]">
+                        <div class="flex gap-4 mt-5 text-zinc-500 dark:text-zinc-400 text-sm/[1.4]">
                             <div class="flex flex-col gap-2">
                                 <div class="font-medium">Type</div>
                                 <div>A</div>
