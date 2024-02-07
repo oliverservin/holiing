@@ -6,6 +6,7 @@ enum Country: string
 {
     case AFGHANISTAN = 'AF';
     case ALBANIA = 'AL';
+    case AALAND_ISLANDS = 'AX';
     case ALGERIA = 'DZ';
     case AMERICAN_SAMOA = 'AS';
     case ANDORRA = 'AD';
@@ -39,10 +40,11 @@ enum Country: string
     case BULGARIA = 'BG';
     case BURKINA_FASO = 'BF';
     case BURUNDI = 'BI';
-    case CABO_VERDE = 'CV';
     case CAMBODIA = 'KH';
     case CAMEROON = 'CM';
     case CANADA = 'CA';
+    case CAPE_VERDE = 'CV';
+    case CARIBBEAN_NETHERLANDS = 'BQ';
     case CAYMAN_ISLANDS = 'KY';
     case CENTRAL_AFRICAN_REPUBLIC = 'CF';
     case CHAD = 'TD';
@@ -59,6 +61,7 @@ enum Country: string
     case COTE_DIVOIRE = 'CI';
     case CROATIA = 'HR';
     case CUBA = 'CU';
+    case CURACAO = 'CW';
     case CYPRUS = 'CY';
     case CZECH_REPUBLIC = 'CZ';
     case DENMARK = 'DK';
@@ -257,6 +260,7 @@ enum Country: string
         return match ($this) {
             static::AFGHANISTAN => 'Afganistán',
             static::ALBANIA => 'Albania',
+            static::AALAND_ISLANDS => 'Islas Åland',
             static::ALGERIA => 'Argelia',
             static::AMERICAN_SAMOA => 'Samoa Americana',
             static::ANDORRA => 'Andorra',
@@ -290,10 +294,11 @@ enum Country: string
             static::BULGARIA => 'Bulgaria',
             static::BURKINA_FASO => 'Burkina Faso',
             static::BURUNDI => 'Burundi',
-            static::CABO_VERDE => 'Cabo Verde',
             static::CAMBODIA => 'Camboya',
             static::CAMEROON => 'Camerún',
             static::CANADA => 'Canadá',
+            static::CAPE_VERDE => 'Cabo Verde',
+            static::CARIBBEAN_NETHERLANDS => 'Caribe Neerlandés',
             static::CAYMAN_ISLANDS => 'Islas Caimán',
             static::CENTRAL_AFRICAN_REPUBLIC => 'República Centroafricana',
             static::CHAD => 'Chad',
@@ -310,6 +315,7 @@ enum Country: string
             static::COTE_DIVOIRE => 'Costa de Marfil',
             static::CROATIA => 'Croacia',
             static::CUBA => 'Cuba',
+            static::CURACAO => 'Curazao',
             static::CYPRUS => 'Chipre',
             static::DENMARK => 'Dinamarca',
             static::DJIBOUTI => 'Yibuti',
