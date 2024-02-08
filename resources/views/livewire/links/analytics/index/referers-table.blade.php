@@ -5,23 +5,21 @@ use function Livewire\Volt\with;
 
 use Illuminate\Support\Facades\DB;
 
-state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
+state('shortLink');
 
-$fillDataset = function () {
-    $results = $this->shortLink->clickEvents()
-        ->select('referer', DB::raw('COUNT(*) as total'))
-        ->groupBy('referer')
-        ->orderBy('total', 'desc')
-        ->take(5)
-        ->get();
-
-    $this->dataset = $results;
-};
+state('filters')->reactive();
 
 with(function () {
-    $this->fillDataset();
+    $results = $this->shortLink->clickEvents()
+        ->select('referer', DB::raw('COUNT(*) as total'))
+        ->tap(function ($query) {
+            $this->filters->apply($query);
+        })
+        ->groupBy('referer')
+        ->orderBy('total', 'desc')
+        ->paginate(5);
 
-    return [];
+    return ['dataset' => $results];
 });
 
 ?>

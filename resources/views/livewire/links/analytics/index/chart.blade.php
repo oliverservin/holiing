@@ -33,10 +33,6 @@ $fillDataset = function () {
     $this->dataset['labels'] = $results->pluck('increment')->toArray();
 };
 
-mount(function () {
-    $this->filters->init($this->shortLink);
-});
-
 with(function () {
     $this->fillDataset();
 
