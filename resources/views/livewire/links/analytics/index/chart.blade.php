@@ -15,11 +15,7 @@ state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
 state('filters')->reactive();
 
 $fillDataset = function () {
-    $increment = match ($this->filters->range) {
-        Range::Today => DB::raw("strftime('%H', created_at) as increment"),
-        Range::Year => DB::raw("strftime('%Y', created_at) || '-' || strftime('%m', created_at) as increment"),
-        default => DB::raw("DATE(created_at) as increment"),
-    };
+    $increment = DB::raw("DATE(created_at) as increment");
 
     $results = $this->shortLink->clickEvents()
         ->select($increment, DB::raw('COUNT(*) as total'))

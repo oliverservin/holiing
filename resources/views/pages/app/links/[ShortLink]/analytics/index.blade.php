@@ -51,7 +51,7 @@ render(function ($shortLink) {
                         <x-separator />
 
                         <div class="w-full flex flex-col gap-8">
-                            <x-app.links.analytics.index.filter-range :filters />
+                            <x-app.links.analytics.index.filter-range :$filters />
 
                             <livewire:links.analytics.index.chart :$shortLink :$filters />
 
