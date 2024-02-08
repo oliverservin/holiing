@@ -1,23 +1,41 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
+use function Livewire\Volt\form;
+use function Livewire\Volt\mount;
+use function Livewire\Volt\with;
 
 use function Livewire\Volt\state;
-use function Livewire\Volt\with;
+
+use App\Livewire\App\Links\Analytics\Index\Filters;
+use Illuminate\Support\Facades\DB;
+use App\Livewire\App\Links\Analytics\Index\Range;
 
 state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
 
+form(Filters::class, 'filters');
+
 $fillDataset = function () {
-    $increment = DB::raw("DATE(created_at) as increment");
+    $increment = match ($this->filters->range) {
+        Range::Today => DB::raw("strftime('%H', created_at) as increment"),
+        Range::Year => DB::raw("strftime('%Y', created_at) || '-' || strftime('%m', created_at) as increment"),
+        default => DB::raw("DATE(created_at) as increment"),
+    };
 
     $results = $this->shortLink->clickEvents()
         ->select($increment, DB::raw('COUNT(*) as total'))
+        ->tap(function ($query) {
+            $this->filters->apply($query);
+        })
         ->groupBy('increment')
         ->get();
 
     $this->dataset['values'] = $results->pluck('total')->toArray();
     $this->dataset['labels'] = $results->pluck('increment')->toArray();
 };
+
+mount(function () {
+    $this->filters->init($this->shortLink);
+});
 
 with(function () {
     $this->fillDataset();
@@ -28,6 +46,8 @@ with(function () {
 ?>
 
 <div>
+    <x-app.links.analytics.index.filter-range :filters />
+
     <div
         x-data="chart"
         wire:ignore
