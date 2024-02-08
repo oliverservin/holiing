@@ -12,7 +12,7 @@ use App\Livewire\App\Links\Analytics\Index\Range;
 
 state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
 
-form(Filters::class, 'filters');
+state('filters')->reactive();
 
 $fillDataset = function () {
     $increment = match ($this->filters->range) {
@@ -46,8 +46,6 @@ with(function () {
 ?>
 
 <div>
-    <x-app.links.analytics.index.filter-range :filters />
-
     <div
         x-data="chart"
         wire:ignore
