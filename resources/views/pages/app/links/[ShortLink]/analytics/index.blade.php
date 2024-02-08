@@ -58,6 +58,7 @@ render(function ($shortLink) {
                             <div class="grid grid-cols-2 gap-6">
                                 <livewire:links.analytics.index.countries-table :$shortLink :$filters />
                                 <livewire:links.analytics.index.devices-table :$shortLink :$filters />
+                                <livewire:links.analytics.index.browsers-table :$shortLink :$filters />
                                 <livewire:links.analytics.index.referers-table :$shortLink :$filters />
                             </div>
                         </div>

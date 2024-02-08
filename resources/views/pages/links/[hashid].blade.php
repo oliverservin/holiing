@@ -25,16 +25,11 @@ render(function (View $view, Request $request) {
     $clickEvent = ClickEvent::create([
         'domain_id' => $request->domain->id,
         'short_link_id' => $link->id,
-        'country' => ($location = Location::get()) ? $location->countryCode : 'Unknown',
-        'device' => $agent->device() ?? 'Unknown',
-        'browser' => $browser = $agent->browser() ?? 'Unknown',
-        'browser_version' => $agent->version($browser) ?? 'Unknown',
-        'platform' => $platform = $agent->platform() ?? 'Unknown',
-        'platform_version' => $agent->version($platform) ?? 'Unknown',
+        'country' => ($location = Location::get()) ? $location->countryCode : 'unknown',
+        'device' => $agent->deviceType() === 'other' ? 'unknown' : $agent->deviceType(),
+        'browser' => $browser = $agent->browser() ?? 'unknown',
         'bot' => $agent->isRobot(),
-        'ua' => $agent->getUserAgent() ?? 'Unknown',
-        'referer' => $domainWithoutWWW ?? '(direct)',
-        'referer_url' => $referer ?? '(direct)',
+        'referer' => $domainWithoutWWW ?? 'unknown',
     ]);
 
     $link->increment('clicks');
