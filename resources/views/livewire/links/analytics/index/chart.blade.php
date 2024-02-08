@@ -1,17 +1,27 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
-
-use function Livewire\Volt\state;
+use function Livewire\Volt\form;
+use function Livewire\Volt\mount;
 use function Livewire\Volt\with;
 
+use function Livewire\Volt\state;
+
+use App\Livewire\App\Links\Analytics\Index\Filters;
+use Illuminate\Support\Facades\DB;
+use App\Livewire\App\Links\Analytics\Index\Range;
+
 state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
+
+state('filters')->reactive();
 
 $fillDataset = function () {
     $increment = DB::raw("DATE(created_at) as increment");
 
     $results = $this->shortLink->clickEvents()
         ->select($increment, DB::raw('COUNT(*) as total'))
+        ->tap(function ($query) {
+            $this->filters->apply($query);
+        })
         ->groupBy('increment')
         ->get();
 

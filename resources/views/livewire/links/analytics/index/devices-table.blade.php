@@ -5,23 +5,21 @@ use function Livewire\Volt\with;
 
 use Illuminate\Support\Facades\DB;
 
-state(['dataset' => [], 'shortLink' => fn () => $shortLink]);
+state('shortLink');
 
-$fillDataset = function () {
-    $results = $this->shortLink->clickEvents()
-        ->select('device', DB::raw('COUNT(*) as total'))
-        ->groupBy('device')
-        ->orderBy('total', 'desc')
-        ->take(5)
-        ->get();
-
-    $this->dataset = $results;
-};
+state('filters')->reactive();
 
 with(function () {
-    $this->fillDataset();
+    $results = $this->shortLink->clickEvents()
+        ->select('device', DB::raw('COUNT(*) as total'))
+        ->tap(function ($query) {
+            $this->filters->apply($query);
+        })
+        ->groupBy('device')
+        ->orderBy('total', 'desc')
+        ->paginate(5);
 
-    return [];
+    return ['dataset' => $results];
 });
 
 ?>
