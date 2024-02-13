@@ -1,5 +1,6 @@
 <?php
 
-function of(...$arguments) {
+function of(...$arguments)
+{
     return (object) $arguments;
 }

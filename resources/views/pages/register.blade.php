@@ -27,9 +27,9 @@ state([
 ]);
 
 rules([
-   'name' => ['required', 'string', 'max:255'],
-   'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-   'password' => ['required', 'string', 'confirmed', Password::defaults()],
+    'name' => ['required', 'string', 'max:255'],
+    'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+    'password' => ['required', 'string', 'confirmed', Password::defaults()],
 ]);
 
 $register = function () {
@@ -58,10 +58,10 @@ $register = function () {
 <x-layouts.marketing>
     <x-slot:header>
         <x-marketing.header />
-    </x-slot:header>
+    </x-slot>
     @volt('pages.register')
         <x-container>
-            <form wire:submit="register" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
+            <form wire:submit="register" class="mx-auto w-full max-w-sm space-y-8 pb-24 pt-20">
                 <x-app.heading.h1>Registrarse</x-app.heading.h1>
                 <x-fieldset.field-group>
                     <x-fieldset.field>
@@ -96,17 +96,15 @@ $register = function () {
                 <x-button class="w-full">Registrarse</x-button>
                 <x-text>
                     ¿Ya tienes una cuenta?
-                    <a
-                        href="{{ route('login') }}"
-                        class="font-semibold text-zinc-950 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300"
-                    >
+                    <a href="{{ route('login') }}" class="font-semibold text-zinc-950 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300">
                         Inicia sesión
                     </a>
                 </x-text>
             </form>
         </x-container>
     @endvolt
+
     <x-slot:footer>
         <x-marketing.footer />
-    </x-slot:footer>
+    </x-slot>
 </x-layouts.marketing>

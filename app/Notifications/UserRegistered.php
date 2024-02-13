@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -36,8 +35,8 @@ class UserRegistered extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject('Usuario registrado')
-                    ->line("Un usuario nuevo registrado: {$this->user->email}");
+            ->subject('Usuario registrado')
+            ->line("Un usuario nuevo registrado: {$this->user->email}");
     }
 
     /**

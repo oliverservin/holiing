@@ -14,20 +14,20 @@ enum Range: string
     public function label($start = null, $end = null)
     {
         return match ($this) {
-            static::Last_90 => '90d',
-            static::Last_30 => '30d',
-            static::Last_14 => '14d',
-            static::Last_7 => '7d',
+            self::Last_90 => '90d',
+            self::Last_30 => '30d',
+            self::Last_14 => '14d',
+            self::Last_7 => '7d',
         };
     }
 
     public function dates()
     {
         return match ($this) {
-            static::Last_7 => [Carbon::today()->subDays(6), now()],
-            static::Last_14 => [Carbon::today()->subDays(13), now()],
-            static::Last_30 => [Carbon::today()->subDays(29), now()],
-            static::Last_90 => [Carbon::today()->subDays(59), now()],
+            self::Last_7 => [Carbon::today()->subDays(6), now()],
+            self::Last_14 => [Carbon::today()->subDays(13), now()],
+            self::Last_30 => [Carbon::today()->subDays(29), now()],
+            self::Last_90 => [Carbon::today()->subDays(59), now()],
         };
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 use function Livewire\Volt\state;
 use function Livewire\Volt\with;
-
-use Illuminate\Support\Facades\DB;
 
 state('shortLink');
 
@@ -25,7 +25,6 @@ with(function () {
 ?>
 
 <div>
-
     <x-table>
         <x-table.head>
             <x-table.row>

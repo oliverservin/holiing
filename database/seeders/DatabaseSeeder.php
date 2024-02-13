@@ -5,9 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\ClickEvent;
-use App\Models\User;
 use App\Models\Domain;
 use App\Models\ShortLink;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

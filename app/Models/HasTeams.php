@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
-
 trait HasTeams
 {
     public function isCurrentTeam($team)

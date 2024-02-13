@@ -7,7 +7,9 @@ use Hashids\Hashids;
 
 class HashIdGenerator
 {
-    public function __construct(protected Hashids $hashids) {}
+    public function __construct(protected Hashids $hashids)
+    {
+    }
 
     public function generate()
     {

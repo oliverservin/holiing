@@ -57,7 +57,11 @@
         {{ $disabled ? 'disabled' : '' }}
         {{ $invalid ? 'data-invalid' : '' }}
         {{ $attributes->except('class') }}
-        x-data="{ hovering: $useHover($refs.target), focusing: $useFocus($refs.target), disabled: $refs.target.disabled }"
+        x-data="{
+            hovering: $useHover($refs.target),
+            focusing: $useFocus($refs.target),
+            disabled: $refs.target.disabled,
+        }"
         x-ref="target"
         x-bind:data-hover="hovering && ! disabled"
         x-bind:data-focus="focusing && ! disabled"
@@ -66,7 +70,7 @@
         {{ $slot }}
     </select>
 
-    @if (!$multiple)
+    @if (! $multiple)
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <svg
                 class="size-5 stroke-zinc-500 group-has-[[data-disabled]]:stroke-zinc-600 sm:size-4 dark:stroke-zinc-400 forced-colors:stroke-[CanvasText]"
@@ -74,8 +78,8 @@
                 aria-hidden="true"
                 fill="none"
             >
-                <path d="M5.75 10.75L8 13L10.25 10.75" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M10.25 5.25L8 3L5.75 5.25" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5.75 10.75L8 13L10.25 10.75" strokeWidth="{1.5}" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M10.25 5.25L8 3L5.75 5.25" strokeWidth="{1.5}" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </span>
     @endif

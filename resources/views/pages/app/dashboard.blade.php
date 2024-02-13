@@ -1,18 +1,18 @@
 <?php
 
 use App\HashIdGenerator;
+use App\Livewire\App\Links\Index\Searchable;
+use App\Livewire\App\Links\Index\Sortable;
 use App\Models\ShortLink;
-use function Laravel\Folio\name;
-use function Livewire\Volt\uses;
+use Illuminate\Support\Facades\Auth;
 
-use function Livewire\Volt\with;
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\name;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
-use Illuminate\Support\Facades\Auth;
-use function Laravel\Folio\middleware;
-use App\Livewire\App\Links\Index\Sortable;
+use function Livewire\Volt\uses;
 use function Livewire\Volt\usesPagination;
-use App\Livewire\App\Links\Index\Searchable;
+use function Livewire\Volt\with;
 
 usesPagination();
 
@@ -22,8 +22,7 @@ name('app.dashboard');
 
 middleware(['auth']);
 
-$delete = function(ShortLink $shorLink)
-{
+$delete = function (ShortLink $shorLink) {
     $this->authorize('delete', $shorLink);
 
     $shorLink->delete();

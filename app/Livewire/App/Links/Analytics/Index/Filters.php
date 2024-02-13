@@ -2,9 +2,9 @@
 
 namespace App\Livewire\App\Links\Analytics\Index;
 
-use Livewire\Form;
 use App\Models\ShortLink;
 use Livewire\Attributes\Url;
+use Livewire\Form;
 
 class Filters extends Form
 {
@@ -20,9 +20,9 @@ class Filters extends Form
 
     public function apply($query)
     {
-       $query = $this->applyRange($query);
+        $query = $this->applyRange($query);
 
-       return $query;
+        return $query;
     }
 
     public function applyRange($query)

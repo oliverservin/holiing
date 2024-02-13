@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Sushi\Sushi;
-use Illuminate\Support\Str;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
+use Sushi\Sushi;
 
 class Release extends Model
 {

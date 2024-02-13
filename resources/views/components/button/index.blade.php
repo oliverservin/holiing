@@ -74,7 +74,7 @@ $styles = of(
 
         // Icon
         '[--btn-icon:theme(colors.zinc.500)] data-[active]:[--btn-icon:theme(colors.zinc.700)] data-[hover]:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:data-[active]:[--btn-icon:theme(colors.zinc.400)] dark:data-[hover]:[--btn-icon:theme(colors.zinc.400)]',
-      ],
+    ],
     colors: of(
         darkZinc: [
             'text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]',
@@ -184,7 +184,7 @@ $classes = Arr::toCssClasses([
         ? Arr::toCssClasses($styles->outline)
         : ($plain
             ? Arr::toCssClasses($styles->plain)
-            : Arr::toCssClasses([Arr::toCssClasses($styles->solid), Arr::toCssClasses($styles->colors->{$color ?? 'darkZinc'})]))
+            : Arr::toCssClasses([Arr::toCssClasses($styles->solid), Arr::toCssClasses($styles->colors->{$color ?? 'darkZinc'})])),
 ]);
 
 ?>
@@ -208,7 +208,11 @@ $classes = Arr::toCssClasses([
             $classes,
             'cursor-default',
         ])
-        x-data="{ hovering: $useHover($refs.target), focusing: $useFocus($refs.target), disabled: $refs.target.disabled }"
+        x-data="{
+            hovering: $useHover($refs.target),
+            focusing: $useFocus($refs.target),
+            disabled: $refs.target.disabled,
+        }"
         x-ref="target"
         x-bind:data-hover="hovering && ! disabled"
         x-bind:data-focus="focusing && ! disabled"

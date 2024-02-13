@@ -20,7 +20,7 @@
         '[&>[data-slot=description]]:col-start-1 [&>[data-slot=description]]:row-start-2',
 
         // With description
-        '[&_[data-slot=label]]:has-[[data-slot=description]]:font-medium'
+        '[&_[data-slot=label]]:has-[[data-slot=description]]:font-medium',
     ])
 >
     {{ $slot }}
