@@ -151,7 +151,14 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" class="h-3 w-3">
+                                                    <svg
+                                                        width="300"
+                                                        height="300"
+                                                        viewBox="0 0 300 300"
+                                                        version="1.1"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="h-3 w-3"
+                                                    >
                                                         <path
                                                             stroke="currentColor"
                                                             d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66"
@@ -179,7 +186,13 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="1365.12" height="1365.12" viewBox="0 0 14222 14222" class="h-4 w-4">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="1365.12"
+                                                        height="1365.12"
+                                                        viewBox="0 0 14222 14222"
+                                                        class="h-4 w-4"
+                                                    >
                                                         <circle cx="7111" cy="7112" r="7111" fill="#1977f3"></circle>
                                                         <path
                                                             d="M9879 9168l315-2056H8222V5778c0-562 275-1111 1159-1111h897V2917s-814-139-1592-139c-1624 0-2686 984-2686 2767v1567H4194v2056h1806v4969c362 57 733 86 1111 86s749-30 1111-86V9168z"
@@ -205,11 +218,13 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                         @else
                                                             <div class="h-4 w-24 rounded-md bg-zinc-200"></div>
                                                         @endif
+
                                                         @if ($metaTitle)
                                                             <h3 class="truncate font-semibold text-[#1d2129]">{{ $metaTitle }}</h3>
                                                         @else
                                                             <div class="h-4 w-full rounded-md bg-zinc-200"></div>
                                                         @endif
+
                                                         @if ($metaTitle)
                                                             <p class="line-clamp-2 text-sm text-[#606770]">{{ $metaDescription }}</p>
                                                         @else
@@ -247,6 +262,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                         @else
                                                             <div class="h-4 w-full rounded-md bg-zinc-200"></div>
                                                         @endif
+
                                                         @if ($domain)
                                                             <p class="text-xs text-[#00000099]">{{ $metaDomain }}</p>
                                                         @else
