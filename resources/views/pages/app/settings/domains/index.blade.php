@@ -1,17 +1,16 @@
 <?php
 
-use Spatie\Dns\Dns;
-use App\Models\User;
+use App\Livewire\InteractsWithNotifications;
 use App\Models\Domain;
+use App\Models\User;
+use App\Notifications\DomainVerificationRequested;
+use Illuminate\Support\Facades\Notification;
+use Spatie\Dns\Dns;
 
+use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Livewire\Volt\state;
-use function Laravel\Folio\middleware;
 use function Livewire\Volt\uses;
-
-use App\Livewire\InteractsWithNotifications;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\DomainVerificationRequested;
 
 middleware('auth');
 
@@ -40,7 +39,7 @@ $validateDomain = function (Domain $domain) {
         }
     });
 
-    if($validRecord) {
+    if ($validRecord) {
         $domain->validated_at = now();
 
         Notification::send(User::admin()->get(), new DomainVerificationRequested($domain));

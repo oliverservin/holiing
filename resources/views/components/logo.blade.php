@@ -1,3 +1,3 @@
-<x-link href="{{ route('app.dashboard') }}" class="bg-black h-7 w-20 flex items-center justify-center rounded">
-    <span class="uppercase font-semibold text-white text-xs tracking-wide">Holiing</span>
+<x-link href="{{ route('app.dashboard') }}" class="flex h-7 w-20 items-center justify-center rounded bg-black">
+    <span class="text-xs font-semibold uppercase tracking-wide text-white">Holiing</span>
 </x-link>

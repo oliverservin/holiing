@@ -1,13 +1,13 @@
 <?php
 
+use App\Livewire\App\Links\Analytics\Index\Filters;
+
+use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Laravel\Folio\render;
-use function Laravel\Folio\middleware;
 use function Livewire\Volt\form;
 use function Livewire\Volt\mount;
 use function Livewire\Volt\state;
-
-use App\Livewire\App\Links\Analytics\Index\Filters;
 
 middleware('auth');
 
@@ -38,19 +38,17 @@ render(function ($shortLink) {
                 <x-container>
                     <x-app.section>
                         <div>
-                            <x-link href="{{ route('app.dashboard') }}" class="text-zinc-950 dark:text-white text-sm">
-                                ← Regresar
-                            </x-link>
+                            <x-link href="{{ route('app.dashboard') }}" class="text-sm text-zinc-950 dark:text-white">← Regresar</x-link>
                         </div>
 
                         <div class="space-y-0.5">
                             <x-app.heading.h1>Analíticas</x-app.heading.h1>
-                            <x-text.lead>{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</x-text.lead>
+                            <x-text.lead>{{ $shortLink->domain->name.'/'.$shortLink->hashid }}</x-text.lead>
                         </div>
 
                         <x-separator />
 
-                        <div class="w-full flex flex-col gap-8">
+                        <div class="flex w-full flex-col gap-8">
                             <x-app.links.analytics.index.filter-range :$filters />
 
                             <livewire:links.analytics.index.chart :$shortLink :$filters />

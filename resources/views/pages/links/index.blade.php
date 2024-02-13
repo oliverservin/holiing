@@ -1,10 +1,10 @@
 <?php
 
-use function Laravel\Folio\middleware;
-use function Laravel\Folio\render;
-
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\render;
 
 middleware('domain');
 

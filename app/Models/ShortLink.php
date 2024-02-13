@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Number;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Number;
 
 class ShortLink extends Model
 {

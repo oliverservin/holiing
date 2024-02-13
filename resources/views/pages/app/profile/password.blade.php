@@ -1,16 +1,16 @@
 <?php
 
+use App\Livewire\InteractsWithNotifications;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\ValidationException;
+
+use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
 use function Livewire\Volt\uses;
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Hash;
-use function Laravel\Folio\middleware;
-use Illuminate\Validation\Rules\Password;
-use App\Livewire\InteractsWithNotifications;
-use Illuminate\Validation\ValidationException;
 
 uses(InteractsWithNotifications::class);
 
@@ -21,7 +21,7 @@ name('app.profile.password');
 state([
     'current_password' => '',
     'password' => '',
-    'password_confirmation' => ''
+    'password_confirmation' => '',
 ]);
 
 rules([
@@ -82,7 +82,14 @@ $updatePassword = function () {
                                     <x-fieldset.field-group>
                                         <x-fieldset.field>
                                             <x-fieldset.label for="update_password_current_password">Contraseña actual</x-fieldset.label>
-                                            <x-input wire:model="current_password" id="update_password_current_password" type="password" name="current_password" :invalid="$errors->has('current_password')" autocomplete="current-password" />
+                                            <x-input
+                                                wire:model="current_password"
+                                                id="update_password_current_password"
+                                                type="password"
+                                                name="current_password"
+                                                :invalid="$errors->has('current_password')"
+                                                autocomplete="current-password"
+                                            />
                                             <x-fieldset.description>
                                                 Por seguridad, antes de cambiar tu contraseña, indícanos cuál es tu contraseña actual.
                                             </x-fieldset.description>
@@ -92,20 +99,30 @@ $updatePassword = function () {
                                         </x-fieldset.field>
                                         <x-fieldset.field>
                                             <x-fieldset.label for="update_password_password">Contraseña nueva</x-fieldset.label>
-                                            <x-input wire:model="password" id="update_password_password" type="password" name="update_password_password" :invalid="$errors->has('password')" autocomplete="new-password" />
-                                            <x-fieldset.description>
-                                                Elige una nueva contraseña. Asegúrate de que sea segura.
-                                            </x-fieldset.description>
+                                            <x-input
+                                                wire:model="password"
+                                                id="update_password_password"
+                                                type="password"
+                                                name="update_password_password"
+                                                :invalid="$errors->has('password')"
+                                                autocomplete="new-password"
+                                            />
+                                            <x-fieldset.description>Elige una nueva contraseña. Asegúrate de que sea segura.</x-fieldset.description>
                                             @error('password')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>
                                         <x-fieldset.field>
                                             <x-fieldset.label for="update_password_password_confirmation">Confirmar contraseña</x-fieldset.label>
-                                            <x-input wire:model="password_confirmation" id="update_password_password_confirmation" type="password" name="password_confirmation" :invalid="$errors->has('password_confirmation')" autocomplete="new-password" />
-                                            <x-fieldset.description>
-                                                Vuelve a repetir tu nueva contraseña para validarla.
-                                            </x-fieldset.description>
+                                            <x-input
+                                                wire:model="password_confirmation"
+                                                id="update_password_password_confirmation"
+                                                type="password"
+                                                name="password_confirmation"
+                                                :invalid="$errors->has('password_confirmation')"
+                                                autocomplete="new-password"
+                                            />
+                                            <x-fieldset.description>Vuelve a repetir tu nueva contraseña para validarla.</x-fieldset.description>
                                             @error('password_confirmation')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror

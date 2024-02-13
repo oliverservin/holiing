@@ -1,12 +1,12 @@
 <?php
 
+use App\Livewire\InteractsWithNotifications;
+
+use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
-use function Laravel\Folio\middleware;
 use function Livewire\Volt\uses;
-
-use App\Livewire\InteractsWithNotifications;
 
 uses(InteractsWithNotifications::class);
 
@@ -70,21 +70,37 @@ $store = function () {
                                     <x-fieldset.field-group>
                                         <x-fieldset.field>
                                             <x-fieldset.label for="domain">Nombre de dominio</x-fieldset.label>
-                                            <x-input wire:model="domain" id="domain" type="text" name="domain" :invalid="$errors->has('domain')" placeholder="holi.ing" required />
+                                            <x-input
+                                                wire:model="domain"
+                                                id="domain"
+                                                type="text"
+                                                name="domain"
+                                                :invalid="$errors->has('domain')"
+                                                placeholder="holi.ing"
+                                                required
+                                            />
                                             @error('domain')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
-                                            <x-fieldset.description>
-                                                El nombre de dominio que deseas agregar.
-                                            </x-fieldset.description>
+
+                                            <x-fieldset.description>El nombre de dominio que deseas agregar.</x-fieldset.description>
                                         </x-fieldset.field>
 
                                         <x-fieldset.field>
                                             <x-fieldset.label for="landing_page">Página de landing</x-fieldset.label>
-                                            <x-input wire:model="landing_page" id="landing_page" type="text" name="landing_page" :invalid="$errors->has('landing_page')" placeholder="https://tudominio.com" required />
+                                            <x-input
+                                                wire:model="landing_page"
+                                                id="landing_page"
+                                                type="text"
+                                                name="landing_page"
+                                                :invalid="$errors->has('landing_page')"
+                                                placeholder="https://tudominio.com"
+                                                required
+                                            />
                                             @error('landing_page')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
+
                                             <x-fieldset.description>
                                                 La página a la que serán redirigidos tus usuarios cuando visiten tu dominio.
                                             </x-fieldset.description>

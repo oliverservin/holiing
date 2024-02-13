@@ -52,10 +52,14 @@
         {{ $disabled ? 'disabled' : '' }}
         {{ $invalid ? 'data-invalid' : '' }}
         {{ $attributes->except('class') }}
-        x-data="{ hovering: $useHover($refs.target), focusing: $useFocus($refs.target), disabled: $refs.target.disabled }"
+        x-data="{
+            hovering: $useHover($refs.target),
+            focusing: $useFocus($refs.target),
+            disabled: $refs.target.disabled,
+        }"
         x-ref="target"
         x-bind:data-hover="hovering && ! disabled"
         x-bind:data-focus="focusing && ! disabled"
         x-bind:data-disabled="disabled"
-    >
+    />
 </span>

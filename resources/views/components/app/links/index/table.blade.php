@@ -31,14 +31,18 @@
                     <x-table.cell>
                         <div>
                             <div class="flex items-center gap-2">
-                                <h3 class="text-base font-semibold max-w-[140px] sm:max-w-[300px] md:max-w-[360px] xl:max-w-[500px] truncate">
-                                    <a href="{{ 'https://' . $shortLink->domain->name . '/' . $shortLink->hashid }}">{{ $shortLink->domain->name . '/' . $shortLink->hashid }}</a>
+                                <h3 class="max-w-[140px] truncate text-base font-semibold sm:max-w-[300px] md:max-w-[360px] xl:max-w-[500px]">
+                                    <a href="{{ 'https://'.$shortLink->domain->name.'/'.$shortLink->hashid }}">
+                                        {{ $shortLink->domain->name.'/'.$shortLink->hashid }}
+                                    </a>
                                 </h3>
-                                <x-badge.button x-data
+                                <x-badge.button
+                                    x-data
                                     @click="
                                         navigator.clipboard.writeText('{{ 'https://' . $shortLink->domain->name . '/' . $shortLink->hashid }}');
                                         $dispatch('notify', { content: 'Copiado al portapapeles.' });
-                                ">
+                                "
+                                >
                                     <x-icon.16.solid.document-duplicate class="size-3.5" />
                                 </x-badge.button>
                             </div>

@@ -33,9 +33,9 @@ $login = function () {
 <x-layouts.marketing>
     <x-slot:header>
         <x-marketing.header />
-    </x-slot:header>
+    </x-slot>
     @volt('pages.login')
-        <form wire:submit="login" class="w-full max-w-sm space-y-8 mx-auto pt-20 pb-24">
+        <form wire:submit="login" class="mx-auto w-full max-w-sm space-y-8 pb-24 pt-20">
             <x-app.heading.h1>Iniciar sesión</x-app.heading.h1>
 
             <x-fieldset.field-group>
@@ -66,16 +66,14 @@ $login = function () {
 
             <x-text>
                 ¿Aún no tienes una cuenta?
-                <a
-                    href="{{ route('register') }}"
-                    class="font-semibold text-zinc-950 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300"
-                >
+                <a href="{{ route('register') }}" class="font-semibold text-zinc-950 hover:text-zinc-700 dark:text-white dark:hover:text-zinc-300">
                     Regístrate
                 </a>
             </x-text>
         </form>
     @endvolt
+
     <x-slot:footer>
         <x-marketing.footer />
-    </x-slot:footer>
+    </x-slot>
 </x-layouts.marketing>

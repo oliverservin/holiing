@@ -1,17 +1,16 @@
 <?php
 
-use App\Models\Domain;
 use App\HashIdGenerator;
+use App\Models\Domain;
 use App\Models\ShortLink;
-
-use Illuminate\Validation\Rule;
-use function Livewire\Volt\rules;
-use function Livewire\Volt\state;
+use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
-
-use Illuminate\Contracts\Database\Query\Builder;
+use function Livewire\Volt\rules;
+use function Livewire\Volt\state;
 
 middleware(['auth']);
 
@@ -35,7 +34,8 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             'url' => 'url',
             'hashid' => 'hashid',
             'domain_id' => 'dominio',
-        ]);
+        ]
+    );
 
     if (! $validated['hashid']) {
         $validated['hashid'] = $hashIdGenerator->generate();
@@ -79,7 +79,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>Dominio</x-fieldset.label>
                                             <x-select wire:model="domain_id" :invalid="$errors->has('domain_id')">
-                                                @foreach($domains as $domain)
+                                                @foreach ($domains as $domain)
                                                     <option value="{{ $domain->id }}">
                                                         {{ $domain->name }}
                                                     </option>
@@ -91,7 +91,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         </x-fieldset.field>
                                         <x-fieldset.field class="sm:col-span-2">
                                             <x-fieldset.label>Alias</x-fieldset.label>
-                                            <x-input wire:model="hashid" id="hashid" type="text" name="hashid"  />
+                                            <x-input wire:model="hashid" id="hashid" type="text" name="hashid" />
                                             @error('hashid')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror

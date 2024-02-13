@@ -140,5 +140,5 @@ return [
      * The recommended approach is to run this command as part of your deploy process.
      * Learn more about checkins at https://docs.honeybadger.io/api/reporting-check-ins/
      */
-    'checkins' =>  [],
+    'checkins' => [],
 ];

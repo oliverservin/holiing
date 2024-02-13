@@ -1,9 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 use function Livewire\Volt\state;
 use function Livewire\Volt\with;
-
-use Illuminate\Support\Facades\DB;
 
 state('shortLink');
 
