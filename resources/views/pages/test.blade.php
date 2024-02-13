@@ -118,9 +118,24 @@ updated(['url' => function () {
                                 @else
                                     <div class="h-[250px] bg-zinc-100"></div>
                                     <div class="grid gap-1 border-t border-zinc-300 bg-[#f2f3f5] p-3">
-                                        <p class="text-[0.8rem] uppercase text-[#606770]">{{ $domain ?? '...' }}</p>
-                                        <h3 class="truncate font-semibold text-[#1d2129]">{{ $title ?? '...' }}</h3>
-                                        <p class="line-clamp-2 text-sm text-[#606770]">{{ $description ?? '...' }}</p>
+                                        @if ($domain)
+                                            <p class="text-[0.8rem] uppercase text-[#606770]">{{ $domain }}</p>
+                                        @else
+                                            <div class="h-4 w-24 rounded-md bg-zinc-200"></div>
+                                        @endif
+
+                                        @if ($title)
+                                            <h3 class="truncate font-semibold text-[#1d2129]">{{ $title }}</h3>
+                                        @else
+                                            <div class="h-4 w-full rounded-md bg-zinc-200"></div>
+                                        @endif
+
+                                        @if ($title)
+                                            <p class="line-clamp-2 text-sm text-[#606770]">{{ $description }}</p>
+                                        @else
+                                            <div class="h-4 w-full rounded-md bg-zinc-200"></div>
+                                            <div class="h-4 w-48 rounded-md bg-zinc-200"></div>
+                                        @endif
                                     </div>
                                 @endif
                             </div>
@@ -153,8 +168,17 @@ updated(['url' => function () {
                                 @else
                                     <div class="h-[250px] bg-zinc-100"></div>
                                     <div class="grid gap-1 border-t border-zinc-300 bg-white p-3">
-                                        <h3 class="truncate font-semibold text-[#000000E6]">{{ $title ?? '...' }}</h3>
-                                        <p class="text-xs text-[#00000099]">{{ $domain ?? '...' }}</p>
+                                        @if ($title)
+                                            <h3 class="truncate font-semibold text-[#000000E6]">{{ $title }}</h3>
+                                        @else
+                                            <div class="h-4 w-full rounded-md bg-zinc-200"></div>
+                                        @endif
+
+                                        @if ($domain)
+                                            <p class="text-xs text-[#00000099]">{{ $domain }}</p>
+                                        @else
+                                            <div class="h-4 w-24 rounded-md bg-zinc-200"></div>
+                                        @endif
                                     </div>
                                 @endif
                             </div>
