@@ -146,6 +146,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                             <div>
                                 <x-fieldset>
                                     <x-fieldset.legend>Vista previa social</x-fieldset.legend>
+                                    <x-text>Previsualiza cómo se vería tu enlace al compartirlo en tus redes sociales.</x-text>
 
                                     <x-fieldset.field-group>
                                         <x-fieldset.field>
