@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $validator = Validator::make(['url' => $url], [
-                'url' => 'url'
+                'url' => 'url',
             ]);
 
             if ($validator->passes()) {
@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             if (strpos($url, '.') !== false && strpos($url, ' ') === false) {
-                $hostname = parse_url('https://' . $url, PHP_URL_HOST);
+                $hostname = parse_url('https://'.$url, PHP_URL_HOST);
 
                 return preg_replace('/^www\./', '', $hostname);
             }
@@ -52,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Stringable::macro('domain', function () {
-            return new Stringable (Str::domain($this->value));
+            return new Stringable(Str::domain($this->value));
         });
     }
 }
