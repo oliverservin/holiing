@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Domain;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -13,8 +15,12 @@
 
 uses(
     Tests\TestCase::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
-)->in('Feature');
+    Illuminate\Foundation\Testing\RefreshDatabase::class,
+)->beforeEach(function () {
+    Domain::factory()->create(['name' => 'holi.ing.test', 'team_id' => 1, 'public_domain' => true]);
+
+    ray()->newScreen($this->name());
+})->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
