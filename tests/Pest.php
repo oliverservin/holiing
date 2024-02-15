@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Domain;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ uses(
     Tests\TestCase::class,
     Illuminate\Foundation\Testing\RefreshDatabase::class,
 )->beforeEach(function () {
-    Domain::factory()->create(['name' => 'holi.ing.test', 'team_id' => 1, 'public_domain' => true]);
+    Domain::factory()->create(['name' => 'holi.ing.test', 'team_id' => 100, 'public_domain' => true]);
 
     ray()->newScreen($this->name());
 })->in('Feature');
