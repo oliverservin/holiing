@@ -1,7 +1,7 @@
 <?php
 
-test('index screen can be rendered', function () {
+test('index is redirected to dashboard', function () {
     $response = $this->get('/');
 
-    $response->assertStatus(200);
+    $response->assertRedirect('/app/dashboard');
 });

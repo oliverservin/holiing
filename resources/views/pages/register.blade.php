@@ -55,10 +55,7 @@ $register = function () {
 
 ?>
 
-<x-layouts.marketing>
-    <x-slot:header>
-        <x-marketing.header />
-    </x-slot>
+<x-layouts.auth>
     @volt('pages.register')
         <x-container>
             <form wire:submit="register" class="mx-auto w-full max-w-sm space-y-8 pb-24 pt-20">
@@ -103,8 +100,4 @@ $register = function () {
             </form>
         </x-container>
     @endvolt
-
-    <x-slot:footer>
-        <x-marketing.footer />
-    </x-slot>
-</x-layouts.marketing>
+</x-layouts.auth>
