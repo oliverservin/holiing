@@ -18,7 +18,7 @@ use function Livewire\Volt\updated;
 
 middleware(['auth']);
 
-name('links.create');
+name('short-links.create');
 
 state([
     'url' => '',
@@ -95,15 +95,15 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 ?>
 
 <x-layouts.app>
-    @volt('app.links.create')
+    @volt('short-links.create')
         <div>
-            <x-app.settings.header />
+            <x-settings.header />
 
-            <x-app.main>
+            <x-main>
                 <x-container>
-                    <x-app.section>
+                    <x-section>
                         <div class="space-y-0.5">
-                            <x-app.heading.h1>Crear enlace corto</x-app.heading.h1>
+                            <x-heading.h1>Crear enlace corto</x-heading.h1>
                             <x-text.lead>Proporciona los detalles de tu enlace y obtén un enlace corto.</x-text.lead>
                         </div>
 
@@ -171,7 +171,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <x-app.links.create.twitter-icon class="size-3" />
+                                                    <x-short-links.create.twitter-icon class="size-3" />
                                                     Twitter
                                                 </div>
                                             </x-fieldset.label>
@@ -194,7 +194,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <x-app.links.create.facebook-icon class="size-4" />
+                                                    <x-short-links.create.facebook-icon class="size-4" />
                                                     Facebook
                                                 </div>
                                             </x-fieldset.label>
@@ -234,7 +234,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <x-app.links.create.linkedin-icon class="size-4" />
+                                                    <x-short-links.create.linkedin-icon class="size-4" />
                                                     LinkedIn
                                                 </div>
                                             </x-fieldset.label>
@@ -267,9 +267,9 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                 </x-fieldset>
                             </div>
                         </div>
-                    </x-app.section>
+                    </x-section>
                 </x-container>
-            </x-app.main>
+            </x-main>
         </div>
     @endvolt
 </x-layouts.app>

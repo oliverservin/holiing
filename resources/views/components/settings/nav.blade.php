@@ -7,6 +7,6 @@
 
 <nav class="flex gap-6">
     @foreach ($links as [$label, $url, $active])
-        <x-app.nav.item :href="$url" :$active>{{ $label }}</x-app.nav.item>
+        <x-nav.item :href="$url" :$active>{{ $label }}</x-nav.item>
     @endforeach
 </nav>

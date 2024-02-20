@@ -28,6 +28,6 @@
 
         <x-support-bubble />
 
-        <x-app.notifications />
+        <x-notifications />
     </body>
 </html>

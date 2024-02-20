@@ -4,7 +4,7 @@
             <div>
                 <x-logo />
             </div>
-            <x-app.nav />
+            <x-nav />
         </div>
     </div>
 </header>

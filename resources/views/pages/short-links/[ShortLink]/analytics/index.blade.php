@@ -11,7 +11,7 @@ use function Livewire\Volt\state;
 
 middleware('auth');
 
-name('links.analytics');
+name('short-links.analytics');
 
 state(['shortLink' => fn () => $shortLink]);
 
@@ -30,26 +30,26 @@ render(function ($shortLink) {
 ?>
 
 <x-layouts.app>
-    @volt('app.links.analytics')
+    @volt('short-links.analytics')
         <div>
-            <x-app.settings.header />
+            <x-settings.header />
 
-            <x-app.main>
+            <x-main>
                 <x-container>
-                    <x-app.section>
+                    <x-section>
                         <div>
                             <x-link href="{{ route('dashboard') }}" class="text-sm text-zinc-950 dark:text-white">← Regresar</x-link>
                         </div>
 
                         <div class="space-y-0.5">
-                            <x-app.heading.h1>Analíticas</x-app.heading.h1>
+                            <x-heading.h1>Analíticas</x-heading.h1>
                             <x-text.lead>{{ $shortLink->domain->name.'/'.$shortLink->hashid }}</x-text.lead>
                         </div>
 
                         <x-separator />
 
                         <div class="flex w-full flex-col gap-8">
-                            <x-app.links.analytics.index.filter-range :$filters />
+                            <x-short-links.analytics.index.filter-range :$filters />
 
                             <livewire:links.analytics.index.chart :$shortLink :$filters />
 
@@ -60,9 +60,9 @@ render(function ($shortLink) {
                                 <livewire:links.analytics.index.referers-table :$shortLink :$filters />
                             </div>
                         </div>
-                    </x-app.section>
+                    </x-section>
                 </x-container>
-            </x-app.main>
+            </x-main>
         </div>
     @endvolt
 </x-layouts.app>

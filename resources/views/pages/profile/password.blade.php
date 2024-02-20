@@ -55,24 +55,24 @@ $updatePassword = function () {
 <x-layouts.app>
     @volt('app.profile.password')
         <div>
-            <x-app.settings.header />
+            <x-settings.header />
 
-            <x-app.main>
+            <x-main>
                 <x-container>
-                    <x-app.section>
+                    <x-section>
                         <div class="space-y-0.5">
-                            <x-app.heading.h1>Configuración</x-app.heading.h1>
+                            <x-heading.h1>Configuración</x-heading.h1>
                             <x-text.lead>Gestiona la configuración de tu cuenta.</x-text.lead>
                         </div>
 
                         <x-separator />
 
-                        <x-app.settings.nav />
+                        <x-settings.nav />
 
                         <div class="max-w-2xl">
-                            <x-app.section>
+                            <x-section>
                                 <div class="space-y-0.5">
-                                    <x-app.heading.h2>Cambiar contraseña</x-app.heading.h2>
+                                    <x-heading.h2>Cambiar contraseña</x-heading.h2>
                                     <x-text>Actualiza la contraseña utilizada para iniciar sesión en tu cuenta.</x-text>
                                 </div>
 
@@ -131,11 +131,11 @@ $updatePassword = function () {
 
                                     <x-button>Guardar</x-button>
                                 </form>
-                            </x-app.section>
+                            </x-section>
                         </div>
-                    </x-app.section>
+                    </x-section>
                 </x-container>
-            </x-app.main>
+            </x-main>
         </div>
     @endvolt
 </x-layouts.app>

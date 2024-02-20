@@ -59,7 +59,7 @@ $register = function () {
     @volt('pages.register')
         <x-container>
             <form wire:submit="register" class="mx-auto w-full max-w-sm space-y-8 pb-24 pt-20">
-                <x-app.heading.h1>Registrarse en Holi</x-app.heading.h1>
+                <x-heading.h1>Registrarse en Holi</x-heading.h1>
                 <x-fieldset.field-group>
                     <x-fieldset.field>
                         <x-fieldset.label>Nombre</x-fieldset.label>
