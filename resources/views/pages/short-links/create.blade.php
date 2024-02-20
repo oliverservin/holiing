@@ -30,6 +30,7 @@ state([
     'metaImage',
     'metaDomain',
     'comments' => '',
+    'expiration_date' => '',
 ]);
 
 updated(['url' => function () {
@@ -155,6 +156,22 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             <x-fieldset.label>Comentarios</x-fieldset.label>
                                             <x-textarea wire:model="comments" id="comments" name="comments" placeholder="Agregar comentarios" rows="3" />
                                             @error('comments')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
+                                    </x-fieldset.field-group>
+                                    <x-fieldset.field-group x-data="{ open: false }">
+                                        <x-switch.field>
+                                            <x-fieldset.label>Expirar enlace</x-fieldset.label>
+                                            <x-fieldset.description>
+                                                Hacer que el enlace corto deje de funcionar en una fecha específica.
+                                            </x-fieldset.description>
+                                            <x-switch x-model="open" />
+                                        </x-switch.field>
+                                        <x-fieldset.field x-show="open">
+                                            <x-fieldset.label>Fecha de expiración</x-fieldset.label>
+                                            <x-input type="datetime-local" wire:model="expiration_date" id="expiration_date" name="expiration_date" />
+                                            @error('expiration_date')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>
