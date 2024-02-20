@@ -15,6 +15,7 @@ class ShortLink extends Model
         'url',
         'clicks',
         'team_id',
+        'comments',
         'domain_id',
         'last_clicked_at',
     ];

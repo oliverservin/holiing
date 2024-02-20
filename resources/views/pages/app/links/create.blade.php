@@ -29,6 +29,7 @@ state([
     'metaDescription',
     'metaImage',
     'metaDomain',
+    'comments' => '',
 ]);
 
 updated(['url' => function () {
@@ -70,10 +71,12 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             'url' => ['required', 'string', 'max:255'],
             'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
             'domain_id' => ['required', 'exists:domains,id'],
+            'comments' => ['string', 'max:255'],
         ],
         attributes: [
             'url' => 'url',
             'hashid' => 'hashid',
+            'comments' => 'comentarios',
             'domain_id' => 'dominio',
         ]
     );
@@ -139,6 +142,22 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 @enderror
                                             </x-fieldset.field>
                                         </div>
+                                    </x-fieldset.field-group>
+                                    <x-fieldset.field-group x-data="{ open: false }">
+                                        <x-switch.field>
+                                            <x-fieldset.label>Agregar comentarios</x-fieldset.label>
+                                            <x-fieldset.description>
+                                                Agrega observaciones o cualquier detalle adicional que consideres importante.
+                                            </x-fieldset.description>
+                                            <x-switch x-model="open" />
+                                        </x-switch.field>
+                                        <x-fieldset.field x-show="open">
+                                            <x-fieldset.label>Comentarios</x-fieldset.label>
+                                            <x-textarea wire:model="comments" id="comments" name="comments" placeholder="Agregar comentarios" rows="3" />
+                                            @error('comments')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
                                     </x-fieldset.field-group>
                                     <x-button>Crear enlace</x-button>
                                 </form>

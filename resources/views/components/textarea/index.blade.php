@@ -63,6 +63,6 @@
         x-bind:data-focus="focusing && ! disabled"
         x-bind:data-disabled="disabled"
     >
-        {{ $slot }}
-    </textarea>
+{{ $slot }}</textarea
+    >
 </span>

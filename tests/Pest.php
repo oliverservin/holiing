@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Domain;
-use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
