@@ -171,7 +171,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <x-icon.twitter class="h-3 w-3" />
+                                                    <x-app.links.create.twitter-icon class="size-3" />
                                                     Twitter
                                                 </div>
                                             </x-fieldset.label>
@@ -194,7 +194,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <x-icon.facebook class="h-4 w-4" />
+                                                    <x-app.links.create.facebook-icon class="size-4" />
                                                     Facebook
                                                 </div>
                                             </x-fieldset.label>
@@ -234,7 +234,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         <x-fieldset.field>
                                             <x-fieldset.label>
                                                 <div class="flex items-center gap-2">
-                                                    <x-icon.linkedin class="h-4 w-4" />
+                                                    <x-app.links.create.linkedin-icon class="size-4" />
                                                     LinkedIn
                                                 </div>
                                             </x-fieldset.label>
