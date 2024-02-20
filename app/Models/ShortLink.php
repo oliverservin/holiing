@@ -18,11 +18,13 @@ class ShortLink extends Model
         'comments',
         'domain_id',
         'last_clicked_at',
+        'expires_at',
     ];
 
     protected $casts = [
         'clicks' => 'integer',
         'last_clicked_at' => 'datetime',
+        'expires_at' => 'datetime',
     ];
 
     public function domain()
@@ -60,5 +62,10 @@ class ShortLink extends Model
                 ? 'M d, g:i A'
                 : 'M d, Y, g:i A'
         );
+    }
+
+    public function hasExpired()
+    {
+        return $this->expires_at && $this->expires_at->isPast();
     }
 }

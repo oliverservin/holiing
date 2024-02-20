@@ -17,6 +17,8 @@ middleware('domain');
 render(function (View $view, Request $request) {
     $link = $request->domain->links()->where('hashid', $request->hashid)->firstOrFail();
 
+    abort_if($link->hasExpired(), 419);
+
     $agent = new Agent();
     $referer = $request->header('referer');
     $domainWithoutWWWGenerator = new DomainWithoutWWWGenerator($referer);

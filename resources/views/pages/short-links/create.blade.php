@@ -30,7 +30,7 @@ state([
     'metaImage',
     'metaDomain',
     'comments' => '',
-    'expiration_date' => '',
+    'expires_at' => '',
 ]);
 
 updated(['url' => function () {
@@ -72,7 +72,8 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             'url' => ['required', 'string', 'max:255'],
             'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
             'domain_id' => ['required', 'exists:domains,id'],
-            'comments' => ['string', 'max:255'],
+            'comments' => ['nullable', 'string', 'max:255'],
+            'expires_at' => ['nullable', 'date', 'after_or_equal:today'],
         ],
         attributes: [
             'url' => 'url',
@@ -170,8 +171,8 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                         </x-switch.field>
                                         <x-fieldset.field x-show="open">
                                             <x-fieldset.label>Fecha de expiración</x-fieldset.label>
-                                            <x-input type="datetime-local" wire:model="expiration_date" id="expiration_date" name="expiration_date" />
-                                            @error('expiration_date')
+                                            <x-input type="datetime-local" wire:model="expires_at" id="expires_at" name="expires_at" />
+                                            @error('expires_at')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>
