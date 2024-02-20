@@ -30,6 +30,7 @@ state([
     'metaImage',
     'metaDomain',
     'comments' => '',
+    'expires_at' => '',
 ]);
 
 updated(['url' => function () {
@@ -71,7 +72,8 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             'url' => ['required', 'string', 'max:255'],
             'hashid' => ['nullable', Rule::unique('short_links')->where(fn (Builder $query) => $query->where('domain_id', $this->domain_id))],
             'domain_id' => ['required', 'exists:domains,id'],
-            'comments' => ['string', 'max:255'],
+            'comments' => ['nullable', 'string', 'max:255'],
+            'expires_at' => ['nullable', 'date', 'after_or_equal:today'],
         ],
         attributes: [
             'url' => 'url',
@@ -155,6 +157,22 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             <x-fieldset.label>Comentarios</x-fieldset.label>
                                             <x-textarea wire:model="comments" id="comments" name="comments" placeholder="Agregar comentarios" rows="3" />
                                             @error('comments')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
+                                    </x-fieldset.field-group>
+                                    <x-fieldset.field-group x-data="{ open: false }">
+                                        <x-switch.field>
+                                            <x-fieldset.label>Expirar enlace</x-fieldset.label>
+                                            <x-fieldset.description>
+                                                Hacer que el enlace corto deje de funcionar en una fecha específica.
+                                            </x-fieldset.description>
+                                            <x-switch x-model="open" />
+                                        </x-switch.field>
+                                        <x-fieldset.field x-show="open">
+                                            <x-fieldset.label>Fecha de expiración</x-fieldset.label>
+                                            <x-input type="datetime-local" wire:model="expires_at" id="expires_at" name="expires_at" />
+                                            @error('expires_at')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>

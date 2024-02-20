@@ -2,6 +2,8 @@
 
 @aware(['disabled' => false])
 
+<? $dateTypes = ['date', 'datetime-local', 'month', 'time', 'week'] ?>
+
 <span
     data-slot="control"
     @class([
@@ -28,6 +30,21 @@
 >
     <input
         @class([
+            // Date classes
+            Arr::toCssClasses([
+                '[&::-webkit-datetime-edit-fields-wrapper]:p-0',
+                '[&::-webkit-date-and-time-value]:min-h-[1.5em]',
+                '[&::-webkit-datetime-edit]:inline-flex',
+                '[&::-webkit-datetime-edit]:p-0',
+                '[&::-webkit-datetime-edit-year-field]:p-0',
+                '[&::-webkit-datetime-edit-month-field]:p-0',
+                '[&::-webkit-datetime-edit-day-field]:p-0',
+                '[&::-webkit-datetime-edit-hour-field]:p-0',
+                '[&::-webkit-datetime-edit-minute-field]:p-0',
+                '[&::-webkit-datetime-edit-second-field]:p-0',
+                '[&::-webkit-datetime-edit-millisecond-field]:p-0',
+                '[&::-webkit-datetime-edit-meridiem-field]:p-0',
+            ]) => $attributes->get('type') && in_array($attributes->get('type'), $dateTypes),
             // Basic layout
             'relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]',
 

@@ -36,6 +36,10 @@
                                         {{ $shortLink->domain->name.'/'.$shortLink->hashid }}
                                     </a>
                                 </h3>
+                                @if ($shortLink->hasExpired())
+                                    <x-badge color="red">Caducado</x-badge>
+                                @endif
+
                                 <button
                                     x-data
                                     @click="
