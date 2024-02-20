@@ -1,7 +1,7 @@
 @props([
     'links' => [
-        ['Dominios', route('app.settings.domains.index'), request()->is('app/settings/domains')],
-        ['Contraseña', route('app.profile.password'), request()->is('app/profile/password')],
+        ['Dominios', route('settings.domains.index'), request()->is('settings/domains')],
+        ['Contraseña', route('profile.password'), request()->is('profile/password')],
     ],
 ])
 

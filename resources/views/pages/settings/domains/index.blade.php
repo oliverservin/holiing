@@ -14,7 +14,7 @@ use function Livewire\Volt\uses;
 
 middleware('auth');
 
-name('app.settings.domains.index');
+name('settings.domains.index');
 
 uses(InteractsWithNotifications::class);
 
@@ -57,7 +57,7 @@ $validateDomain = function (Domain $domain) {
 ?>
 
 <x-layouts.app>
-    @volt('pages.app.settings.domains.index')
+    @volt('app.settings.domains.index')
         <div>
             <x-app.settings.header />
 
@@ -79,7 +79,7 @@ $validateDomain = function (Domain $domain) {
                                 <x-text>Gestiona los dominios que puedes utilizar para crear enlaces cortos.</x-text>
                             </div>
                             <div>
-                                <x-button href="{{ route('app.settings.domains.create') }}">Agregar dominio</x-button>
+                                <x-button href="{{ route('settings.domains.create') }}">Agregar dominio</x-button>
                             </div>
                         </div>
 

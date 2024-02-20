@@ -18,7 +18,7 @@ use function Livewire\Volt\updated;
 
 middleware(['auth']);
 
-name('app.links.create');
+name('links.create');
 
 state([
     'url' => '',
@@ -89,13 +89,13 @@ $store = function (HashIdGenerator $hashIdGenerator) {
 
     session()->flash('flash.notification', 'Enlace creado.');
 
-    $this->redirect(route('app.dashboard'), navigate: true);
+    $this->redirect(route('dashboard'), navigate: true);
 }
 
 ?>
 
 <x-layouts.app>
-    @volt('pages.app.links.create')
+    @volt('app.links.create')
         <div>
             <x-app.settings.header />
 

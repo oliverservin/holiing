@@ -12,7 +12,7 @@ uses(InteractsWithNotifications::class);
 
 middleware('auth');
 
-name('app.settings.domains.create');
+name('settings.domains.create');
 
 state([
     'domain' => '',
@@ -35,13 +35,13 @@ $store = function () {
 
     session()->flash('flash.notification', 'Tu dominio ha sido agregado.');
 
-    $this->redirect(route('app.settings.domains.index'), navigate: true);
+    $this->redirect(route('settings.domains.index'), navigate: true);
 };
 
 ?>
 
 <x-layouts.app>
-    @volt('pages.app.settings.domains.create')
+    @volt('app.settings.domains.create')
         <div>
             <x-app.settings.header />
 

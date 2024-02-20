@@ -11,7 +11,7 @@ use function Livewire\Volt\state;
 
 middleware('auth');
 
-name('app.links.analytics');
+name('links.analytics');
 
 state(['shortLink' => fn () => $shortLink]);
 
@@ -38,7 +38,7 @@ render(function ($shortLink) {
                 <x-container>
                     <x-app.section>
                         <div>
-                            <x-link href="{{ route('app.dashboard') }}" class="text-sm text-zinc-950 dark:text-white">← Regresar</x-link>
+                            <x-link href="{{ route('dashboard') }}" class="text-sm text-zinc-950 dark:text-white">← Regresar</x-link>
                         </div>
 
                         <div class="space-y-0.5">

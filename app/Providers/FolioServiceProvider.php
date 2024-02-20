@@ -20,7 +20,7 @@ class FolioServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Folio::domain('links.'.config('app.url'))->path(resource_path('views/pages/links'))->middleware([
+        Folio::domain('links.'.config('app.url'))->path(resource_path('views/pages/link-redirects'))->middleware([
             '*' => [
                 //
             ],

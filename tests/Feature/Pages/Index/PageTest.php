@@ -3,5 +3,5 @@
 test('index is redirected to dashboard', function () {
     $response = $this->get('/');
 
-    $response->assertRedirect('/app/dashboard');
+    $response->assertRedirect('/dashboard');
 });

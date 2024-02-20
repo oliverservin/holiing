@@ -18,7 +18,7 @@ usesPagination();
 
 uses([Searchable::class, Sortable::class]);
 
-name('app.dashboard');
+name('dashboard');
 
 middleware(['auth']);
 
@@ -45,7 +45,7 @@ with(function () {
 ?>
 
 <x-layouts.app>
-    @volt('pages.app.dashboard')
+    @volt('app.dashboard')
         <div>
             <x-app.settings.header />
 
@@ -58,7 +58,7 @@ with(function () {
                                 <x-text.lead>Gestiona y configura tus enlaces cortos.</x-text.lead>
                             </div>
                             <div>
-                                <x-button href="{{ route('app.links.create') }}">Crear enlace</x-button>
+                                <x-button href="{{ route('links.create') }}">Crear enlace</x-button>
                             </div>
                         </div>
 

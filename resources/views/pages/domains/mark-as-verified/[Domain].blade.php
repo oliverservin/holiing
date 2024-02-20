@@ -8,7 +8,7 @@ use function Laravel\Folio\render;
 
 middleware('signed');
 
-name('app.domains.mark-as-verified');
+name('domains.mark-as-verified');
 
 render(function (Domain $domain) {
     $domain->verified_at = now();

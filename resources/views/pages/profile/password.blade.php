@@ -16,7 +16,7 @@ uses(InteractsWithNotifications::class);
 
 middleware('auth');
 
-name('app.profile.password');
+name('profile.password');
 
 state([
     'current_password' => '',
@@ -53,7 +53,7 @@ $updatePassword = function () {
 ?>
 
 <x-layouts.app>
-    @volt('pages.app.profile.password')
+    @volt('app.profile.password')
         <div>
             <x-app.settings.header />
 
