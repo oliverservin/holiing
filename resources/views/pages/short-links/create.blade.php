@@ -1,6 +1,7 @@
 <?php
 
 use App\HashIdGenerator;
+use App\Livewire\ShortLinks\Create\SocialPreview;
 use App\Models\Domain;
 use App\Models\ShortLink;
 use Illuminate\Contracts\Database\Query\Builder;
@@ -12,6 +13,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
+use function Livewire\Volt\form;
 use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
 use function Livewire\Volt\updated;
@@ -20,50 +22,19 @@ middleware(['auth']);
 
 name('short-links.create');
 
+form(SocialPreview::class, 'socialPreview');
+
 state([
     'url' => '',
     'hashid' => '',
     'domain_id' => fn () => Domain::where('public_domain', true)->first()->id,
     'domains' => fn () => Domain::where('team_id', Auth::user()->currentTeam->id)->orWhere('public_domain', true)->latest()->get(),
-    'metaTitle',
-    'metaDescription',
-    'metaImage',
-    'metaDomain',
     'comments' => '',
     'expires_at' => '',
 ]);
 
 updated(['url' => function () {
-    try {
-        $response = Http::get($this->url);
-    } catch (Throwable $e) {
-        return;
-    }
-
-    $crawler = new Crawler($response->body());
-
-    if ($crawler->filter('title')->count() > 0) {
-        $titleTag = $crawler->filter('title')->first()->text();
-    } else {
-        $titleTag = null;
-    }
-
-    if ($crawler->filter('meta[property="og:title"], meta[property="twitter:title"]')->count() > 0) {
-        $title = $crawler->filter('meta[property="og:title"], meta[property="twitter:title"]')->first()->attr('content') ?? $titleTag;
-    } else {
-        $title = $titleTag;
-    }
-
-    $descriptionNodeList = $crawler->filter('meta[name="description"], meta[property="twitter:description"], meta[property="og:description"]');
-    $description = $descriptionNodeList->count() > 0 ? $descriptionNodeList->first()->attr('content') : null;
-
-    $imageNodeList = $crawler->filter('meta[property="og:image"], meta[property="twitter:image"]');
-    $image = $imageNodeList->count() > 0 ? $imageNodeList->first()->attr('content') : null;
-
-    $this->metaTitle = $title;
-    $this->metaDescription = $description;
-    $this->metaImage = $image;
-    $this->metaDomain = Str::of($this->url)->domain();
+    $this->socialPreview->fillMetaData($this->url);
 }]);
 
 $store = function (HashIdGenerator $hashIdGenerator) {
@@ -194,16 +165,16 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 </div>
                                             </x-fieldset.label>
                                             <div data-slot="control" class="relative overflow-hidden rounded-2xl border border-zinc-300">
-                                                @if ($metaImage)
-                                                    <img src="{{ $metaImage }}" alt="Preview" class="h-[250px] w-full object-cover" />
+                                                @if ($socialPreview->image)
+                                                    <img src="{{ $socialPreview->image }}" alt="Preview" class="h-[250px] w-full object-cover" />
                                                     <div class="absolute bottom-2 left-2 rounded-md bg-[#414142] px-1.5 py-px">
-                                                        <h3 class="max-w-sm truncate text-sm text-white">{{ $metaTitle }}</h3>
+                                                        <h3 class="max-w-sm truncate text-sm text-white">{{ $socialPreview->title }}</h3>
                                                     </div>
                                                 @else
                                                     <div class="h-[250px] bg-zinc-100"></div>
-                                                    @if ($metaTitle)
+                                                    @if ($socialPreview->title)
                                                         <div class="absolute bottom-2 left-2 rounded-md bg-[#414142] px-1.5 py-px">
-                                                            <h3 class="max-w-sm truncate text-sm text-white">{{ $metaTitle }}</h3>
+                                                            <h3 class="max-w-sm truncate text-sm text-white">{{ $socialPreview->title }}</h3>
                                                         </div>
                                                     @endif
                                                 @endif
@@ -217,30 +188,30 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 </div>
                                             </x-fieldset.label>
                                             <div data-slot="control" class="relative overflow-hidden border border-zinc-300">
-                                                @if ($metaImage)
-                                                    <img src="{{ $metaImage }}" alt="Preview" class="h-[250px] w-full object-cover" />
+                                                @if ($socialPreview->image)
+                                                    <img src="{{ $socialPreview->image }}" alt="Preview" class="h-[250px] w-full object-cover" />
                                                     <div class="grid gap-1 border-t border-zinc-300 bg-[#f2f3f5] p-3">
-                                                        <p class="text-[0.8rem] uppercase text-[#606770]">{{ $metaDomain }}</p>
-                                                        <h3 class="truncate font-semibold text-[#1d2129]">{{ $metaTitle }}</h3>
-                                                        <p class="line-clamp-2 text-sm text-[#606770]">{{ $metaDescription }}</p>
+                                                        <p class="text-[0.8rem] uppercase text-[#606770]">{{ $socialPreview->domain }}</p>
+                                                        <h3 class="truncate font-semibold text-[#1d2129]">{{ $socialPreview->title }}</h3>
+                                                        <p class="line-clamp-2 text-sm text-[#606770]">{{ $socialPreview->description }}</p>
                                                     </div>
                                                 @else
                                                     <div class="h-[250px] bg-zinc-100"></div>
                                                     <div class="grid gap-1 border-t border-zinc-300 bg-[#f2f3f5] p-3">
                                                         @if ($domain)
-                                                            <p class="text-[0.8rem] uppercase text-[#606770]">{{ $metaDomain }}</p>
+                                                            <p class="text-[0.8rem] uppercase text-[#606770]">{{ $socialPreview->domain }}</p>
                                                         @else
                                                             <div class="h-4 w-24 rounded-md bg-zinc-200"></div>
                                                         @endif
 
-                                                        @if ($metaTitle)
-                                                            <h3 class="truncate font-semibold text-[#1d2129]">{{ $metaTitle }}</h3>
+                                                        @if ($socialPreview->title)
+                                                            <h3 class="truncate font-semibold text-[#1d2129]">{{ $socialPreview->title }}</h3>
                                                         @else
                                                             <div class="h-4 w-full rounded-md bg-zinc-200"></div>
                                                         @endif
 
-                                                        @if ($metaTitle)
-                                                            <p class="line-clamp-2 text-sm text-[#606770]">{{ $metaDescription }}</p>
+                                                        @if ($socialPreview->title)
+                                                            <p class="line-clamp-2 text-sm text-[#606770]">{{ $socialPreview->description }}</p>
                                                         @else
                                                             <div class="h-4 w-full rounded-md bg-zinc-200"></div>
                                                             <div class="h-4 w-48 rounded-md bg-zinc-200"></div>
@@ -257,23 +228,23 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 </div>
                                             </x-fieldset.label>
                                             <div data-slot="control" class="relative overflow-hidden border border-zinc-300">
-                                                @if ($metaImage)
-                                                    <img src="{{ $metaImage }}" alt="Preview" class="h-[250px] w-full object-cover" />
+                                                @if ($socialPreview->image)
+                                                    <img src="{{ $socialPreview->image }}" alt="Preview" class="h-[250px] w-full object-cover" />
                                                     <div class="grid gap-1 border-t border-zinc-300 bg-white p-3">
-                                                        <h3 class="truncate font-semibold text-[#000000E6]">{{ $metaTitle }}</h3>
-                                                        <p class="text-xs text-[#00000099]">{{ $metaDomain }}</p>
+                                                        <h3 class="truncate font-semibold text-[#000000E6]">{{ $socialPreview->title }}</h3>
+                                                        <p class="text-xs text-[#00000099]">{{ $socialPreview->domain }}</p>
                                                     </div>
                                                 @else
                                                     <div class="h-[250px] bg-zinc-100"></div>
                                                     <div class="grid gap-1 border-t border-zinc-300 bg-white p-3">
-                                                        @if ($metaTitle)
-                                                            <h3 class="truncate font-semibold text-[#000000E6]">{{ $metaTitle }}</h3>
+                                                        @if ($socialPreview->title)
+                                                            <h3 class="truncate font-semibold text-[#000000E6]">{{ $socialPreview->title }}</h3>
                                                         @else
                                                             <div class="h-4 w-full rounded-md bg-zinc-200"></div>
                                                         @endif
 
                                                         @if ($domain)
-                                                            <p class="text-xs text-[#00000099]">{{ $metaDomain }}</p>
+                                                            <p class="text-xs text-[#00000099]">{{ $socialPreview->domain }}</p>
                                                         @else
                                                             <div class="h-4 w-24 rounded-md bg-zinc-200"></div>
                                                         @endif

@@ -41,10 +41,10 @@ test('url metadata can be obtained', function () {
         ->set('url', 'https://example.com');
 
     $component
-        ->assertSet('metaTitle', 'Example Domain')
-        ->assertSet('metaDescription', 'This domain is for use in illustrative examples in documents.')
-        ->assertSet('metaImage', 'https://example.com/image.png')
-        ->assertSet('metaDomain', 'example.com');
+        ->assertSet('socialPreview.title', 'Example Domain')
+        ->assertSet('socialPreview.description', 'This domain is for use in illustrative examples in documents.')
+        ->assertSet('socialPreview.image', 'https://example.com/image.png')
+        ->assertSet('socialPreview.domain', 'example.com');
 });
 
 test('url title metadata can be obtained from og:title', function () {
@@ -64,7 +64,7 @@ test('url title metadata can be obtained from og:title', function () {
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaTitle', 'OG Title Example');
+    $component->assertSet('socialPreview.title', 'OG Title Example');
 });
 
 test('url title metadata can be obtained from twitter:title', function () {
@@ -84,7 +84,7 @@ test('url title metadata can be obtained from twitter:title', function () {
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaTitle', 'Twitter Title Example');
+    $component->assertSet('socialPreview.title', 'Twitter Title Example');
 });
 
 test('url description metadata can be obtained from meta description tag', function () {
@@ -103,7 +103,7 @@ test('url description metadata can be obtained from meta description tag', funct
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaDescription', 'Example Meta Description');
+    $component->assertSet('socialPreview.description', 'Example Meta Description');
 });
 
 test('url description metadata can be obtained from twitter:description', function () {
@@ -122,7 +122,7 @@ test('url description metadata can be obtained from twitter:description', functi
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaDescription', 'Twitter Description Example');
+    $component->assertSet('socialPreview.description', 'Twitter Description Example');
 });
 
 test('url description metadata can be obtained from og:description', function () {
@@ -141,7 +141,7 @@ test('url description metadata can be obtained from og:description', function ()
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaDescription', 'Open Graph Description Example');
+    $component->assertSet('socialPreview.description', 'Open Graph Description Example');
 });
 
 test('url image metadata can be obtained from og:image', function () {
@@ -160,7 +160,7 @@ test('url image metadata can be obtained from og:image', function () {
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaImage', 'https://example.com/image.jpg');
+    $component->assertSet('socialPreview.image', 'https://example.com/image.jpg');
 });
 
 test('url image metadata can be obtained from twitter:image', function () {
@@ -179,5 +179,5 @@ test('url image metadata can be obtained from twitter:image', function () {
     $component = Volt::test('short-links.create')
         ->set('url', 'https://example.com');
 
-    $component->assertSet('metaImage', 'https://example.com/twitter-image.jpg');
+    $component->assertSet('socialPreview.image', 'https://example.com/twitter-image.jpg');
 });
