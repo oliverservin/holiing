@@ -1,8 +1,6 @@
-@props(['invalid' => false])
+@props(['invalid' => false, 'dateTypes' => ['date', 'datetime-local', 'month', 'time', 'week']])
 
 @aware(['disabled' => false])
-
-<? $dateTypes = ['date', 'datetime-local', 'month', 'time', 'week'] ?>
 
 <span
     data-slot="control"
