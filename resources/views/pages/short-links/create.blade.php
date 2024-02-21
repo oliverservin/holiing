@@ -3,19 +3,13 @@
 use App\HashIdGenerator;
 use App\Livewire\ShortLinks\Create\SocialPreview;
 use App\Models\Domain;
-use App\Models\ShortLink;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Symfony\Component\DomCrawler\Crawler;
-
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Livewire\Volt\form;
-use function Livewire\Volt\rules;
 use function Livewire\Volt\state;
 use function Livewire\Volt\updated;
 
