@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\App\Links\Analytics\Index\Filters;
+use App\Livewire\ShortLinks\Analytics\Index\Filters;
 
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;

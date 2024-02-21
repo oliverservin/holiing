@@ -1,7 +1,7 @@
 <?php
 
-use App\Livewire\App\Links\Analytics\Index\Filters;
-use App\Livewire\App\Links\Analytics\Index\Range;
+use App\Livewire\ShortLinks\Analytics\Index\Filters;
+use App\Livewire\ShortLinks\Analytics\Index\Range;
 use Illuminate\Support\Facades\DB;
 
 use function Livewire\Volt\form;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\App\Links\Analytics\Index;
+namespace App\Livewire\ShortLinks\Analytics\Index;
 
 use Illuminate\Support\Carbon;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\App\Links\Index;
+namespace App\Livewire\ShortLinks\Index;
 
 trait Searchable
 {

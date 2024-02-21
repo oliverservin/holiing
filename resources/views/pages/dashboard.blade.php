@@ -1,8 +1,8 @@
 <?php
 
 use App\HashIdGenerator;
-use App\Livewire\App\Links\Index\Searchable;
-use App\Livewire\App\Links\Index\Sortable;
+use App\Livewire\ShortLinks\Index\Searchable;
+use App\Livewire\ShortLinks\Index\Sortable;
 use App\Models\ShortLink;
 use Illuminate\Support\Facades\Auth;
 
