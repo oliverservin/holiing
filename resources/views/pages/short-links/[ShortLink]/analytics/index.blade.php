@@ -51,13 +51,13 @@ render(function ($shortLink) {
                         <div class="flex w-full flex-col gap-8">
                             <x-short-links.analytics.index.filter-range :$filters />
 
-                            <livewire:links.analytics.index.chart :$shortLink :$filters />
+                            <livewire:short-links.analytics.index.chart :$shortLink :$filters />
 
                             <div class="grid grid-cols-2 gap-6">
-                                <livewire:links.analytics.index.countries-table :$shortLink :$filters />
-                                <livewire:links.analytics.index.devices-table :$shortLink :$filters />
-                                <livewire:links.analytics.index.browsers-table :$shortLink :$filters />
-                                <livewire:links.analytics.index.referers-table :$shortLink :$filters />
+                                <livewire:short-links.analytics.index.countries-table :$shortLink :$filters />
+                                <livewire:short-links.analytics.index.devices-table :$shortLink :$filters />
+                                <livewire:short-links.analytics.index.browsers-table :$shortLink :$filters />
+                                <livewire:short-links.analytics.index.referers-table :$shortLink :$filters />
                             </div>
                         </div>
                     </x-section>

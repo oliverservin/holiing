@@ -108,6 +108,6 @@
 
     {{-- Pagination... --}}
     <div class="flex justify-end">
-        {{ $shortLinks->links('livewire.links.index.pagination') }}
+        {{ $shortLinks->links('livewire.short-links.index.pagination') }}
     </div>
 </x-section>
