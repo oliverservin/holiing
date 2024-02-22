@@ -7,6 +7,7 @@ use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+
 use function Laravel\Folio\middleware;
 use function Laravel\Folio\name;
 use function Livewire\Volt\form;
@@ -24,9 +25,9 @@ state([
     'hashid' => '',
     'domain_id' => fn () => Domain::where('public_domain', true)->first()->id,
     'domains' => fn () => Domain::where('team_id', Auth::user()->currentTeam->id)->orWhere('public_domain', true)->latest()->get(),
-    'comments' => '',
-    'expires_at' => '',
-    'password' => '',
+    'comments',
+    'expires_at',
+    'password',
 ]);
 
 updated(['url' => function () {
@@ -151,37 +152,31 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             @enderror
                                         </x-fieldset.field>
                                     </x-fieldset.field-group>
-                                    <x-fieldset.field-group x-data="{ open: false }">
+                                    <x-fieldset.field-group x-data="{ open: true, showPassword: false }">
                                         <x-switch.field>
-                                            <x-fieldset.label>Expirar enlace</x-fieldset.label>
-                                            <x-fieldset.description>
-                                                Hacer que el enlace corto deje de funcionar en una fecha específica.
-                                            </x-fieldset.description>
+                                            <x-fieldset.label>Proteger con contraseña</x-fieldset.label>
+                                            <x-fieldset.description>Restringe el enlace y lo protege con una contraseña encriptada.</x-fieldset.description>
                                             <x-switch x-model="open" />
                                         </x-switch.field>
                                         <x-fieldset.field x-show="open">
-                                            <x-fieldset.label>Fecha de expiración</x-fieldset.label>
-                                            <x-input type="datetime-local" wire:model="expires_at" id="expires_at" name="expires_at" />
-                                            @error('expires_at')
+                                            <x-fieldset.label>Contraseña</x-fieldset.label>
+                                            <div class="mt-3 flex items-center gap-3">
+                                                <x-input
+                                                    type="password"
+                                                    wire:model="password"
+                                                    x-bind:type="showPassword ? 'text' : 'password'"
+                                                    id="password"
+                                                    name="password"
+                                                />
+                                                <x-button @click="showPassword = ! showPassword" type="button" outline>
+                                                    <x-short-links.create.eye-icon x-show="! showPassword" />
+                                                    <x-short-links.create.eye-slash-icon style="display: none;" x-show="showPassword" />
+                                                </x-button>
+                                            </div>
+                                            @error('password')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>
-                                        <x-fieldset.field-group x-data="{ open: false }">
-                                            <x-switch.field>
-                                                <x-fieldset.label>Proteger con contraseña</x-fieldset.label>
-                                                <x-fieldset.description>
-                                                    Restringe el enlace y lo protege con una contraseña encriptada.
-                                                </x-fieldset.description>
-                                                <x-switch x-model="open" />
-                                            </x-switch.field>
-                                            <x-fieldset.field x-show="open">
-                                                <x-fieldset.label>Contraseña</x-fieldset.label>
-                                                <x-input type="password" wire:model="password" id="password" name="password" />
-                                                @error('password')
-                                                    <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
-                                                @enderror
-                                            </x-fieldset.field>
-                                        </x-fieldset.field-group>
                                     </x-fieldset.field-group>
                                     <x-button>Crear enlace</x-button>
                                 </form>

@@ -70,4 +70,9 @@ class ShortLink extends Model
     {
         return $this->expires_at && $this->expires_at->isPast();
     }
+
+    public function hasPassword()
+    {
+        return (bool) $this->password;
+    }
 }
