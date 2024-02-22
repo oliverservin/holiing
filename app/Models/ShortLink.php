@@ -19,12 +19,14 @@ class ShortLink extends Model
         'domain_id',
         'last_clicked_at',
         'expires_at',
+        'password',
     ];
 
     protected $casts = [
         'clicks' => 'integer',
         'last_clicked_at' => 'datetime',
         'expires_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
     public function domain()
@@ -67,5 +69,10 @@ class ShortLink extends Model
     public function hasExpired()
     {
         return $this->expires_at && $this->expires_at->isPast();
+    }
+
+    public function hasPassword()
+    {
+        return (bool) $this->password;
     }
 }

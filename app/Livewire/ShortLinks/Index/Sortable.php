@@ -7,7 +7,7 @@ use Livewire\Attributes\Url;
 trait Sortable
 {
     #[Url]
-    public $sortCol;
+    public $sortCol = 'date';
 
     #[Url]
     public $sortAsc = false;

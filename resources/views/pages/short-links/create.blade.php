@@ -5,6 +5,7 @@ use App\Livewire\ShortLinks\Create\SocialPreview;
 use App\Models\Domain;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 use function Laravel\Folio\middleware;
@@ -24,8 +25,9 @@ state([
     'hashid' => '',
     'domain_id' => fn () => Domain::where('public_domain', true)->first()->id,
     'domains' => fn () => Domain::where('team_id', Auth::user()->currentTeam->id)->orWhere('public_domain', true)->latest()->get(),
-    'comments' => '',
-    'expires_at' => '',
+    'comments',
+    'expires_at',
+    'password',
 ]);
 
 updated(['url' => function () {
@@ -40,17 +42,24 @@ $store = function (HashIdGenerator $hashIdGenerator) {
             'domain_id' => ['required', 'exists:domains,id'],
             'comments' => ['nullable', 'string', 'max:255'],
             'expires_at' => ['nullable', 'date', 'after_or_equal:today'],
+            'password' => ['nullable', 'string'],
         ],
         attributes: [
             'url' => 'url',
             'hashid' => 'hashid',
             'comments' => 'comentarios',
             'domain_id' => 'dominio',
+            'expires_at' => 'fecha de expiración',
+            'password' => 'contraseña',
         ]
     );
 
     if (! $validated['hashid']) {
         $validated['hashid'] = $hashIdGenerator->generate();
+    }
+
+    if ($validated['password']) {
+        $validated['password'] = Hash::make($validated['password']);
     }
 
     Auth::user()->currentTeam->links()->create($validated);
@@ -139,6 +148,32 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             <x-fieldset.label>Fecha de expiración</x-fieldset.label>
                                             <x-input type="datetime-local" wire:model="expires_at" id="expires_at" name="expires_at" />
                                             @error('expires_at')
+                                                <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
+                                            @enderror
+                                        </x-fieldset.field>
+                                    </x-fieldset.field-group>
+                                    <x-fieldset.field-group x-data="{ open: false, showPassword: false }">
+                                        <x-switch.field>
+                                            <x-fieldset.label>Proteger con contraseña</x-fieldset.label>
+                                            <x-fieldset.description>Restringe el enlace y lo protege con una contraseña encriptada.</x-fieldset.description>
+                                            <x-switch x-model="open" />
+                                        </x-switch.field>
+                                        <x-fieldset.field x-show="open">
+                                            <x-fieldset.label>Contraseña</x-fieldset.label>
+                                            <div class="mt-3 flex items-center gap-3">
+                                                <x-input
+                                                    type="password"
+                                                    wire:model="password"
+                                                    x-bind:type="showPassword ? 'text' : 'password'"
+                                                    id="password"
+                                                    name="password"
+                                                />
+                                                <x-button @click="showPassword = ! showPassword" type="button" outline>
+                                                    <x-short-links.create.eye-icon x-show="! showPassword" />
+                                                    <x-short-links.create.eye-slash-icon style="display: none" x-show="showPassword" />
+                                                </x-button>
+                                            </div>
+                                            @error('password')
                                                 <x-fieldset.error-message>{{ $message }}</x-fieldset.error-message>
                                             @enderror
                                         </x-fieldset.field>
