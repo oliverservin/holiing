@@ -22,6 +22,13 @@ trait Archivable
         $shorLink->archive();
     }
 
+    public function unarchive(ShortLink $shorLink)
+    {
+        $this->authorize('archive', $shorLink);
+
+        $shorLink->unarchive();
+    }
+
     protected function applyArchive($query)
     {
         return $this->showArchive

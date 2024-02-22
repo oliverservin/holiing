@@ -39,7 +39,7 @@
                                         {{ $shortLink->domain->name.'/'.$shortLink->hashid }}
                                     </a>
                                 </h3>
-                                @if ($shortLink->hasExpired())
+                                @if ($shortLink->hasBeenArchived())
                                     <x-badge color="zinc">Archivado</x-badge>
                                 @endif
 

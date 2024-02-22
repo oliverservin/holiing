@@ -89,4 +89,11 @@ class ShortLink extends Model
 
         $this->save();
     }
+
+    public function unarchive()
+    {
+        $this->archived_at = null;
+
+        $this->save();
+    }
 }
