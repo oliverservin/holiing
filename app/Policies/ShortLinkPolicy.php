@@ -16,4 +16,9 @@ class ShortLinkPolicy
     {
         return $user->currentTeam->id === $shortLink->domain->team->id;
     }
+
+    public function archive(User $user, ShortLink $shortLink): bool
+    {
+        return $user->currentTeam->id === $shortLink->domain->team->id;
+    }
 }

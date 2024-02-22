@@ -1,5 +1,8 @@
 <x-section>
-    <x-short-links.index.search />
+    <div class="flex justify-between">
+        <x-short-links.index.search />
+        <x-short-links.index.show-archive />
+    </div>
 
     <x-table>
         <x-table.head>
@@ -36,6 +39,10 @@
                                         {{ $shortLink->domain->name.'/'.$shortLink->hashid }}
                                     </a>
                                 </h3>
+                                @if ($shortLink->hasExpired())
+                                    <x-badge color="zinc">Archivado</x-badge>
+                                @endif
+
                                 @if ($shortLink->hasExpired())
                                     <x-badge color="red">Caducado</x-badge>
                                 @endif

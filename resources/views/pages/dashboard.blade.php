@@ -1,6 +1,7 @@
 <?php
 
 use App\HashIdGenerator;
+use App\Livewire\ShortLinks\Index\Archivable;
 use App\Livewire\ShortLinks\Index\Searchable;
 use App\Livewire\ShortLinks\Index\Sortable;
 use App\Models\ShortLink;
@@ -16,7 +17,7 @@ use function Livewire\Volt\with;
 
 usesPagination();
 
-uses([Searchable::class, Sortable::class]);
+uses([Searchable::class, Sortable::class, Archivable::class]);
 
 name('dashboard');
 
@@ -34,6 +35,8 @@ with(function () {
     $query = $this->applySearch($query);
 
     $query = $this->applySorting($query);
+
+    $query = $this->applyArchive($query);
 
     $shortLinks = $query->paginate(5);
 

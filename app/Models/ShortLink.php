@@ -18,6 +18,7 @@ class ShortLink extends Model
         'comments',
         'domain_id',
         'last_clicked_at',
+        'archived_at',
         'expires_at',
         'password',
     ];
@@ -25,6 +26,7 @@ class ShortLink extends Model
     protected $casts = [
         'clicks' => 'integer',
         'last_clicked_at' => 'datetime',
+        'archived_at' => 'datetime',
         'expires_at' => 'datetime',
         'password' => 'hashed',
     ];
@@ -74,5 +76,17 @@ class ShortLink extends Model
     public function hasPassword()
     {
         return (bool) $this->password;
+    }
+
+    public function hasBeenArchived()
+    {
+        return (bool) $this->archived_at;
+    }
+
+    public function archive()
+    {
+        $this->archived_at = now();
+
+        $this->save();
     }
 }
