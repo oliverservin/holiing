@@ -1,21 +1,21 @@
 <?php
 
-use App\Models\Domain;
-use Illuminate\View\View;
-use App\Models\ClickEvent;
-use Jenssegers\Agent\Agent;
-use Illuminate\Http\Request;
-use function Livewire\Volt\mount;
-use function Livewire\Volt\state;
 use App\DomainWithoutWWWGenerator;
-
-use function Laravel\Folio\render;
-use function Livewire\Volt\protect;
+use App\Models\ClickEvent;
+use App\Models\Domain;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use function Laravel\Folio\middleware;
 use Illuminate\Support\Facades\Validator;
-use Stevebauman\Location\Facades\Location;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
+use Jenssegers\Agent\Agent;
+use Stevebauman\Location\Facades\Location;
+
+use function Laravel\Folio\middleware;
+use function Laravel\Folio\render;
+use function Livewire\Volt\mount;
+use function Livewire\Volt\protect;
+use function Livewire\Volt\state;
 
 middleware('domain');
 
@@ -28,7 +28,7 @@ $login = function () {
         ]
     );
 
-    if (!Hash::check($validated['password'], $this->link->password)) {
+    if (! Hash::check($validated['password'], $this->link->password)) {
         throw ValidationException::withMessages([
             'password' => trans('auth.failed'),
         ]);

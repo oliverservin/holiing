@@ -170,7 +170,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                                 />
                                                 <x-button @click="showPassword = ! showPassword" type="button" outline>
                                                     <x-short-links.create.eye-icon x-show="! showPassword" />
-                                                    <x-short-links.create.eye-slash-icon style="display: none;" x-show="showPassword" />
+                                                    <x-short-links.create.eye-slash-icon style="display: none" x-show="showPassword" />
                                                 </x-button>
                                             </div>
                                             @error('password')
