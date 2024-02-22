@@ -152,7 +152,7 @@ $store = function (HashIdGenerator $hashIdGenerator) {
                                             @enderror
                                         </x-fieldset.field>
                                     </x-fieldset.field-group>
-                                    <x-fieldset.field-group x-data="{ open: true, showPassword: false }">
+                                    <x-fieldset.field-group x-data="{ open: false, showPassword: false }">
                                         <x-switch.field>
                                             <x-fieldset.label>Proteger con contraseña</x-fieldset.label>
                                             <x-fieldset.description>Restringe el enlace y lo protege con una contraseña encriptada.</x-fieldset.description>
